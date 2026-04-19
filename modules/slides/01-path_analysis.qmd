@@ -701,6 +701,35 @@ anova(reg2, reg3)
 
 :::
 
-## Exercise {background-color='{{< brand color fed-teal >}}'}
+## Exercise {background-color='{{< brand color fed-teal >}}' .smaller}
 
-`r countdown(10)`
+::: {.nonincremental}
+1. Run the R code in "note/data-exploration.R" to explore the data.
+2. Fit the full path model using `we_data`:
+   
+   ```r
+   model2 <- "
+       NGSE ~ b1 * SOP
+       PASS ~ b2 * NGSE + b3 * SOP
+   "
+   reg2 <- sem(model2, data = we_data)
+   ```
+
+3. Fit a restricted path model where the direct effect of `SOP` on `PASS` is removed:
+   
+   ```r
+   model_restricted <- "
+       NGSE ~ b1 * SOP
+       PASS ~ b2 * NGSE
+   "
+   reg_restricted <- sem(model_restricted, data = we_data)
+   ```
+    
+    What is the *p*-value from the likelihood ratio test comparing the two models, using the code below?
+       
+    ```r
+    anova(reg2, reg_restricted)
+    ```
+:::
+
+`r countdown(minutes = 10)`

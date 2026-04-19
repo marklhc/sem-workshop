@@ -316,30 +316,30 @@ Use theory and design (not fit indices alone) to justify directional claims.
 
 ::: {.nonincremental}
 1. Fit the measurement model using `we_data` and check fit.
-    a. Report CFI, RMSEA, and SRMR.
-    b. Which factor has the strongest average standardized loading?
-2. Fit the structural mediation model:
+    a. Which factor has the strongest average standardized loading?
+2. Fit the structural mediation model without the direct path (c'):
 
    ```r
-   model_sr_we <- "
+   model2_sr_we <- "
      SOP  =~ SOP_1 + SOP_2 + SOP_3 + SOP_4 + SOP_5
      NGSE =~ NGSE_1 + NGSE_2 + NGSE_3 + NGSE_4 +
              NGSE_5 + NGSE_6 + NGSE_7 + NGSE_8
      PASS =~ Pasgn + Pexam + Pread + Pgen
 
      NGSE ~ a * SOP
-     PASS ~ b * NGSE + c * SOP
+     PASS ~ b * NGSE
 
      indirect := a * b
-     total    := c + a * b
    "
-   fit_sr_we <- sem(model_sr_we, data = we_data,
-                    std.lv = TRUE, estimator = "MLR", missing = "FIML")
+   fit2_sr_we <- sem(model2_sr_we, data = we_data,
+                     std.lv = TRUE, estimator = "MLR", missing = "FIML")
    ```
 
-    a. Report the indirect effect and its 95% CI.
-    b. Is the direct effect (`c`) still statistically different from 0?
-3. Bonus: remove the direct path (`c`) and compare fit to the model above.
+    a. Compare fit to the model with the direct path:
+
+    ```r
+    anova(fit_sr_we, fit2_sr_we)
+    ```
 :::
 
 `r countdown(minutes = 15)`

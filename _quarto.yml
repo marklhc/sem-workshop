@@ -7,6 +7,7 @@ execute:
 website:
   title: "FED-ETARC SEM Workshop"
   navbar:
+    logo: um-white
     background: primary
     search: true
     left:
@@ -64,10 +65,10 @@ format:
     theme:
       light: [cosmo, brand, custom.scss]
       dark:  [darkly, brand, custom.scss]
+    highlight-style:
+      light: arrow
+      dark: arrow-dark
     css: styles.css
     toc: true
     code-copy: true
     code-fold: false
-
-
-

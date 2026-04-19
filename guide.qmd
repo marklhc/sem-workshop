@@ -40,7 +40,10 @@ You can use either **RStudio** or **Positron** (the new R IDE from Posit).
 Open R (or Positron/RStudio) and run:
 
 ```r
-install.packages(c("lavaan", "semPlot", "tidyverse"))
+install.packages(
+    c("lavaan", "semPlot", "semptools", "lavaangui", "modelsummary",
+      "psych", "semTools", "tibble", "tinytable", "dplyr", "here",
+      "readxl", "ggdag", "ggplot2"))
 ```
 
 This may take a few minutes. You only need to do this once.

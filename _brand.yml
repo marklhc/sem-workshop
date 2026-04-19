@@ -40,14 +40,19 @@ logo:
       path: "https://fed.um.edu.mo/wp-content/uploads/2020/12/5-um_and_fed_logo_vertical.png"
       alt: "Faculty of Education | University of Macau"
     um:
-      path: "https://etarc.fed.um.edu.mo/wp-content/uploads/2025/10/um.png"
+      path: UM-Logo_H-Black_1.png
+      alt: "University of Macau"
+    um-white:
+      path: UM-Logo_H-White_1.png
       alt: "University of Macau"
     fed:
       path: "https://etarc.fed.um.edu.mo/wp-content/uploads/2025/10/fed.png"
       alt: "Faculty of Education"
   # small  → favicon / narrow navbar
   # medium → main navbar and slides
-  small:  um
+  small:
+    light: um
+    dark:  um-white
   medium: um-fed-horizontal
 
 # ── Typography ───────────────────────────────────────────────────────────────
@@ -71,10 +76,16 @@ typography:
       dark:  white
   monospace: "Noto Sans Mono"
   monospace-inline:
-    color: fed-teal
-    background-color: off-white
+    color: 
+      light: fed-teal
+      dark:  fed-blue
+    background-color: 
+      light: off-white
+      dark:  near-black
   monospace-block:
-    background-color: off-white
+    background-color: 
+      light: off-white
+      dark:  near-black
 
 # ── Format-specific overrides ─────────────────────────────────────────────────
 defaults:

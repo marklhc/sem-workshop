@@ -9,5 +9,3 @@ format:
   typst:
     toc: true
     papersize: a4
-    include-in-header:
-      - text: '#import "@preview/mitex:0.2.6": *'

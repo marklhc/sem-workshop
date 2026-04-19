@@ -10,6 +10,9 @@ brand_data <- yaml::read_yaml(here::here("_brand.yml"))
 brand_data$color$background <- brand_data$color$background$light
 brand_data$color$foreground <- brand_data$color$foreground$light
 brand_data$typography$headings$color <- brand_data$typography$headings$color$light
+brand_data$typography$`monospace-inline`$color <- brand_data$typography$`monospace-inline`$color$light
+brand_data$typography$`monospace-inline`$`background-color` <- brand_data$typography$`monospace-inline`$`background-color`$light
+brand_data$typography$`monospace-block`$`background-color` <- brand_data$typography$`monospace-block`$`background-color`$light
 
 # Note: If you also defined light/dark for your foreground, flatten that too:
 # brand_data$color$foreground <- brand_data$color$foreground$light
