@@ -1,0 +1,13 @@
+format:
+  html:
+    code-tools:
+      source: true
+      toggle: false
+    code-link: true
+    toc: true
+    df-print: paged
+  typst:
+    toc: true
+    papersize: a4
+    include-in-header:
+      - text: '#import "@preview/mitex:0.2.6": *'

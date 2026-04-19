@@ -1,0 +1,85 @@
+meta:
+  name: "FED-ETARC | University of Macau"
+  link: https://etarc.fed.um.edu.mo/
+
+# ── Colors ───────────────────────────────────────────────────────────────────
+# Sourced from the FED/UM CSS and official visual identity guidelines.
+color:
+  palette:
+    um-navy:    "#002c55"   # UM deep navy (primary brand)
+    fed-blue:   "#005f96"   # FED medium blue (links, highlights)
+    fed-teal:   "#004a59"   # FED teal accent
+    gold:       "#c0830b"   # UM gold accent
+    off-white:  "#f5f7fa"
+    white:      "#ffffff"
+    near-black: "#111827"
+
+  background:
+    light: white
+    dark:  um-navy
+  foreground:
+    light: near-black
+    dark:  white
+  primary:   fed-blue
+  secondary: fed-teal
+  warning:   gold
+  danger:    "#c0392b"
+  light:     off-white
+  dark:      um-navy
+
+# ── Logos ────────────────────────────────────────────────────────────────────
+# Using logos served from the official FED/ETARC WordPress sites.
+# To use local copies instead, download the images into slides/images/ or
+# a new assets/ folder and update the paths below.
+logo:
+  images:
+    um-fed-horizontal:
+      path: "https://fed.um.edu.mo/wp-content/uploads/2020/12/6-um_and_fed_logo_horizontal.png"
+      alt: "Faculty of Education | University of Macau"
+    um-fed-vertical:
+      path: "https://fed.um.edu.mo/wp-content/uploads/2020/12/5-um_and_fed_logo_vertical.png"
+      alt: "Faculty of Education | University of Macau"
+    um:
+      path: "https://etarc.fed.um.edu.mo/wp-content/uploads/2025/10/um.png"
+      alt: "University of Macau"
+    fed:
+      path: "https://etarc.fed.um.edu.mo/wp-content/uploads/2025/10/fed.png"
+      alt: "Faculty of Education"
+  # small  → favicon / narrow navbar
+  # medium → main navbar and slides
+  small:  um
+  medium: um-fed-horizontal
+
+# ── Typography ───────────────────────────────────────────────────────────────
+typography:
+  fonts:
+    - family: "Noto Sans"
+      source: google
+      weight: [400, 500, 700]
+    - family: "Noto Sans Mono"
+      source: google
+  base:
+    family: "Noto Sans"
+    # size: 1rem
+    # line-height: 1.6
+    weight: 400
+  headings:
+    family: "Noto Sans"
+    weight: 700          # Bold — applies to h1/h2 by default
+    color:
+      light: um-navy
+      dark:  white
+  monospace: "Noto Sans Mono"
+  monospace-inline:
+    color: fed-teal
+    background-color: off-white
+  monospace-block:
+    background-color: off-white
+
+# ── Format-specific overrides ─────────────────────────────────────────────────
+defaults:
+  bootstrap:
+    rules: |
+      h3, h4, h5, h6 {
+        font-weight: 500;
+      }

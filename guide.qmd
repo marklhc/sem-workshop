@@ -1,0 +1,78 @@
+---
+title: "Pre-Workshop Setup"
+subtitle: "FED-ETARC Workshop: Structural Equation Modeling"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+---
+
+Workshop attendees are encouraged to complete the setup steps on this page before arriving at the workshop. If you run into trouble, email the instructor or arrive early to the workshop.
+
+---
+
+## Recommended Setup Options
+
+::: {.panel-tabset}
+
+## Option 1: Posit Cloud (RStudio in the cloud)
+
+- Create a free account at https://posit.cloud/
+- Open the Posit Cloud project link: https://posit.cloud/content/12313416
+- Click "Save a Permanent Copy"
+    * ![](posit_cloud_save.png)
+
+## Option 2: Local Installation
+
+### Step 1: Install R
+
+Install R **4.5 or later**: <https://cloud.r-project.org/>
+
+### Step 2: Install an IDE
+
+You can use either **RStudio** or **Positron** (the new R IDE from Posit).
+
+- RStudio: <https://posit.co/download/rstudio-desktop/>
+- Positron: <https://positron.posit.co/>
+
+### Step 3: Install R Packages
+
+Open R (or Positron/RStudio) and run:
+
+```r
+install.packages(c("lavaan", "semPlot", "tidyverse"))
+```
+
+This may take a few minutes. You only need to do this once.
+
+:::
+
+## Verify Your Setup
+
+Run the following code to confirm everything is installed and working:
+
+```r
+# Check R version
+stopifnot(getRversion() >= "4.4")
+
+# Check packages load correctly
+library(lavaan)
+library(semPlot)
+library(tidyverse)
+
+# Fit a quick test model
+model <- '
+  # Measurement model
+  visual  =~ x1 + x2 + x3
+  textual =~ x4 + x5 + x6
+  speed   =~ x7 + x8 + x9
+'
+fit <- cfa(model, data = HolzingerSwineford1939)
+summary(fit, fit.measures = TRUE)
+```
+
+If no errors appear and you see model output, **you are ready for the workshop!** 🎉
+
+## Workshop Materials
+
+Slides, exercises, and datasets will be available on the [workshop website](index.qmd) before and after the session.

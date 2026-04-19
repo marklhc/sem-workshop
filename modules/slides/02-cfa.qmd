@@ -1,0 +1,534 @@
+---
+title: "Confirmatory Factor Analysis"
+---
+
+```{r}
+#| include: false
+source(here::here("_setup.R"))
+library(semPlot)
+library(tinytable)
+```
+
+```{r}
+#| include: false
+knitr::read_chunk(here::here("notes", "R", "data-exploration.R"))
+knitr::read_chunk(here::here("notes", "R", "cfa.R"))
+```
+
+```{r}
+#| include: false
+library(countdown)
+library(lavaan)
+library(semTools)
+```
+
+```{r}
+#| label: load-data
+#| include: false
+```
+
+```{r}
+#| label: load-data-sop
+#| include: false
+```
+
+# From Path Analysis to CFA
+
+## Recap: Path Analysis
+
+- Path analysis models relationships among **observed** (measured) variables
+- Assumes variables are measured **without error**
+
+---
+
+But in practice, psychological constructs are rarely measured perfectly:
+
+- Self-oriented perfectionism (SOP) ≠ any single item
+- Academic procrastination (PASS) ≠ any single item
+
+. . .
+
+> What if our "X" variables are themselves imperfect measurements of an underlying construct?
+
+## Items of SOP
+
+1 = "strongly disagree", 5 = "strongly agree"
+
+::: {.nonincremental}
+- I strive to be as perfect as possible.
+- I have a strong need to be perfect.
+- I never settle for less than perfection from myself.
+- It is important to me to be perfect in everything I attempt.
+- I do things perfectly, or I don’t do them at all.
+:::
+
+::: aside
+From The Big Three Perfectionism Scale (BTPS; Smith et al., 2016)
+:::
+
+## Latent Variables {.smaller}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+**Path model** (observed)
+
+```{r}
+#| echo: false
+#| fig-width: 4
+#| fig-height: 3
+ly_path <- matrix(c(-1, 1, 0, 0), nrow = 2)
+semPaths(lavaanify("NGSE ~ SOP"), what = "path", whatLabels = "hide",
+         residuals = FALSE, nCharNodes = 0,
+         sizeMan = 14, edge.width = 1.5,
+         layout = ly_path)
+```
+
+SOP and NGSE are treated as **error-free**
+
+:::
+
+::: {.column width="50%"}
+
+**CFA model** (latent)
+
+```{r}
+#| echo: false
+#| fig-width: 4
+#| fig-height: 3
+cfa_sketch <- "
+  SOP =~ SOP1 + SOP2 + SOP3
+  NGSE =~ NGSE1 + NGSE2 + NGSE3
+  SOP ~~ NGSE
+"
+semPaths(lavaanify(cfa_sketch), what = "path", whatLabels = "hide",
+         residuals = TRUE, nCharNodes = 0,
+         sizeMan = 10, sizeLat = 14, edge.width = 1.5)
+```
+
+Observed items are **imperfect indicators** of a latent factor
+
+:::
+
+::::
+
+## Usage of CFA
+
+- "Confirm" that a set items reflects on the hypothesized number of factors
+- Part of scale validation (e.g., evidence of internal structure, convergent/discriminant validity)
+- Suggest directions for scale improvement
+
+# The Common Factor Model
+
+## The Common Factor Model {.smaller}
+
+For item $j$ and factor $F$:
+
+$$
+Y_j = \lambda_j \eta + e_j
+$$
+
+- $\lambda_j$ = **factor loading**---how strongly item $j$ reflects the factor
+- $\eta$ = **latent factor** (unobserved)
+- $e_j$ = **unique error**---item-specific variance + measurement error
+    * $\text{Var}(e_j) = \theta_j$ is called the **uniqueness**
+
+. . .
+
+::: {.callout-note}
+
+## Communality vs. Uniqueness
+
+$$
+\underbrace{\lambda_j^2 \, \text{Var}(\eta)}_{\text{communality}} + \underbrace{\theta_j}_{\text{uniqueness}} = \text{Var}(Y_j)
+$$
+
+Communality = proportion of item variance explained by the common factor
+
+:::
+
+## Common Factor Model {.smaller}
+
+### (Matrix form, Multiple Factors)
+
+$$
+\begin{bmatrix}
+Y_1 \\
+Y_2 \\
+\vdots \\
+Y_p
+\end{bmatrix}
+=
+\begin{bmatrix}
+\lambda_{11} & \lambda_{12} & \cdots & \lambda_{1m} \\
+\lambda_{21} & \lambda_{22} & \cdots & \lambda_{2m} \\
+\vdots & \vdots & \ddots & \vdots \\
+\lambda_{p1} & \lambda_{p2} & \cdots & \lambda_{pm}
+\end{bmatrix}
+\begin{bmatrix}
+\eta_1 \\
+\eta_2 \\
+\vdots \\
+\eta_m
+\end{bmatrix}
++
+\begin{bmatrix}
+e_1 \\
+e_2 \\
+\vdots \\
+e_p
+\end{bmatrix}
+$$
+
+$$
+\mathbf{Y} = \mathbf{\Lambda} \boldsymbol{\eta} + \mathbf{e}
+$$
+
+Cov($\boldsymbol{\eta}$) = $\boldsymbol{\Psi}_{m \times m}$
+
+Cov($\mathbf{e}$) = $\boldsymbol{\Theta}_{p \times p}$
+
+# The CFA Model
+
+## Implied Covariance Structure
+
+For $p$ indicators of one factor $\eta$:
+
+$$
+\boldsymbol{\Sigma} = \boldsymbol{\Lambda} \boldsymbol{\Psi} \boldsymbol{\Lambda}^\top + \boldsymbol{\Theta}
+$$
+
+- $\boldsymbol{\Lambda}$ ($p \times 1$): vector of factor loadings
+- $\boldsymbol{\Psi}$ ($1 \times 1$): factor variance
+- $\boldsymbol{\Theta}$ ($p \times p$, diagonal): uniquenesses
+
+. . .
+
+Just like path analysis, we estimate model parameters from the **covariance matrix** of the observed items.
+
+# Steps of CFA
+
+## Adapted from Bollen (1989; 2026)
+
+1. Model specification
+2. Model identification
+3. Model estimation
+4. Test and evaluation
+5. Model modification/respecification
+
+::: {.fragment}
+Same steps as path analysis---but step 4 is now more informative because $df > 0$ gives us a global $\chi^2$ test and approximate fit indices.
+:::
+
+## 1. Specification
+
+- Decide **which indicators** load on **which factors**
+- Decide which cross-loadings or residual covariances to include (or exclude)
+- CFA is **confirmatory**: the factor structure comes from theory, not data
+
+. . .
+
+::: {.callout-note}
+
+## CFA vs. EFA
+
+In EFA, all factors load on all items, and rotation is used to find simple structure.
+
+In CFA, the loading pattern is **pre-specified**---absence of an arrow is a *strong* zero constraint.
+
+:::
+
+## 2. Model Identification
+
+> Can we uniquely determine all parameters from the observed covariance matrix?
+
+- Number of unique elements: $p^* = p(p+1)/2$
+- Free parameters: 
+    * $p$ loadings
+    * 1 factor variance
+    * $p$ uniquenesses
+    * [-1 for scaling constraint]{style="color: red;"}
+
+## Scaling the Latent Variable
+
+Two common strategies for giving the latent variable a unit:
+
+| Strategy | Constraint | Effect |
+|---|---|---|
+| Marker variable | Fix $\lambda_1 = 1$ | Factor variance $\psi$ is free |
+| Standardized LV | Fix $\psi = 1$ | All loadings free |
+
+. . .
+
+::: {.callout-note}
+We will use `std.lv = TRUE`---standardized latent variable. All loadings are freely estimated and directly interpretable as regression coefficients onto a standardized factor.
+:::
+
+## Degrees of Freedom {visibility="hidden"}
+
+$$
+df = p^* - t
+$$
+
+- $p^*$ = unique elements in $\boldsymbol{\Sigma}$
+- $t$ = number of free parameters
+- $df > 0$: **overidentified**---the model makes testable predictions about the data
+
+## Number of Indicators
+
+- With one factor, 3 items give a just-identified model
+- Generally speaking, 4+ indicators per factor are recommended (e.g., Kline, 2023)
+
+. . .
+
+::: {.callout-note}
+Unlike the just-identified path model ($df = 0$), CFA models are typically overidentified. This enables a **global model fit test**.
+:::
+
+## 3. Estimation
+
+- (Approximately) continuous and normal indicators: Maximum Likelihood (ML)
+- (Mildly) non-normal indicators or ordinal items with 5 categories: **MLR**
+    * Huber–White robust SEs
+    * Yuan–Bentler scaled $\chi^2$
+- Ordinal indicators with 2-4 categories: Diagonally Weighted Least Squares (DWLS)
+- Missing data: **FIML** (`missing = "FIML"`)---uses all available information
+
+# Using the *lavaan* Package
+
+## Model Specification
+
+```{r}
+#| label: cfa-1factor
+#| echo: true
+#| results: false
+```
+
+. . .
+
+::: {.callout-note .nonincremental}
+
+## *lavaan* operators for CFA
+
+- `SOP =~ SOP_1` means "SOP **manifests as** SOP_1" (loading $\lambda_1$)
+- `SOP_1 ~~ SOP_1` means uniqueness $\theta_1$ (estimated by default)
+- `SOP ~~ SOP` is the factor variance, **fixed to 1** by `std.lv = TRUE`
+
+:::
+
+## Estimation Output
+
+```{r}
+#| echo: true
+summary(fit_1f, fit.measures = TRUE, standardized = TRUE)
+```
+
+## Standardized Loadings
+
+```{r}
+#| echo: false
+standardizedSolution(fit_1f) |>
+    dplyr::filter(op == "=~") |>
+    dplyr::select(lhs, rhs, est.std, se) |>
+    tt(digits = 3)
+```
+
+. . .
+
+::: {.callout-note}
+Quick rule of thumb: Values $\geq .40$ are generally considered acceptable; $\geq .60$ is good.
+:::
+
+## Path Diagram
+
+```{r}
+#| echo: true
+#| fig-width: 5
+#| fig-height: 4
+#| fig-align: center
+semPaths(fit_1f, whatLabels = "std", layout = "tree",
+         edge.label.cex = 1.2, sizeMan = 8, sizeLat = 12,
+         nCharNodes = 0, residuals = TRUE)
+```
+
+## 4. Model Fit
+
+- Global $\chi^2$ test: can using 1 factor fully explain the covariance among items?
+    * $H_0$: Specified model fits the data perfectly, $\boldsymbol{\Sigma} = \boldsymbol{\Sigma}(\hat{\theta})$
+- Goodness-of-fit indices: how close is $\boldsymbol{\Sigma}(\hat{\theta})$ to $\boldsymbol{\Sigma}$?
+- Local fit: which item pairs are not well explained by the model?
+    * E.g., Correlation residuals (see [note on CFA](/notes/cfa.qmd))
+
+## Approximate Fit Indices {.smaller}
+
+```{r}
+#| echo: false
+#| fig-height: 2
+# Set up a clean, blank plotting area
+par(mar = c(1, 1, 1, 1), family = "serif")
+plot.new()
+plot.window(xlim = c(0, 10), ylim = c(0, 1.5))
+
+# Define X-coordinates for the scale points and Y-coordinate for the baseline
+s_x <- 1
+sigma_theta_x <- 3
+sigma_baseline_x <- 9
+y_line <- 0.5
+
+# Draw the linear scale base line
+lines(c(s_x, sigma_baseline_x), c(y_line, y_line), lwd = 1)
+
+# Add tick marks
+tick_size <- 0.15
+segments(s_x, y_line - tick_size, s_x, y_line + tick_size, lwd = 1.5)
+segments(sigma_theta_x, y_line - tick_size, sigma_theta_x, y_line + tick_size, lwd = 1.5)
+segments(sigma_baseline_x, y_line - tick_size, sigma_baseline_x, y_line + tick_size, lwd = 1.5)
+
+# Add matrix labels below the ticks
+label_offset_y <- 0.4
+text(s_x, y_line - label_offset_y, expression(bold(Sigma)), font = 2, cex = 1.3)
+text(sigma_theta_x, y_line - label_offset_y, expression(bold(Sigma)(theta)), cex = 1.3)
+text(sigma_baseline_x, y_line - label_offset_y, expression(bold(Sigma[baseline])), cex = 1.3)
+
+# Draw arrows between the points
+arrow_width <- 2
+arrow_length <- 0.12
+
+# Red arrow (S to Sigma_theta)
+arrows(s_x + 0.01, y_line, sigma_theta_x - 0.01, y_line, 
+       col = "red", length = arrow_length, angle = 20, code = 3, lwd = arrow_width)
+
+# Blue arrow (Sigma_theta to Sigma_baseline)
+arrows(sigma_theta_x + 0.01, y_line, sigma_baseline_x - 0.01, y_line, 
+       col = "#0072B2", length = arrow_length, angle = 20, code = 3, lwd = arrow_width)
+
+# Place RMSEA and SRMR stacked above the red segment
+text_y_red1 <- y_line + 0.8
+text_y_red2 <- y_line + 0.4
+mid_red_x <- mean(c(s_x, sigma_theta_x))
+
+text(mid_red_x, text_y_red1, "RMSEA (< .06)", col = "red", cex = 1.1)
+text(mid_red_x, text_y_red2, "SRMR (< .08)", col = "red", cex = 1.1)
+
+# Place CFI above the blue segment
+text_y_blue <- y_line + 0.6
+mid_blue_x <- mean(c(sigma_theta_x, sigma_baseline_x))
+
+text(mid_blue_x, text_y_blue, "CFI (> .95)", col = "#0072B2", cex = 1.1)
+```
+
+```{r}
+#| label: fit-indices
+#| echo: true
+```
+
+. . .
+
+::: {.callout-warning}
+These cutoffs (Hu & Bentler, 1999) are **guidelines**, not golden rules. They were derived under specific simulation conditions and do not replace substantive judgment.
+:::
+
+## {visibility="hidden"}
+
+Quick-reference guidelines:
+
+| Index | Good fit | Acceptable |
+|---|---|---|
+| CFI | $\geq .95$ | $\geq .90$ |
+| RMSEA | $\leq .06$ | $\leq .10$ |
+| SRMR | $\leq .08$ | $\leq .10$ |
+
+## Correlation Residuals {visibility="hidden"}
+
+Difference between observed and model-implied correlations---what the factor model *fails* to explain:
+
+```{r}
+#| label: cor-residuals
+#| echo: false
+```
+
+. . .
+
+::: {.callout-note}
+A rule of thumb: residuals $> |0.10|$ may indicate local misfit between a pair of items.
+:::
+
+## 5. Model Respecification
+
+Modification Indices (MI): Estimate how much $\chi^2$ would decrease if a fixed parameter were freed:
+
+```{r}
+#| label: mod-indices
+#| echo: true
+```
+
+::: {.callout-warning .fragment}
+Only modify the model when there is **theoretical justification**---post-hoc modifications capitalize on chance and should be cross-validated.
+:::
+
+## Example Modification {.smaller visibility="hidden"} 
+
+Adding error covariance between SOP_1 and SOP_2:
+
+```{r}
+#| echo: true
+model_1f_mod <- "
+  SOP =~ SOP_1 + SOP_2 + SOP_3 + SOP_4 + SOP_5
+  SOP_1 ~~ SOP_2
+"
+```
+
+```{r}
+#| echo: false
+fit_1f_mod <- cfa(model_1f_mod, data = sop_data,
+                  std.lv = TRUE, estimator = "MLR")
+semPaths(fit_1f_mod, whatLabels = "std", layout = "tree",
+         edge.label.cex = 1.2, sizeMan = 8, sizeLat = 12,
+         nCharNodes = 0, residuals = TRUE)
+```
+
+## 5. Composite Reliability {visibility="hidden"}
+
+Proportion of composite score variance that is **true score variance**:
+
+```{r}
+#| label: composite-reliability
+#| echo: true
+```
+
+. . .
+
+::: {.callout-note}
+
+## McDonald's $\omega$
+
+$$
+\omega = \frac{\left(\sum_{j=1}^{p} \lambda_j\right)^2 \text{Var}(F)}{\left(\sum_{j=1}^{p} \lambda_j\right)^2 \text{Var}(F) + \sum_{j=1}^{p} \theta_j}
+$$
+
+This is the reliability of the **observed composite** (e.g., sum score), not of the latent variable itself.
+
+:::
+
+## Exercise {background-color='{{< brand color fed-teal >}}' .smaller}
+
+::: {.nonincremental}
+1. Run the R code in "note/data-exploration.R", and then the code in "note/cfa.R" to fit a CFA model.
+    a. Which item has the highest standardized loading?
+2. Fit the following modified CFA model:
+
+   ```r
+   model_1f_mod <- "
+     SOP =~ SOP_1 + SOP_2 + SOP_3 + SOP_4 + SOP_5
+     SOP_1 ~~ SOP_2
+   "
+   fit_1f_mod <- cfa(model_1f_mod, data = sop_data,
+                     std.lv = TRUE, estimator = "MLR")
+   ```
+
+    a. How much did the fit improve in RMSEA and CFI?
+    b. What was the standardized covariance between SOP_1 and SOP_2?
+:::
+
+`r countdown(minutes = 15)`

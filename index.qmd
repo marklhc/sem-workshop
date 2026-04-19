@@ -1,0 +1,65 @@
+---
+title: "FED-ETARC Workshop: Structural Equation Modeling"
+subtitle: "University of Macau | Spring 2026"
+format:
+  html:
+    toc: false
+---
+
+🗓️ **Date:** April 24, 2026  
+⏰ **Time:** 13:00 – 16:00  
+🏛️ **Location:** E21-2034, University of Macau
+
+## Overview
+
+This hands-on workshop introduces **Structural Equation Modeling (SEM)** to graduate students and researchers in psychology and the behavioral sciences. Designed for those with a working knowledge of regression and basic factor analysis, the workshop walks through the SEM framework from the ground up — from specifying models with path diagrams to evaluating fit and interpreting results using R.
+
+By the end of this workshop, you will be able to:
+
+- Translate substantive research questions into SEM path diagrams
+- Specify and estimate confirmatory factor analysis (CFA) models
+- Build and evaluate full structural models (measurement + structural components)
+- Assess model fit using standard indices and modify models in a principled way
+- Run SEM analyses in R using the **lavaan** package
+
+[Start Here](/guide.qmd){.btn .btn-primary role="button"} [Modules](/modules/index.qmd){.btn .btn-primary role="button"}
+
+## Planned Schedule
+
+| Time | Topic |
+|------|-------|
+| 13:00 - 13:10 | Welcome and Overview |
+| 13:10 - 13:45 | Path Analysis: history of SEM, path diagrams, model identification |
+| 13:45 - 14:30 | Confirmatory Factor Analysis (CFA): specification, estimation, and fit |
+| 14:30 - 14:45 | *Break* |
+| 14:45 - 15:00 | *Hands-on Exercise 1:* Fit a CFA model in lavaan |
+| 15:00 - 15:30 | Full SEM: adding structural paths, comparing models |
+| 15:30 - 15:45 | *Hands-on Exercise 2:* Build and evaluate a full SEM | Exercise |
+| 15:45 - 16:00 | Reporting and Q&A |
+
+## Instructor
+
+[**Mark Hok Chio Lai**](https://quantscience.rbind.io/) is an Associate Professor in the Department of Psychology at the University of Macau. His research focuses on advanced quantitative methods, including multilevel modeling, structural equation modeling, and Bayesian statistics, with applications in cross-cultural and longitudinal research.
+
+📧 marklai@um.edu.mo  
+🏢 E33-3030, University of Macau
+
+## Prerequisites
+
+Participants are assumed to have:
+
+- Familiarity with linear regression
+- Basic experience with R (loading data, fitting models)
+- Some exposure to factor analysis concepts (helpful but not required)
+
+Please bring a laptop with [R](https://cloud.r-project.org/) and [Positron](https://positron.posit.co/) (or RStudio) installed. See [Resources](resources.qmd) for setup instructions and pre-workshop readings.
+
+<!-- ## Abstract
+
+Structural Equation Modeling (SEM) is a powerful and flexible statistical framework that integrates regression, path analysis, and factor analysis into a unified approach, making it well suited for testing theoretical models involving latent constructs commonly studied in social science research, such as motivation, mental well-being, and academic achievement. This hands-on workshop provides an applied introduction to SEM for researchers in social and behavioral sciences, covering:
+
+- Foundations of SEM: path diagrams, model components, and model identification;
+- Confirmatory Factor Analysis (CFA): specification, estimation, and fit evaluation;
+- Full structural models: specifying structural paths between latent variables and comparing competing models.
+
+Through worked examples with the R software drawn from published research, participants will gain hands-on experience with translating substantive research questions into testable SEM models, drawing path diagrams, and reporting results. -->

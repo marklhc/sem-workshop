@@ -1,0 +1,6 @@
+format: 
+  revealjs:
+    incremental: true
+    preview-links: auto
+    chalkboard: true
+    slide-number: true

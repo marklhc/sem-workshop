@@ -1,0 +1,44 @@
+---
+title: "Resources"
+format: html
+toc: true
+bibliography: references.yaml
+nocite: |
+  @bollen1989, @bollen2026, @kline2023, @brown2015
+---
+
+## Reporting
+
+When you report SEM results, you may want to reference these guidelines and examples:
+
+- [JARS-Quant](https://apastyle.apa.org/jars/quantitative), also @appelbaum2018
+    - The APA reporting standard for quantitative studies, including SEM.
+- [JARS-Quant Table 7](https://apastyle.apa.org/jars/quant-table-7.pdf)
+    - Specific standards for reporting SEM results, including data description, specification, estimation, model fit, and respecification.
+- Brown (2015, Appendix 4.3)
+    - Example of reporting a two-factor CFA.
+- Kline (2023, Chapter 3)
+    - See the *Reporting Standards* section for details and an example, and Table 3.1.
+
+## Further reading
+
+Beyond the workshop, these books are especially useful for SEM and related topics:
+
+- Bollen, K. A. (1989). Structural equations with latent variables. Wiley. <https://doi.org/10.1002/9781118619179>
+    - Also Bollen, K. A. (2026). Elements of structural equation models (SEMs) (1st ed.). Cambridge University Press. <https://doi.org/10.1017/9781009312806>
+    - Foundational SEM references for the theory and practice of latent variable modeling.
+- Kline, R. B. (2023). Principles and practice of structural equation modeling (5th ed.). Guilford.
+    - Probably the most widely used SEM textbook, with clear explanations and practical examples.
+- Brown, T. A. (2015). Confirmatory factor analysis for applied research (2nd ed.). The Guilford Press.
+    - A clear applied introduction to CFA and measurement models.
+
+## Free Online Materials
+
+These are free, high-quality references you can keep using after the workshop.
+
+- [lavaan Project Page](https://lavaan.ugent.be/)
+    - The official site for `lavaan`, including excellent documentation and tutorials.
+- [semTools wiki](https://github.com/simsem/semTools/wiki)
+    - Helpful extensions for reliability, invariance testing, and related SEM tasks.
+- [SEM videos by CenterStat](https://www.youtube.com/watch?v=wHFrgp3SQMI&list=PLQGe6zcSJT0XCCmKAxqiA8AGl-z6HYn5B)
+    - Nice set of videos covering SEM basics.

@@ -1,0 +1,73 @@
+project:
+  type: website
+
+execute: 
+  freeze: auto
+
+website:
+  title: "FED-ETARC SEM Workshop"
+  navbar:
+    background: primary
+    search: true
+    left:
+      - text: "Home"
+        file: index.qmd
+      - text: "Setup"
+        file: guide.qmd
+      - text: "Modules"
+        file: modules/index.qmd
+      - text: "Notes"
+        file: notes/cfa.qmd
+
+    right:
+      - text: "Resources"
+        file: resources.qmd
+
+  page-footer:
+    left: "Copyright 2026 Mark Hok Chio Lai"
+    center: "Faculty of Education, University of Macau"
+    right: "[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)"
+
+  sidebar:
+    - id: notes
+      title: "Workshop Notes"
+      style: "docked"
+      contents:
+        - section: "Setup"
+          contents:
+            # - href: "notes/intro-positron.qmd"
+            - href: "notes/intro-quarto.qmd"
+        - section: "Part 1: CFA"
+          contents:
+            - href: "notes/cfa.qmd"
+            - href: "notes/cfa-asags.qmd"
+        #     - href: "notes/cfa.qmd"
+        #     - href: "notes/esem.qmd"
+        #     - href: "notes/cfa-cat.qmd"
+        - section: "Part 2: Full SEM"
+          contents:
+            - href: "notes/structural.qmd"
+        - section: "Part 3: Other Topics"
+          contents:
+            - href: "notes/esem.qmd"
+            - href: "notes/mediation.qmd"
+            - href: "notes/multigroup.qmd"
+            - href: "notes/cfa-cat.qmd"
+            - href: "notes/invariance.qmd"
+        # - section: "Advanced Topics"
+        #   contents:
+        #     - href: "notes/causal-inference.qmd"
+        #     - href: "notes/missing-data.qmd"
+
+format:
+  html:
+    theme:
+      light: [cosmo, brand, custom.scss]
+      dark:  [darkly, brand, custom.scss]
+    css: styles.css
+    toc: true
+    code-copy: true
+    code-fold: false
+
+
+

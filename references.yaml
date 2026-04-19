@@ -1,0 +1,174 @@
+---
+references:
+- id: appelbaum2018
+  abstract: >-
+    [Correction Notice: An Erratum for this article was reported in Vol 73(7) of
+    American Psychologist (see record 2018-48461-011). In the article, there was
+    a citation error. In the “Clinical Trials” subsection in the section,
+    “Reporting Standards for Studies With an Experimental Manipulation” (p. 13),
+    the reference to the World Medical Association’s Declaration of Helsinki
+    should be to the 2008 version of the declaration. The sentence should read
+    as follows: From an ethical perspective, the Declaration of Helsinki, which
+    is the set of ethical principles regarding human experimentation developed
+    by the World Medical Association, Inc. (2008), stated that “every clinical
+    trial must be registered in a publicly accessible database before
+    recruitment of the first subject” (Item 19, p. 3). The corrected reference,
+    on p. 25, is also presented in the erratum.] Following a review of extant
+    reporting standards for scientific publication, and reviewing 10 years of
+    experience since publication of the first set of reporting standards by the
+    American Psychological Association (APA; APA Publications and Communications
+    Board Working Group on Journal Article Reporting Standards, 2008), the APA
+    Working Group on Quantitative Research Reporting Standards recommended some
+    modifications to the original standards. Examples of modifications include
+    division of hypotheses, analyses, and conclusions into 3 groupings (primary,
+    secondary, and exploratory) and some changes to the section on
+    meta-analysis. Several new modules are included that report standards for
+    observational studies, clinical trials, longitudinal studies, replication
+    studies, and N-of-1 studies. In addition, standards for analytic methods
+    with unique characteristics and output (structural equation modeling and
+    Bayesian analysis) are included. These proposals were accepted by the
+    Publications and Communications Board of APA and supersede the standards
+    included in the 6th edition of the Publication Manual of the American
+    Psychological Association (APA, 2010). (PsycInfo Database Record (c) 2025
+    APA, all rights reserved)
+  author:
+    - family: Appelbaum
+      given: Mark
+    - family: Cooper
+      given: Harris
+    - family: Kline
+      given: Rex B.
+    - family: Mayo-Wilson
+      given: Evan
+    - family: Nezu
+      given: Arthur M.
+    - family: Rao
+      given: Stephen M.
+  citation-key: appelbaum2018
+  container-title: American Psychologist
+  DOI: 10.1037/amp0000191
+  ISSN: 1935-990X
+  issue: '1'
+  issued:
+    - year: 2018
+  page: 3–25
+  publisher: American Psychological Association
+  publisher-place: US
+  source: APA PsycNet
+  title: >-
+    Journal article reporting standards for quantitative research in psychology:
+    The APA Publications and Communications Board task force report
+  title-short: Journal article reporting standards for quantitative research in psychology
+  type: article-journal
+  volume: '73'
+
+- id: bollen1989
+  abstract: >-
+    "Structural Equations with Latent Variables" is a comprehensive treatment of
+    the general structural equation system better known as the LISREL model. The
+    book serves three purposes. First, it demonstrates the generality of this
+    model. Rather than treating path analysis, recursive and nonrecursive
+    models, classical econometrics, and confirmatory factor analysis as unique,
+    they are treated as special cases of a common model. The second purpose is
+    to emphasize the application of these techniques. Empirical examples appear
+    throughout. Several chapters contain some of the LISREL or EQS programs the
+    author used to obtain the results for the empirical examples. Finally, the
+    book explores the crucial role played by substantive expertise in most
+    stages of the modeling process.  "Structural Equations with Latent
+    Variables" fills the gap existing in the treatment of this subject between
+    introductory texts and specialized papers. It provides social scientists,
+    market researchers, applied statisticians, other analysts, and graduate
+    students with a thorough examination of LISREL/structural equation models.
+    At the same time it presents new material on measurement reliability and
+    validity, overall fit indices, model identification, and other topics.
+    (PsycINFO Database Record (c) 2019 APA, all rights reserved)
+  author:
+    - family: Bollen
+      given: Kenneth A.
+  citation-key: bollen1989
+  collection-title: >-
+    Wiley series in probability and mathematical statistics. Applied probability
+    and statistics section
+  DOI: 10.1002/9781118619179
+  ISBN: 978-0-471-01171-2
+  issued:
+    - year: 1989
+  number-of-pages: '514'
+  publisher: Wiley
+  publisher-place: Oxford, England
+  source: APA PsycNet
+  title: Structural equations with latent variables
+  type: book
+
+- id: bollen2026
+  abstract: >-
+    Elements of Structural Equation Models (SEMs) blends theoretical foundations
+    with practical applications, serving as both a learning tool and a lasting
+    reference. Synthesizing material from diverse sources, including the
+    author's own contributions, it provides a rigorous yet accessible guide for
+    graduate students, faculty, and researchers across social, behavioral,
+    health, and data sciences. The book covers essential SEM concepts – model
+    assumptions, identification, estimation, and diagnostics – while also
+    addressing advanced topics often overlooked, such as Bayesian SEMs,
+    model-implied instrumental variables, and categorical variables. Readers
+    will gain insights into missing data, longitudinal models, and comparisons
+    with Directed Acyclic Graphs (DAGs). By presenting complex technical content
+    in a clear, structured way, this authoritative resource deepens readers'
+    understanding of SEMs, making it an indispensable guide for both newcomers
+    and experts seeking a definitive treatment of the field.
+  accessed:
+    - year: 2026
+      month: 4
+      day: 19
+  author:
+    - family: Bollen
+      given: Kenneth A.
+  citation-key: bollen2026
+  DOI: 10.1017/9781009312806
+  edition: '1'
+  ISBN: 978-1-009-31280-6 978-1-009-31282-0 978-1-009-31284-4
+  issued:
+    - year: 2026
+      month: 2
+      day: 19
+  license: https://www.cambridge.org/core/terms
+  publisher: Cambridge University Press
+  source: DOI.org (Crossref)
+  title: Elements of structural equation models (SEMs)
+  type: book
+  URL: https://www.cambridge.org/core/product/identifier/9781009312806/type/book
+
+- id: brownConfirmatoryFactorAnalysis2015
+  abstract: Machine generated content
+  author:
+    - family: Brown
+      given: Timothy A.
+  citation-key: brownConfirmatoryFactorAnalysis2015
+  collection-title: Methodology in the social sciences
+  edition: '2'
+  ISBN: 978-1-4625-1536-3 978-1-4625-1780-0 978-1-4625-1779-4
+  issued:
+    - year: 2015
+  language: eng
+  number-of-pages: '1'
+  publisher: The Guilford Press
+  publisher-place: New York London
+  source: K10plus ISBN
+  title: Confirmatory factor analysis for applied research
+  type: book
+
+- id: kline2023
+  author:
+    - family: Kline
+      given: Rex B.
+  citation-key: kline2023
+  edition: '5'
+  ISBN: 978-1-4625-5191-0 978-1-4625-5202-3
+  issued:
+    - year: 2023
+  language: eng
+  publisher: Guilford
+  source: K10plus ISBN
+  title: Principles and practice of structural equation modeling
+  type: book
+...

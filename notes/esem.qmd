@@ -1,0 +1,181 @@
+---
+title: "Exploratory Structural Equation Modeling (ESEM)"
+subtitle: "Readings: Alamer & Marsh (2022); Marsh et al. (2014)"
+---
+
+```{r}
+#| label: setup
+#| message: false
+library(lavaan)
+library(semTools)
+library(modelsummary)
+library(tinytable)
+library(dplyr)
+knitr::read_chunk("R/esem.R")
+```
+
+While confirmatory factor analysis (CFA) has been the standard approach for validating measurement models, for some constructs, items may not perfectly measure only one intended factor. For example, personality items usually capture more than one dimensions, like some agreeableness items may also reflect conscientiousness. However, CFA generally assumes a **simple structure** where each item loads on only one factor, or at least that there are only a few cross-loadings that can be specified a priori. When many items have small but non-negligible cross-loadings, CFA can produce poor model fit and inflated factor correlations, leading to distorted conclusions about the underlying constructs.
+
+CFA Loading Matrix:
+
+$$
+\begin{bmatrix}
+  \lambda_{11} & 0 \\
+  \lambda_{21} & 0 \\
+  \lambda_{31} & 0 \\
+  \lambda_{41} & 0 \\
+  \lambda_{51} & 0 \\
+  \lambda_{61} & 0 \\
+  0 & \lambda_{72} \\
+  0 & \lambda_{82} \\
+  0 & \lambda_{92} \\
+  0 & \lambda_{10,2} \\
+  0 & \lambda_{11,2} \\
+  0 & \lambda_{12,2} \\
+\end{bmatrix}
+$$
+
+Instead, **Exploratory Factor Analysis (EFA)**, or some authors calling it **Exploratory Structural Equation Modeling (ESEM)** when specified within a SEM framework, allows all items to load on all factors, with the expectation that most cross-loadings will be small. Because of the allowance for cross-loadings, EFA can sometimes provide a more accurate representation of the data, better model fit, and more realistic factor correlations. Doing EFA within an SEM framework allows us to retain the advantages of SEM, such as fit indices and the ability to use full information maximum likelihood (FIML) estimation for handling missing data.
+
+EFA Loading Matrix (Bold values indicate primary loadings):
+
+$$
+\begin{bmatrix}
+  \boldsymbol{\lambda}_{11} & \approx 0 \\
+  \lambda_{21} & \approx 0 \\
+  \lambda_{31} & \approx 0 \\
+  \lambda_{41} & \approx 0 \\
+  \lambda_{51} & \approx 0 \\
+  \lambda_{61} & \approx 0 \\
+  \approx 0 & \lambda_{72} \\
+  \approx 0 & \lambda_{82} \\
+  \approx 0 & \lambda_{92} \\
+  \approx 0 & \lambda_{10,2} \\
+  \approx 0 & \lambda_{11,2} \\
+  \approx 0 & \lambda_{12,2} \\
+\end{bmatrix}
+$$
+
+```{r}
+#| include: false
+#| label: load-data
+#| message: false
+```
+
+## Dataset: L2 Passion Scale
+
+Alamer & Marsh (2022) applied ESEM to the **L2 Passion Scale**, an adaptation of the Passion Scale (Vallerand et al., 2003) for the language-learning context. The scale measures two types of passion based on the **Dualistic Model of Passion (DMP)**:
+
+| Factor | Items | Description |
+|--------|-------|-------------|
+| **HP**: Harmonious Passion | HP1–HP6 | Autonomous internalization; passion integrated with other life activities |
+| **OP**: Obsessive Passion | OP1–OP6 | Controlled internalization; uncontrollable urge to engage in the activity |
+
+All items use a **5-point Likert scale** (1 = *Strongly Disagree* to 5 = *Strongly Agree*). The dataset contains *N* = 214 Saudi EFL undergraduate students.
+
+::: {.callout-note}
+
+## Data Access
+
+Data are available from the IRIS Database: <https://www.iris-database.org/details/WYMmh-Qz9eK>. The Excel file (`Passion dataset S1- Alamer & Marsh 2022.xlsx`) is saved in the `data/` folder of this project.
+
+:::
+
+### Descriptive Statistics
+
+```{r}
+#| label: descriptives
+```
+
+### Inter-item Correlations
+
+```{r}
+#| label: cor-heatmap
+```
+
+::: {.callout-note}
+Blue cells = positive correlations, red = negative, intensity = magnitude. Items within the same subscale should cluster together; HP items (HP1–HP6) and OP items (OP1–OP6) should form two clearly separated blocks.
+:::
+
+# EFA vs. CFA
+
+## The Problem with CFA for Multidimensional Scales
+
+In standard CFA, every cross-loading is **fixed to zero**. When items genuinely share some degree of similarity across conceptually related constructs (as is common in psychology), fixing these small cross-loadings to zero forces their variance into the **factor correlation**, artificially inflating it.
+
+For example, Alamer & Marsh (2022) found that the HP–OP correlation was $r = .34$ in CFA but only $r = .23$ in EFA---a reduction of .11, entirely attributable to variance expressed through cross-loadings in EFA but absorbed into the factor correlation in CFA.
+
+## What ESEM Does Differently
+
+To be consistent with the paper, subsequently we use ESEM for the type of EFA within the SEM framework and can have specific loadings targetted to zero. We refer to EFA the traditional technique with non-iterative methods of estimation and rotation. ESEM integrates the advantages of EFA and CFA:
+
+| Feature | EFA | CFA | ESEM |
+|---------|-----|-----|------|
+| Cross-loadings | All estimated | All fixed to zero | Freely estimated, targeted toward zero by rotation |
+| Goodness-of-fit indices | ✗ | ✓ | ✓ |
+| Structural paths | ✗ | ✓ | ✓ |
+| Measurement invariance | ✗ | ✓ | ✓ |
+| Factor correlations | Determined by rotation | Directly estimated | Directly estimated |
+
+In ESEM, **target rotation** (or Geomin) is used to achieve near-simple structure: cross-loadings are targeted toward zero but not forced there, so small genuine cross-loadings can be freely estimated.
+
+## Specifying ESEM in `lavaan`
+
+The `efa()` block inside a `cfa()` model string marks a set of factors as belonging to the same EFA block, causing all items in that block to load on all factors:
+
+```{r}
+#| label: esem-passion
+#| echo: true
+#| eval: false
+```
+
+- All 12 items load on **both** HP and OP; target rotation pushes cross-loadings toward zero.
+- The model retains CFA features: fit indices, factor correlations, structural extensions.
+
+# Example: L2 Passion Scale
+
+## Example 1: CFA
+
+```{r}
+#| label: cfa-passion
+```
+
+## Example 2: ESEM
+
+```{r}
+#| label: esem-passion
+```
+
+## Model Comparison
+
+CFA and ESEM are **nested** (CFA is ESEM with all cross-loadings fixed to zero), so a scaled $\chi^2$ difference test via `lavTestLRT()` is valid, in addition to fit index differences.
+
+```{r}
+#| label: lrt-cfa-esem
+```
+
+The null hypothesis is that the CFA model (more constrained) fits as well as the ESEM model (less constrained). A significant $\chi^2$ difference test rejects this null, indicating that the added cross-loadings in ESEM significantly improve model fit.
+
+A decrease in CFI > .01 between a less and more constrained model indicates meaningful misfit from the added constraints.
+
+```{r}
+#| label: fit-comparison
+```
+
+```{r}
+#| label: factor-cor
+```
+
+::: {.callout-note}
+
+**Interpretation**: If ESEM provides substantially better fit (ΔCFI > .01, ΔRMSEA meaningful) *and* the freed cross-loadings are theoretically sensible, prefer ESEM. If fit is similar and cross-loadings are negligible, retain the more parsimonious CFA.
+
+:::
+
+## References
+
+Alamer, A., & Marsh, H. (2022). Exploratory structural equation modeling in second language research: An applied example using the dualistic model of passion. *Studies in Second Language Acquisition*, *44*(5), 1477–1500. <https://doi.org/10.1017/S0272263121000863>
+
+Marsh, H. W., Morin, A. J. S., Parker, P. D., & Kaur, G. (2014). Exploratory structural equation modeling: An integration of the best features of exploratory and confirmatory factor analysis. *Annual Review of Clinical Psychology*, *10*, 85–110. <https://doi.org/10.1146/annurev-clinpsy-032813-153700>
+
+Vallerand, R. J., Blanchard, C., Mageau, G. A., Koestner, R., Ratelle, C., Léonard, M., Gagné, M., & Marsolais, J. (2003). Les passions de l'âme: On obsessive and harmonious passion. *Journal of Personality and Social Psychology*, *85*(4), 756–767. <https://doi.org/10.1037/0022-3514.85.4.756>

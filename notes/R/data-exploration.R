@@ -77,4 +77,7 @@ bg_we  <- rgb(as.integer(cor_we > 0), 0, as.integer(cor_we < 0),
               alpha = abs(cor_we))
 bg_we[upper.tri(cor_we, diag = TRUE)] <- NA
 modelsummary::datasummary_correlation(we_data) |>
-  tinytable::style_tt(i = 1:nv_we, j = 1:nv_we + 1, background = bg_we)
+  `colnames<-`(c(" ", seq_len(ncol(we_data)))) |>
+  tinytable::format_tt(j = 1, fn = \(x) paste0(seq_len(nv_we), ". ", x)) |>
+  tinytable::style_tt(i = 1:nv_we, j = 1:nv_we + 1, background = bg_we) |>
+  tinytable::style_tt(fontsize = 0.7)

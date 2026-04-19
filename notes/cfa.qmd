@@ -1,0 +1,176 @@
+---
+title: "CFA: Self-Oriented Perfectionism"
+subtitle: "Data: Williams & Edwards (2021; OSF m5dy6)"
+---
+
+```{r}
+#| label: setup
+#| message: false
+library(lavaan)
+library(lavaangui)
+library(psych)
+library(dplyr)
+library(semTools)
+library(modelsummary)
+library(tinytable)
+```
+
+```{r}
+#| include: false
+knitr::read_chunk(here::here("notes", "R", "data-exploration.R"))
+knitr::read_chunk(here::here("notes", "R", "cfa.R"))
+```
+
+## Dataset: Self-Oriented Perfectionism Scale (SOP)
+
+```{r}
+#| label: load-data
+#| message: false
+```
+
+```{r}
+#| label: load-data-sop
+#| message: false
+```
+
+This example uses data from a conceptual replication of Seo (2008), examining self-efficacy as a mediator between self-oriented perfectionism and academic procrastination (Williams & Edwards, 2021; OSF: [osf.io/m5dy6](https://osf.io/m5dy6/)).
+
+We focus here on the **SOP** subscale, which measures **self-oriented perfectionism**---the tendency to set high personal standards and be self-critical when those standards are not met:
+
+| Items | Content |
+|-------|---------|
+| SOP_1–SOP_5 | Self-oriented perfectionism (5 items) |
+
+Items use a **5-point Likert scale**. The scale is theoretically **unidimensional**: all five items reflect a single latent construct. Data were collected online (Prolific Academic); *N* = 623 recruited.
+
+::: {.callout-note}
+## Data Cleaning
+
+Following the preregistered exclusion criteria:
+
+1. Non-students or participants under 18 were excluded.
+2. Participants missing more than 6 items across the three main scales (PASS, NGSE, SOP) were excluded.
+3. Participants who failed the attention check (SOP_6; correct response = 5) were excluded.
+4. Duplicate Prolific IDs were removed.
+
+The `load-data` chunk above applies all four criteria, reducing the sample to approximately *N* = 480.
+:::
+
+### Descriptive Statistics
+
+```{r}
+#| label: descriptives
+```
+
+### Inter-item Correlations
+
+```{r}
+#| label: cor-heatmap
+```
+
+::: {.callout-note}
+Blue cells = positive correlations, red = negative; intensity = magnitude. All five SOP items measure the same construct, so uniformly positive and moderately strong correlations are expected.
+:::
+
+### Dimensionality
+
+```{r}
+#| label: fig-scree
+#| fig-cap: "Scree plot with parallel analysis reference line."
+```
+
+```{r}
+#| label: eigenvalues
+```
+
+::: {.callout-note}
+Parallel analysis for a unidimensional scale should retain exactly one factor. A dominant first eigenvalue well above the parallel analysis reference confirms that the five items share a single common cause.
+:::
+
+# Confirmatory Factor Analysis
+
+## Example 1: Single-Factor CFA
+
+[TODO: Identification strategies]
+
+Because the SOP items are designed to reflect a single construct, we fit a **unidimensional (one-factor) CFA**. The latent factor variance is fixed to 1 (`std.lv = TRUE`) for identification, so all factor loadings are freely estimated.
+
+```{r}
+#| label: cfa-1factor
+```
+
+```{r}
+#| label: cfa-1factor-plot
+#| eval: false
+```
+
+## Model Fit
+
+### Modification Indices
+
+Modification indices (MI) flag parameters whose addition would most improve model fit. For a unidimensional model, the most commonly suggested modifications are **residual covariances** between pairs of items: these indicate item-specific shared variance beyond the common factor (e.g., similar wording, shared method).
+
+```{r}
+#| label: mod-indices
+```
+
+::: {.callout-note}
+An MI $\geq 10$ (with $|epc| \geq 0.10$ and theoretical justification) is a common threshold for considering a modification. Adding residual covariances post hoc is exploratory and should be cross-validated or justified on substantive grounds.
+:::
+
+### Correlation Residuals
+
+```{r}
+#| label: cor-residuals
+```
+
+::: {.callout-note}
+Colored cells show residual correlations > |0.10|. Large residuals identify pairs of items whose observed correlation is not well reproduced by the single-factor model.
+:::
+
+### Goodness of Fit
+
+```{r}
+#| label: fit-indices
+```
+
+### Model Summary Table
+
+```{r}
+#| label: fit-summary
+#| code-fold: true
+```
+
+::: {.callout-note}
+\* CFI, TLI, and RMSEA use the Yuan–Bentler $T_2^*$ robust correction (`.robust`), preferred over the Satorra–Bentler `.scaled` variants (Savalei & Rosseel, 2023).
+:::
+
+## Composite Reliability
+
+Composite reliability (McDonald's $\omega$) for the SOP scale:
+
+```{r}
+#| label: composite-reliability
+```
+
+## Reporting
+
+### Sample Write-up
+
+**Method (Measures and Analysis)**
+
+> Self-oriented perfectionism was assessed with five items from the SOP scale (Williams & Edwards, 2021), rated on a 5-point Likert scale. We fit a unidimensional confirmatory factor analysis (CFA) model using the `lavaan` package (v`r packageVersion("lavaan")`; Rosseel, 2012) in R. The latent factor variance was fixed to 1 for identification (`std.lv = TRUE`). To account for mild non-normality in the item responses, we used robust maximum likelihood estimation (MLR) with Yuan–Bentler scaled standard errors and a Satorra–Bentler scaled $\chi^2$ test statistic. Missing data were handled with full information maximum likelihood (FIML). Model fit was evaluated using the robust CFI ($\geq .95$), robust RMSEA ($\leq .06$), and SRMR ($\leq .08$; Hu & Bentler, 1999). Composite reliability was estimated using McDonald's $\omega$ via `semTools::compRelSEM()`.
+
+**Results**
+
+> The hypothesized unidimensional CFA model showed acceptable fit to the data, robust $\chi^2$(`r fitMeasures(fit_1f, "df")`) = `r round(fitMeasures(fit_1f, "chisq.scaled"), 2)`, $p$ `r ifelse(fitMeasures(fit_1f, "pvalue.scaled") < .001, "< .001", paste0("= ", round(fitMeasures(fit_1f, "pvalue.scaled"), 3)))`, robust CFI = `r round(fitMeasures(fit_1f, "cfi.robust"), 3)`, robust RMSEA = `r round(fitMeasures(fit_1f, "rmsea.robust"), 3)`, 90% CI [`r round(fitMeasures(fit_1f, "rmsea.ci.lower.robust"), 3)`, `r round(fitMeasures(fit_1f, "rmsea.ci.upper.robust"), 3)`], SRMR = `r round(fitMeasures(fit_1f, "srmr"), 3)`. Inspection of modification indices and correlation residuals did not reveal any theoretically justified model modifications. All five items loaded significantly on the SOP factor, with standardized loadings ranging from `r round(min(standardizedSolution(fit_1f) |> dplyr::filter(op == "=~") |> dplyr::pull(est.std)), 2)` to `r round(max(standardizedSolution(fit_1f) |> dplyr::filter(op == "=~") |> dplyr::pull(est.std)), 2)`. Composite reliability was $\omega$ = `r round(semTools::compRelSEM(fit_1f)[[1]], 3)`, indicating good internal consistency.
+
+## References
+
+Williams, M. N., & Edwards, S. R. (2021). Conceptual replication of Seo (2008): Self-efficacy as a mediator in the relationship between self-oriented perfectionism and academic procrastination. *Current Issues in Personality Psychology*, *10*(2), 98–111. <https://doi.org/10.5114/cipp.2021.110948>
+
+Kline, R. B. (2023). *Principles and practice of structural equation modeling* (5th ed.). Guilford Press.
+
+Savalei, V., & Rosseel, Y. (2023). Computational options for standard errors and test statistics with incomplete normal and nonnormal data in SEM. *Structural Equation Modeling*, *30*(2), 171–185. <https://doi.org/10.1080/10705511.2022.2141754>
+
+Seo, E. H. (2008). Self-efficacy as a mediator in the relationship between self-oriented perfectionism and academic procrastination. *Social Behavior and Personality*, *36*(6), 753–764. <https://doi.org/10.2224/sbp.2008.36.6.753>

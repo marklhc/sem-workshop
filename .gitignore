@@ -1,0 +1,30 @@
+# Quarto
+/.quarto/
+/_site/
+
+# R
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints/
+.venv/
+env/
+
+# OS
+.DS_Store
+Thumbs.db
+
+**/*.quarto_ipynb
+build_site.sh
+*_cache/
+
+/data/
+
+/modules/slides/Haavelmo_1943.png
+/modules/slides/spearman_1904_p276.png

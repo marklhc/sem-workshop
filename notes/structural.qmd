@@ -1,0 +1,224 @@
+---
+title: "Structural Models"
+---
+
+```{r}
+#| label: setup
+#| message: false
+library(lavaan)
+library(lavaangui)
+library(semPlot)
+library(semptools)
+library(semTools)
+library(ggdag)
+library(ggplot2)
+library(dplyr)
+library(modelsummary)
+library(tinytable)
+source(here::here("notes", "R", "sem_table.R"))
+```
+
+```{r}
+#| include: false
+knitr::read_chunk("R/data-exploration.R")
+knitr::read_chunk("R/structural.R")
+```
+
+# Introduction (Chapter 15)
+
+Structural Regression (SR) models, also known as **Structural Equation Modeling (SEM)** in the broad sense (or "Latent Variable Path Analysis"), combine two components:
+
+1.  **Measurement Model**: Confirmatory Factor Analysis (CFA) describing how latent variables are measured by observed indicators.
+2.  **Structural Model**: Path analysis describing the causal relationships (regressions) among the latent variables.
+
+$$
+\text{SEM} = \text{CFA} + \text{Path Analysis}
+$$
+
+## Causal Assumptions in SR Models
+
+Every directed arrow in the structural model represents a **hypothesized causal effect**, not merely a statistical association. By drawing an arrow from $X$ to $Y$, the researcher claims that $X$ influences $Y$---not only that they tend to move together. The structural model is therefore best understood as a **Directed Acyclic Graph (DAG)** extended to include latent variables, and the same principles of causal identification apply. In structural models or causal models, the main challenge is to identify whether variables **not in the model**, either measured or unmeasured, could bias the estimated path coefficients. There are three main types of variables:
+
+**Confounder.** An unmeasured common cause $U$ of $X$ and $Y$ creates a spurious back-door path:
+$$
+X \leftarrow U \rightarrow Y
+$$
+The estimated path coefficient then conflates the direct effect of $X$ with the spurious association transmitted through $U$. Blocking this path requires including appropriate observed covariates or using an instrumental variable.
+
+**Mediator.** Including a variable that lies *on* the hypothesized causal pathway ($X \to M \to Y$) as a covariate when estimating $X \to Y$ blocks part of $X$'s genuine effect. This is why regression assumptions (no causal order among predictors) cannot be applied uncritically when variables are causally connected.
+
+**Collider.** Conditioning on a variable caused by two others (a *collider*, e.g., $X \to C \leftarrow Y$) opens a spurious association between those two causes. This can arise when selecting participants on a common outcome or when a descendant of a collider is included as a covariate.
+
+The key discipline from causal inference:
+
+> **Identify before you estimate.** Causal assumptions must be justified with subject-matter knowledge *before* fitting the model. The data alone cannot distinguish a correctly specified causal model from a misspecified one.
+
+When causal structure is uncertain, tools such as `dagitty` can enumerate minimal sufficient adjustment sets and derive the testable conditional independencies implied by the DAG---providing an empirical check on at least some aspects of the assumed structure.
+
+## The Two-Step Approach
+
+Many SEM scholars (e.g., Kline, 2023) strongly recommend a two-step modeling strategy:
+
+1.  **Respecify and test the measurement model**: specificy a CFA model where all latent variables are allowed to correlate (i.e., saturated structural part).
+    *   Ensure factors are well-measured.
+    *   Check model fit.
+    *   If the measurement model is bad, the SR model will effectively necessarily be bad or misleading.
+2.  **Test the structural model**: Impose the hypothesized structural paths (regressions) among the latent variables.
+
+# Example: Self-Oriented Perfectionism, Self-Efficacy, and Procrastination
+
+This example uses data from Williams & Edwards (2021) to demonstrate a **mediation structural regression model**. The hypothesized model follows Seo (2008):
+
+```{r}
+#| label: fig-dag
+#| fig-cap: "Hypothesized mediation model with path labels."
+#| fig-width: 5
+#| fig-height: 3
+#| message: false
+```
+
+$$
+\begin{aligned}
+\text{NGSE}      &= a \cdot \text{SOP} + \zeta_1 \\
+\text{PASS} &= b \cdot \text{NGSE} + c' \cdot \text{SOP} + \zeta_2
+\end{aligned}
+$$
+
+where SOP is self-oriented perfectionism, NGSE is general self-efficacy (Chen et al., 2001), and PASS is academic procrastination.
+
+## Data and PASS Parcels
+
+The data are downloaded from OSF using the same exclusion pipeline as the CFA note.
+
+```{r}
+#| label: load-data
+#| message: false
+#| include: false
+```
+
+Rather than using all 12 PASS items as indicators of a single factor, Williams & Edwards formed **item parcels**---one sum score per content area:
+
+```{r}
+#| label: we-parcels
+#| include: false
+```
+
+::: {.callout-note}
+## Item Parceling
+
+**Parceling** aggregates multiple items into composite scores before fitting the SEM. Benefits include fewer parameters, a better indicator-to-sample-size ratio, and composites that are more normally distributed than raw ordinal items. The four parcels (assignments, exams, reading, general) replace 12 item indicators with 4 content-balanced composites for the PASS factor.
+:::
+
+### Descriptive Statistics
+
+```{r}
+#| label: we-descriptives
+```
+
+### Inter-item Correlations
+
+```{r}
+#| label: we-cor-heatmap
+```
+
+::: {.callout-note}
+Blue cells = positive correlations, red = negative; intensity = magnitude. SOP items should correlate positively with each other, NGSE items with each other, and the PASS parcels with each other, while cross-scale correlations reflect the hypothesized structural relationships.
+:::
+
+## Step 1: Measurement Model
+
+We first fit all three factors simultaneously with a saturated structural part (all factors freely correlated) to check that the measurement model is acceptable before imposing the mediation constraints.
+
+```{r}
+#| label: we-cfa
+```
+
+## Step 2: Structural Regression Model
+
+We constrain the structural part to the hypothesized mediation model. Parameter labels (`a`, `b`, `c`) allow us to define the indirect and total effects using the `:=` operator.
+
+```{r}
+#| label: we-sr
+```
+
+## Indirect Effect
+
+The indirect effect (SOP → NGSE → PASS) with its 95% CI from the Monte Carlo method:
+
+```{r}
+#| label: we-indirect
+```
+
+::: {.callout-note}
+The **Monte Carlo method** (MacKinnon et al., 2004) draws repeated samples from the joint sampling distribution of $a$ and $b$ (using their estimated means and covariance matrix) and computes $a \times b$ for each draw, yielding an empirical CI. It handles the asymmetric distribution of a product better than the delta method while requiring no re-estimation of the model, unlike bootstrapping.
+:::
+
+## Causal Assumptions for the Mediation Interpretation
+
+Reporting $a \times b$ as a *causal* indirect effect requires that the structural model satisfies a set of **no-unmeasured-confounding** conditions. Three assumptions must hold simultaneously:
+
+1. **No unmeasured confounding of SOP → NGSE**: No latent variable simultaneously causes both self-oriented perfectionism and general self-efficacy.
+2. **No unmeasured confounding of SOP → PASS**: No latent variable causes both self-oriented perfectionism and academic procrastination through a path not captured by the model.
+3. **No unmeasured confounding of NGSE → PASS** (*Sequential Ignorability*): No latent variable $U$ simultaneously causes self-efficacy and academic procrastination. This is the most critical assumption---and the hardest to defend. Personality traits, cognitive habits, or prior academic experiences could plausibly affect both NGSE and PASS independently of SOP.
+
+```{r}
+#| label: fig-mediation-assumptions-dag
+#| fig-cap: "Mediation DAG with a latent confounder U between NGSE and PASS. Sequential ignorability requires that no such U exists."
+#| message: false
+#| fig-width: 5
+#| fig-height: 3
+```
+
+Because SOP is measured rather than experimentally manipulated, none of these three conditions is guaranteed by design. The indirect effect should therefore be interpreted as a *conditional association consistent with the mediation hypothesis*, not as a confirmed causal mechanism. A sensitivity analysis---asking how large an unmodeled correlation between the disturbances of NGSE and PASS would need to be to nullify the indirect effect---is a useful addition to any causal mediation claim.
+
+## Parameter Estimates Table
+
+```{r}
+#| label: tbl-sr-estimates
+#| tbl-cap: "Parameter Estimates for the Structural Regression Model"
+#| code-fold: true
+```
+
+::: {.callout-note}
+## *lavaan* syntax
+
+In *lavaan*:
+
+- `=~` is for measurement (Is measured by)
+- `~` is for regression (Is regressed on)
+- `~~` is for covariance/variance (Is correlated with)
+:::
+
+## Visualization
+
+```{r}
+#| label: fig-sr-plot
+#| fig-cap: "Structural Regression Model of Self-Oriented Perfectionism, Self-Efficacy, and Academic Procrastination. Standardized estimates are shown."
+#| eval: false
+```
+
+```{r}
+#| label: fig-sr-sempaths
+#| fig-cap: "Path diagram from semPaths with semptools styling. Standardized estimates are shown; significant paths are bolded."
+#| fig-width: 9
+#| fig-height: 5.6
+#| code-fold: true
+```
+
+## Reporting
+
+### Sample Write-up
+
+. . .
+
+## References
+
+Chen, G., Gully, S. M., & Eden, D. (2001). Validation of a new general self-efficacy scale. *Organizational Research Methods*, *4*(1), 62–83. <https://doi.org/10.1177/109442810141004>
+
+Kline, R. B. (2023). *Principles and practice of structural equation modeling* (5th ed.). Guilford Press.
+
+MacKinnon, D. P., Lockwood, C. M., & Williams, J. (2004). Confidence limits for the indirect effect: Distribution of the product and resampling methods. *Multivariate Behavioral Research*, *39*(1), 99–128. <https://doi.org/10.1207/s15327906mbr3901_4>
+
+Seo, E. H. (2008). Self-efficacy as a mediator in the relationship between self-oriented perfectionism and academic procrastination. *Social Behavior and Personality*, *36*(6), 753–764. <https://doi.org/10.2224/sbp.2008.36.6.753>
+
+Williams, M. N., & Edwards, S. R. (2021). Conceptual replication of Seo (2008): Self-efficacy as a mediator in the relationship between self-oriented perfectionism and academic procrastination. *Current Issues in Personality Psychology*, *10*(2), 98–111. <https://doi.org/10.5114/cipp.2021.110948>

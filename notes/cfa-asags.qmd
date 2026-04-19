@@ -1,0 +1,268 @@
+---
+title: "(Bnous) Another Example of Confirmatory Factor Analysis"
+---
+
+```{r}
+#| label: setup
+#| message: false
+library(lavaan)
+library(semPlot)
+library(semptools)
+library(lavaangui)
+library(dplyr)
+library(semTools)
+library(modelsummary)
+library(tinytable)
+```
+
+```{r}
+#| include: false
+knitr::read_chunk("R/data-exploration-asags.R")
+knitr::read_chunk("R/cfa-asags-3factor.R")
+knitr::read_chunk("R/cfa-asags-bifactor.R")
+```
+
+```{r}
+#| label: load-data
+#| message: false
+```
+
+## Dataset: Attainment of School Achievement Goal Scale (A-SAGS)
+
+The **A-SAGS** (Boivin et al., 2026) measures the perceived attainment of three types of achievement goals in academic settings. Participants rated 13 items on a **7-point Likert scale** (1 = *not at all* to 7 = *completely*).
+
+| Factor | Items | Description |
+|--------|-------|-------------|
+| **MGA** (Mastery Goal Attainment) | ga1, ga4, ga7, ga10, ga13 | Learning and developing competence |
+| **SRGA** (Social Reference Goal Attainment) | ga2, ga5, ga8, ga11 | Outperforming others |
+| **NGA** (Nurturance Goal Attainment) | ga3, ga6, ga9, ga12 | Helping others succeed |
+
+The three subscales are hypothesized to reflect a single higher-order construct: **Goal Attainment (GA)**. The dataset has *N* = 527 with some missing values.
+
+### Descriptive Statistics
+
+```{r}
+#| label: descriptives
+```
+
+### Inter-item Correlations
+
+```{r}
+#| label: cor-heatmap
+```
+
+::: {.callout-note}
+Blue cells indicate positive correlations, red cells negative, intensity reflects magnitude. Items within the same subscale (MGA: ga1, ga4, ga7, ga10, ga13; SRGA: ga2, ga5, ga8, ga11; NGA: ga3, ga6, ga9, ga12) should cluster together.
+:::
+
+### Dimensionality
+
+Before imposing a factor structure via CFA, it is useful to get a rough sense of how many dimensions underlie the 13 items. We inspect **eigenvalues** of the correlation matrix and run a quick **parallel analysis**.
+
+```{r}
+#| label: fig-scree
+#| fig-cap: "Scree plot with parallel analysis reference line. Factors above the red line are retained."
+```
+
+```{r}
+#| label: eigenvalues
+```
+
+::: {.callout-note}
+Parallel analysis retains factors whose eigenvalues exceed those expected from random data. The eigenvalue-greater-than-1 rule (Kaiser criterion) tends to over-extract and should be treated as an upper bound only.
+:::
+
+The A-SAGS was designed with **3 first-order factors** plus an overarching **goal attainment** dimension, so we expect 1–3 meaningful factors. We proceed to CFA to evaluate this structure formally.
+
+# Confirmatory Factor Analysis (Chapter 13)
+
+Confirmatory Factor Analysis (CFA) is a measurement model where we specify how observed variables (indicators) relate to underlying latent constructs (factors). Unlike EFA, CFA requires a priori specification of the factor structure.
+
+## Key Concepts
+
+- **Latent Variables (Factors):** Unobserved constructs (e.g., goal attainment) that cause observed scores.
+- **Indicators:** Observed variables (e.g., survey items) used to measure the latent construct.
+- **Factor Loadings ($\lambda$):** Regression coefficients representing the strength of the relationship between the factor and the indicator.
+- **Measurement Errors ($\epsilon$):** The portion of the indicator variance not explained by the factor.
+
+## Identification in CFA
+
+To estimate a CFA model, we must set the scale for the latent variable. Two common methods:
+
+1.  **Marker Variable:** Fix one factor loading to 1.0 (default in `lavaan`).
+2.  **Standardized Latent Variable:** Fix the factor variance to 1.0 (used here with `std.lv = TRUE`).
+
+## A Note on Estimation
+
+The A-SAGS items are technically ordinal, but with 7 response categories they can reasonably be treated as approximately continuous. We use **MLR** (Maximum Likelihood with Robust standard errors), which:
+
+- Treats items as continuous (appropriate for ≥ 5 ordered categories)
+- Provides Satorra–Bentler scaled $\chi^2$ and robust standard errors that are robust to non-normality
+- Produces AIC and BIC for model comparison
+
+::: {.callout-note}
+For fewer response categories (≤ 4), or when the distribution is highly skewed, prefer `ordered = TRUE` with `estimator = "WLSMV"` instead.
+:::
+
+## Example 1: First-Order CFA (3 Factors)
+
+We first fit a correlated three-factor model to evaluate the measurement structure of each subscale before introducing the higher-order factor.
+
+```{r}
+#| label: cfa-3factor
+```
+
+```{r}
+#| label: cfa-3factor-plot
+#| output: false
+```
+
+```{r}
+#| label: cfa-3factor-plot-styled
+```
+
+## Example 2: Bi-factor CFA
+
+The **bi-factor model** is an alternative to the hierarchical model for representing a general factor alongside specific factors. Instead of routing the general factor *through* the subscales, the bi-factor model has:
+
+- A **general factor (GA)** loading directly on all 13 items
+- Three **specific factors** (MGA, SRGA, NGA) each loading on their respective items
+- All factors constrained to be **orthogonal** (uncorrelated)
+
+This allows the model to partition item variance into general and specific components simultaneously, rather than assuming the general factor operates solely through the subscale factors.
+
+In `lavaan`, bi-factor models are specified with `bifactor()` inside `cfa()`:
+
+```{r}
+#| label: cfa-bifactor
+```
+```{r}
+#| label: cfa-bifactor-plot
+#| eval: false
+```
+::: {.callout-note}
+
+## Hierarchical vs. Bi-factor
+
+| | Hierarchical | Bi-factor |
+|---|---|---|
+| General factor | Acts *through* subscales | Acts *directly* on items |
+| Specific factors | Residual variance of subscales | Residual variance of items after removing general factor |
+| Factor correlations | General ↔ specific: fixed (via structure) | All factors orthogonal |
+| df | More constrained | Same or fewer constraints |
+
+The bi-factor model is more appropriate when you believe the general factor directly influences item responses, not just indirectly through group factors.
+
+:::
+
+## Model Fit
+
+### Correlation Residuals
+
+The factor model assumes that the latent factors fully explain the correlations among the indicators. Residuals > |0.10| suggest local misfit.
+
+```{r}
+#| label: cor-residuals
+```
+
+### Modification Indices
+
+Modification indices (MIs) estimate how much the overall $\chi^2$ would decrease if a currently fixed parameter were freed.
+
+```{r}
+#| label: mod-indices
+```
+
+### Goodness of Fit Indices
+
+#### Exact Fit
+
+- **Model Chi-Square ($\chi^2$)**
+    * Tests the null hypothesis that the model perfectly reproduces the population covariance matrix.
+    * **Limitation**: Highly sensitive to sample size; rejection does not indicate the *degree* of misfit.
+
+#### Approximate Fit Indices
+
+- **RMSEA**: Misfit per degree of freedom, adjusted for model complexity.  
+  Cutoffs: < 0.05 (close), 0.05–0.08 (reasonable), > 0.10 (poor).  
+  Includes 90% CI and test of close fit (H₀: RMSEA ≤ 0.05).
+
+- **CFI**: Compares the target model to the independence (null) baseline model.  
+  ≥ 0.95 indicates good fit; less affected by sample size than $\chi^2$.
+
+- **SRMR**: Average standardized residual between observed and model-implied correlations.  
+  < 0.08 indicates acceptable fit.
+
+::: {.callout-note}
+
+**Robust Fit Indices with MLR**
+
+With `estimator = "MLR"`, lavaan computes several versions of each index:
+
+| Suffix | Based on | Recommendation |
+|--------|----------|----------------|
+| (none) | Naive ML $\chi^2$ | Avoid; ignores non-normality |
+| `.scaled` | Satorra–Bentler scaled $\chi^2$ | Common but suboptimal |
+| `.robust` | Yuan–Bentler $T_2^*$ | **Preferred** |
+
+Savalei & Rosseel recommend the `.robust` variants because the Yuan–Bentler $T_2^*$ statistic yields better-behaved fit indices under non-normality than the Satorra–Bentler correction. In lavaan these are `cfi.robust`, `tli.robust`, `rmsea.robust`, etc.
+
+:::
+
+::: {.callout-warning}
+
+**Cutoff Values Should Not Be Used Mechanically**
+
+- Cutoffs are rough guidelines, not absolute rules.
+- Consider sample size, model complexity, and estimation method.
+- A model with "good" fit indices can be theoretically meaningless.
+- Always examine residuals, modification indices, and parameter estimates.
+
+:::
+
+#### Comparing Models
+
+The first-order and bi-factor models are **not nested**, so we compare them using information criteria (AIC/BIC) rather than a $\chi^2$ difference test:
+
+```{r}
+#| label: lrt-compare
+```
+
+#### Extracting Fit Indices
+
+```{r}
+#| label: fit-indices
+```
+
+### Quick Table of Results
+
+```{r}
+#| label: fit-summary-table
+```
+
+## (Predicted) Factor Scores and Diagnostics
+
+```{r}
+#| label: factor-scores
+```
+
+### Residuals: Indicator − Predicted Indicator Scores
+
+```{r}
+#| label: fig-bi-residuals
+#| fig-cap: "Indicator residuals from the bi-factor CFA model."
+#| fig-width: 9
+#| fig-height: 7
+```
+
+## Composite Reliability
+
+```{r}
+#| label: composite-reliability
+```
+
+## References
+
+Boivin, T., Veilleux, C., Egerton-Graham, M., Caron, P.-O., & Gaudreau, P. (2026). *A tutorial on evaluating confirmatory factor analysis with lavaan and dynamic: Integrating statistical and conceptual approaches*. PsyArXiv. <https://doi.org/10.31234/osf.io/2m6rk_v4>
+
+Kline, R. B. (2023). *Principles and practice of structural equation modeling* (5th ed.). Guilford Press.

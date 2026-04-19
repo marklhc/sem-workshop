@@ -1,0 +1,345 @@
+---
+title: "Full SEM"
+---
+
+```{r}
+#| include: false
+source(here::here("_setup.R"))
+library(semPlot)
+library(semptools)
+library(ggdag)
+library(tinytable)
+library(modelsummary)
+library(lavaan)
+library(semTools)
+library(countdown)
+library(dplyr)
+```
+
+```{r}
+#| include: false
+knitr::read_chunk(here::here("notes", "R", "data-exploration.R"))
+knitr::read_chunk(here::here("notes", "R", "structural.R"))
+```
+
+```{r}
+#| label: load-data
+#| include: false
+```
+
+```{r}
+#| label: we-parcels
+#| include: false
+```
+
+# From CFA to Full SEM
+
+## What is Full SEM?
+
+SEM = CFA (measurement) + Path analysis (structural)
+
+- **Measurement model**: how latent variables are measured by indicators
+- **Structural model**: directional relations among latent variables
+
+. . .
+
+Unlike observed-score path models, SEM explicitly accounts for measurement error.
+
+## An Example of Full SEM
+
+```{r}
+#| label: we-sr
+#| include: false
+```
+
+```{r}
+p <- semPaths(
+    lavaanify(model_sr_we),
+    style = "ram",
+    layout = "tree2",
+    rotation = 2,
+    nCharNodes = 0,
+    sizeMan = 5,
+    sizeLat = 9,
+    edge.label.cex = 0.7,
+    curvePivot = TRUE,
+    fade = FALSE,
+    DoNotPlot = TRUE
+)
+
+factor_layout <- matrix(
+    c(NA, "NGSE", NA,
+      "SOP", NA, "PASS"),
+    nrow = 2, byrow = TRUE
+)
+
+indicator_push <- c(
+    SOP = 1.5,
+    NGSE = 1.5,
+    PASS = 1.5
+)
+loading_position <- c(NGSE = 0.7)
+
+p2 <- set_sem_layout(
+    p,
+    indicator_push  = indicator_push,
+    loading_position = loading_position,
+    factor_layout    = factor_layout,
+    factor_point_to  = c(SOP = "left", NGSE = "up", PASS = "right"),
+    indicator_spread = c(SOP = 1.4, NGSE = 2.5, PASS = 1.2)
+)
+
+plot(p2)
+```
+
+## Why Use Full SEM?
+
+- We can test mediation or direct effects among **latent** constructs
+- Path coefficients are less attenuated by measurement error
+- Model fit evaluates whether the full covariance structure is plausible
+
+. . .
+
+::: {.callout-note}
+SEM is especially useful when your substantive hypotheses are causal but your key variables are latent.
+:::
+
+# Example: SOP, NGSE, and PASS
+
+## Example Data {.smaller}
+
+- **Data source**: Williams & Edwards ([2021](https://cipp.ug.edu.pl/Conceptual-replication-of-Seo-2008-Self-efficacy-as-a-mediator-in-the-relationship,142208,0,2.html), conceptual replication of Seo, 2008)
+- **Sample size**: $N = 575$
+- Constructs:
+    - `SOP`: Self-Oriented Perfectionism (5 items)
+    - `NGSE`: General Self-Efficacy (8 items)
+    - `PASS`: Academic Procrastination (4 parcels: assignments, exams, reading, general)
+
+## Hypothesized Mediation Model
+
+```{r}
+#| label: fig-dag
+#| echo: false
+#| fig-width: 5
+#| fig-height: 3
+```
+
+$$
+\begin{aligned}
+\text{NGSE} &= a\cdot\text{SOP} + \zeta_1 \\
+\text{PASS} &= b\cdot\text{NGSE} + c'\cdot\text{SOP} + \zeta_2
+\end{aligned}
+$$
+
+## Two-Step SEM Workflow
+
+1. **Step 1: Full Measurement model (CFA)**
+    - Verify indicators measure intended factors
+    - Check global fit and loading pattern
+2. **Step 2: Structural model (SR/SEM)**
+    - Impose directional paths among latent factors
+    - Evaluate direct, indirect, and total effects
+
+. . .
+
+::: {.callout-note}
+If Step 1 is poor, Step 2 interpretations are not trustworthy.
+:::
+
+# Step 1: Measurement Model
+
+## Data Overview {.smaller .scrollable}
+
+```{r}
+#| echo: false
+f <- function(d, ...) {
+    function() {
+        hist(
+            d,
+            axes = FALSE,
+            ann = FALSE,
+            col = "#005f96",
+            breaks = if (length(unique(d)) <= 7) 0:max(d) else "Sturges"
+        )
+    }
+}
+modelsummary::datasummary_skim(
+    we_data,
+    fun_numeric = list(
+        Mean = Mean,
+        SD = SD,
+        Min = Min,
+        Median = Median,
+        Max = Max,
+        Histogram = \(x) ""
+    )
+) |>
+    tinytable::plot_tt(j = "Histogram", fun = f, data = we_data) |>
+    tinytable::style_tt(fontsize = 0.8)
+```
+
+## Correlation Structure {.smaller}
+
+```{r}
+#| label: we-cor-heatmap
+#| echo: false
+```
+
+## CFA Model Specification
+
+```{r}
+#| label: we-cfa
+#| echo: true
+#| results: false
+```
+
+## {.smaller}
+
+### CFA Fit
+
+```{r}
+#| echo: false
+fm_cfa <- fitMeasures(fit_cfa_we, c("chisq.scaled", "df", "cfi.robust", "rmsea.robust", "srmr"))
+fit_cfa_tbl <- tibble::tibble(
+  Model = "CFA",
+  `Chisq` = fm_cfa["chisq.scaled"],
+  `df` = fm_cfa["df"],
+  `CFI*` = fm_cfa["cfi.robust"],
+  `RMSEA*` = fm_cfa["rmsea.robust"],
+  SRMR = fm_cfa["srmr"]
+)
+
+fit_cfa_tbl |>
+  mutate(across(-Model, round, 3)) |>
+  tt()
+```
+
+### Standardized Loadings 
+
+```{r}
+#| echo: false
+#| layout-ncol: 3
+tbl_loadings <- function(lhs, fit = fit_cfa_we) {
+  standardizedSolution(fit) |>
+    filter(op == "=~", lhs == !!lhs) |>
+    select(ind = rhs, loading = est.std) |>
+    mutate(loading = round(loading, 3)) |>
+    tt()
+}
+tbl_loadings("SOP")
+tbl_loadings("NGSE")
+tbl_loadings("PASS")
+```
+
+# Step 2: Structural Model
+
+## SR Model Specification
+
+```{r}
+#| label: we-sr
+#| echo: true
+#| results: false
+#| eval: false
+```
+
+## Structural Model Diagram
+
+```{r}
+#| label: fig-sr-sempaths
+#| echo: false
+#| fig-width: 8.5
+#| fig-height: 5.3
+```
+
+## Structural Paths and Indirect Effect {.smaller}
+
+```{r}
+#| echo: false
+parameterEstimates(fit_sr_we, standardized = TRUE) |>
+  filter(op %in% c("~", ":=")) |>
+  select(lhs, op, rhs, est, se, z, pvalue, std.all) |>
+  mutate(across(c(est, se, z, pvalue, std.all), round, 3)) |>
+  tt()
+```
+
+## Fit Comparison: Step 1 vs Step 2
+
+```{r}
+#| echo: false
+fm_sr <- fitMeasures(fit_sr_we, c("chisq.scaled", "df", "cfi.robust", "rmsea.robust", "srmr"))
+fit_compare <- tibble::tibble(
+  Model = c("Step 1: CFA", "Step 2: SEM"),
+  `Chisq*` = c(fm_cfa["chisq.scaled"], fm_sr["chisq.scaled"]),
+  `df` = c(fm_cfa["df"], fm_sr["df"]),
+  `CFI*` = c(fm_cfa["cfi.robust"], fm_sr["cfi.robust"]),
+  `RMSEA*` = c(fm_cfa["rmsea.robust"], fm_sr["rmsea.robust"]),
+  SRMR = c(fm_cfa["srmr"], fm_sr["srmr"])
+)
+
+fit_compare |>
+  mutate(across(-Model, round, 3)) |>
+  tt()
+```
+
+## Interpretation of Effects
+
+- **Indirect effect**: $a \times b$ (SOP $\rightarrow$ NGSE $\rightarrow$ PASS)
+- **Direct effect**: $c'$ (SOP $\rightarrow$ PASS, controlling for NGSE)
+- **Total effect**: $c' + a\times b$
+
+. . .
+
+::: {.callout-note}
+If the 95% CI for the indirect effect excludes 0, the mediation effect is statistically supported.
+:::
+
+## Brief Causal Caution
+
+- A fitted SEM does **not** prove causal direction
+- Causal interpretation depends on assumptions (no key omitted confounders)
+- Equivalent/reversed models may show similar global fit
+
+. . .
+
+::: {.callout-warning}
+Use theory and design (not fit indices alone) to justify directional claims.
+:::
+
+## Summary
+
+- Structural regression combines CFA and path analysis in one model
+- Use the two-step strategy: validate measurement first, then test structure
+- Indirect effects are straightforward in *lavaan* using `:=`
+- Good fit supports plausibility, but does not establish causality by itself
+
+## Exercise {background-color='{{< brand color fed-teal >}}' .smaller}
+
+::: {.nonincremental}
+1. Fit the measurement model using `we_data` and check fit.
+    a. Report CFI, RMSEA, and SRMR.
+    b. Which factor has the strongest average standardized loading?
+2. Fit the structural mediation model:
+
+   ```r
+   model_sr_we <- "
+     SOP  =~ SOP_1 + SOP_2 + SOP_3 + SOP_4 + SOP_5
+     NGSE =~ NGSE_1 + NGSE_2 + NGSE_3 + NGSE_4 +
+             NGSE_5 + NGSE_6 + NGSE_7 + NGSE_8
+     PASS =~ Pasgn + Pexam + Pread + Pgen
+
+     NGSE ~ a * SOP
+     PASS ~ b * NGSE + c * SOP
+
+     indirect := a * b
+     total    := c + a * b
+   "
+   fit_sr_we <- sem(model_sr_we, data = we_data,
+                    std.lv = TRUE, estimator = "MLR", missing = "FIML")
+   ```
+
+    a. Report the indirect effect and its 95% CI.
+    b. Is the direct effect (`c`) still statistically different from 0?
+3. Bonus: remove the direct path (`c`) and compare fit to the model above.
+:::
+
+`r countdown(minutes = 15)`

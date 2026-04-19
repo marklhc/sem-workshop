@@ -1,0 +1,200 @@
+---
+title: "Confirmatory Factor Analysis With Categorical Indicators"
+---
+
+```{r}
+#| label: setup
+#| message: false
+library(here)
+library(lavaan)
+library(dplyr)
+library(modelsummary)
+```
+
+The data come from this paper: <https://doi.org/10.1111/desc.12918>. The authors kindly shared the data on OSF: <https://osf.io/hq4xy/overview>.
+
+```{r}
+# Download data from OSF
+if (!dir.exists(here("data"))) {
+    dir.create(here("data"))
+}
+# Raw items
+tiego_raw_name <- here("data", "tiego_raw.csv")
+if (!file.exists(tiego_raw_name)) {
+    download.file(
+        "https://osf.io/download/mtnqj/",
+        destfile = tiego_raw_name
+    )
+}
+```
+
+### Load Data
+
+```{r}
+tiego_raw <- read.csv(tiego_raw_name)
+# Notice that the minimum is -999 for many variables, so -999 is likely a missing code
+# Treat -999 as NA
+tiego_raw <- read.csv(tiego_raw_name, na.strings = -999)
+# Looks like the CBCL items also have some other missing codes
+tiego_raw |>
+    select(starts_with("CBCLProb")) |>
+    glimpse()
+# Recode 9 to NA as well
+tiego_raw <- tiego_raw |>
+    mutate(across(starts_with("CBCLProb"),
+                  ~ ifelse(.x == 9, NA, .x)))
+```
+
+The data contain items from CBCL (Child Behavior Checklist). The items are rated on a 3-point scale (0 = not true, 1 = somewhat or sometimes true, 2 = very true or often true), and should not be treated as continuous. We will focus on the 7-item DSM-oriented Attention Deficit/Hyperactivity Problems scale, with the seven items being Items 4, 8, 10, 41, 78, 93, 104.
+
+```{r}
+# Gather the items into a smaller data set
+tiego_adhd <- tiego_raw |>
+    select(
+        adhd1 = CBCLProb4,  # fails to finish
+        adhd2 = CBCLProb8,  # concentrate
+        adhd3 = CBCLProb10,  # sit still
+        adhd4 = CBCLProb41,  # impulsive
+        adhd5 = CBCLProb78,  # inattentive
+        adhd6 = CBCLProb93,  # talk much
+        adhd7 = CBCLProb104  # loud
+    ) |>
+    # recode to be ordinal
+    mutate(
+        across(
+            everything(),
+            ~ ordered(.x, levels = c(0, 1, 2),
+                      labels = c("not true", "somewhat or sometimes true",
+                                 "very true or often true")),
+            .names = "{.col}_c"))
+datasummary_skim(tiego_adhd[, 8:14])  # check the recoded items
+```
+
+## Background on Categorical Data
+
+Many scales in psychology, like the CBCL, use Likert-type response formats (e.g., 0-1-2). Standard CFA using Maximum Likelihood (ML) assumes that the observed variables are:
+
+1.  **Continuous**: Can take any value within a range.
+2.  **Normally Distributed**: Follow a bell curve.
+
+When we have ordinal data with few categories (e.g., fewer than 5), treating them as continuous can lead to:
+
+-   Biased parameter estimates (e.g., underestimated factor loadings).
+-   Incorrect standard errors and $\chi^2$ statistics.
+-   Spurious multidimensionality (factors defined by item difficulty rather than content).
+
+### Underlying Latent Response Formulation
+
+Instead of analyzing the discrete scores directly (0, 1, 2), we assume that for each observed categorical item $Y$, there is an underlying, unobserved continuous variable $Y^*$ (Y-star). The observed score is determined by where $Y^*$ falls relative to certain **thresholds** ($\tau$):
+
+$$
+Y = \begin{cases} 
+0 & \text{if } Y^* \le \tau_1 \\
+1 & \text{if } \tau_1 < Y^* \le \tau_2 \\
+2 & \text{if } Y^* > \tau_2
+\end{cases}
+$$
+
+```{r}
+#| echo: false
+#| fig-height: 3.5
+#| code-fold: true
+library(ggplot2)
+library(patchwork)
+
+tau <- c(-0.2, 1.0)
+xpos_text <- (c(-2, tau) + c(tau, 2)) / 2
+
+# Plot 1: Latent density
+p1 <- ggplot(data.frame(x = c(-3, 3)), aes(x = x)) +
+    stat_function(fun = dnorm) +
+    geom_vline(xintercept = tau, linetype = "dashed") +
+    annotate("text", x = tau + 0.05, y = 0.3, label = c(expression(tau[1]), expression(tau[2])), hjust = 0) +
+    annotate("text", x = xpos_text, y = 0.1, label = 
+    c("Y = 0", "Y = 1", "Y = 2")) +
+    labs(x = expression(Y^"*"), y = "Density") +
+    theme_classic()
+
+# Plot 2: Observed probabilities
+probs <- c(pnorm(tau), 1) - c(0, pnorm(tau))
+df_bar <- data.frame(
+    Category = factor(c("0", "1", "2")),
+    Probability = probs
+)
+
+p2 <- ggplot(df_bar, aes(x = Category, y = Probability)) +
+    geom_col(width = 0.5) +
+    geom_text(aes(label = round(Probability, 2)), vjust = -0.5) +
+    labs(x = "Observed Category (Y)", y = "Probability") +
+    theme_classic()
+
+# Combine plots horizontally
+p1 + p2
+```
+
+### Polychoric Correlations
+
+Because we care about the relationships between the underlying latent responses ($Y^*$), we estimate the correlations between these $Y^*$ variables rather than the Pearson correlations of the observed integers. These correlations are called **polychoric correlations**. They are typically stronger than the Pearson correlations calculated on coarse categorical data.
+
+### WLSMV Estimator
+
+For categorical CFA, we typically use the **WLSMV** (Weighted Least Squares Mean and Variance adjusted) estimator. 
+
+-   **DWLS**: The core estimation method is Diagonally Weighted Least Squares (DWLS). Unlike Full WLS which requires the inversion of a massive weight matrix (dimensions increase rapidly with more items), DWLS only uses the diagonal elements of the weight matrix. This makes it much more computationally stable and feasible for larger models and smaller sample sizes.
+-   **MV**: It then applies robust corrections to the standard errors and test statistics (like $\chi^2$) to account for the fact that the full weight matrix was not used. Specifically, it adjusts both the Mean and Variance of the test statistic distribution.
+
+## (Not Recommended) Treating Items as Continuous
+
+```{r}
+fit_cont <- cfa(
+    " ADHD =~ adhd1 + adhd2 + adhd3 + adhd4 + adhd5 + adhd6 + adhd7 ",
+    data = tiego_adhd, missing = "fiml", estimator = "MLR"
+)
+summary(fit_cont, fit.measures = TRUE, standardized = TRUE)
+```
+
+## Ordinal CFA
+
+The ordinal CFA approach is based on the polychoric correlations among the items:
+
+```{r}
+psych::polychoric(tiego_adhd[, 1:7])
+```
+
+```{r}
+fit_ord <- cfa(
+    " ADHD =~ adhd1_c + adhd2_c + adhd3_c + adhd4_c + adhd5_c + adhd6_c + adhd7_c ",
+    data = tiego_adhd, estimator = "WLSMV", ordered = TRUE
+)
+summary(fit_ord, fit.measures = TRUE, standardized = TRUE)
+```
+
+The fit indices are different from those in the continuous CFA, and does not appear adequate. We can check the residuals and modification indices to see where the model misfits.
+
+```{r}
+resid(fit_ord, type = "cor.bentler")$cov
+modindices(fit_ord, sort. = TRUE, minimum.value = 10)
+```
+
+### Updated Models
+
+1. Add unique covariance between `adhd1_c` and `adhd2_c` and between adhd6_c and adhd7_c based on modification indices.
+
+::: {.callout-caution}
+
+## Reminder
+
+When adding unique covariances, make sure they make theoretical sense. Also, avoid adding too many unique covariances post hoc.
+
+:::
+
+```{r}
+fit_ord2 <- cfa(
+    " ADHD =~ adhd1_c + adhd2_c + adhd3_c + adhd4_c + adhd5_c + adhd6_c + adhd7_c 
+      adhd1_c ~~ adhd2_c
+      adhd6_c ~~ adhd7_c ",
+    data = tiego_adhd, estimator = "WLSMV", ordered = TRUE
+)
+summary(fit_ord2, fit.measures = TRUE, standardized = TRUE)
+```
+

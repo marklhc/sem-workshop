@@ -16,8 +16,7 @@ model_1f <- "
 "
 fit_1f <- cfa(model_1f, data = sop_data,
               std.lv    = TRUE,
-              estimator = "MLR",
-              missing   = "FIML")
+              estimator = "MLR")
 summary(fit_1f, fit.measures = TRUE, standardized = TRUE)
 
 ## ---- cfa-1factor-plot ----

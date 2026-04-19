@@ -1,0 +1,77 @@
+---
+title: "Workshop Modules"
+---
+
+::: {.panel-tabset}
+
+## 1. Path Analysis
+
+[View slides in full screen](slides/01-path_analysis.html)
+
+```{=html}
+<iframe class="slide-deck" src="slides/01-path_analysis.html" height="420" width="747" style="border: 1px solid #2e3846;"></iframe>
+```
+
+### Exercises
+
+## 2. Confirmatory Factor Analysis (CFA)
+
+[View slides in full screen](slides/02-cfa.html)
+
+```{=html}
+<iframe class="slide-deck" src="slides/02-cfa.html" height="420" width="747" style="border: 1px solid #2e3846;"></iframe>
+```
+
+### Exercises
+
+1. Run the R code in "note/data-exploration.R", and then the code in "note/cfa.R" to fit a CFA model.
+    a. Which item has the highest standardized loading?
+2. Fit the following modified CFA model:
+
+   ```r
+   model_1f_mod <- "
+     SOP =~ SOP_1 + SOP_2 + SOP_3 + SOP_4 + SOP_5
+     SOP_1 ~~ SOP_2
+   "
+   fit_1f_mod <- cfa(model_1f_mod, data = sop_data,
+                     std.lv = TRUE, estimator = "MLR")
+   ```
+
+    a. How much did the fit improve in RMSEA and CFI?
+
+3. Now try fitting a CFA model for the NGSE items:
+
+   ```r
+   ngse_data <- we_raw[, paste0("NGSE_", 1:8)]
+   
+   model_ngse <- "
+     NGSE =~ NGSE_1 + NGSE_2 + NGSE_3 + NGSE_4 +
+              NGSE_5 + NGSE_6 + NGSE_7 + NGSE_8
+   "
+   fit_ngse <- cfa(model_ngse, data = ngse_data,
+                   std.lv = TRUE, estimator = "MLR", missing = "FIML")
+   ```
+
+    a. Check the loadings---are they all strong and positive?
+    b. Inspect fit indices. Does the model fit well?
+    c. Look at modification indices. Any theoretically motivated modifications?
+
+## 3. Structural Regression Models (Full SEM)
+
+[View slides in full screen](slides/03-structural.html)
+
+```{=html}
+<iframe class="slide-deck" src="slides/03-structural.html" height="420" width="747" style="border: 1px solid #2e3846;"></iframe>
+```
+
+### Exercises
+
+1. Fit the measurement model using `we_data`.
+    a. Report CFI, RMSEA, and SRMR.
+    b. Which factor has the strongest average standardized loading?
+2. Fit the structural mediation model.
+    a. Report the indirect effect and its 95% CI.
+    b. Is the direct effect (`c`) still different from 0?
+3. Bonus: remove the direct path (`c`) and compare fit.
+
+:::
