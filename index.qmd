@@ -6,13 +6,105 @@ format:
     toc: false
 ---
 
+```{r}
+#| echo: false
+#| message: false
+library(ggplot2)
+library(dplyr)
+
+# 1. Define Latent Constructs (matching SOP, NGSE, and PASS)
+latents <- data.frame(
+  id = c("SOP", "NGSE", "PASS"),
+  label = c("SOP", "NGSE", "PASS"),
+  x = c(3, 6, 9),    # Left, Top-Middle, Right
+  y = c(4, 7.5, 4)   # Forming a triangle layout
+)
+
+# 2. Define Observed Indicators
+# Function to generate indicator nodes
+gen_obs <- function(latent_id, lx, ly, n, offset_x, offset_y, spread_x, spread_y) {
+  data.frame(
+    id = paste0(latent_id, "_", 1:n),
+    x = lx + offset_x + seq(-spread_x/2, spread_x/2, length.out = n),
+    y = ly + offset_y + seq(-spread_y/2, spread_y/2, length.out = n)
+  )
+}
+
+# SOP points left, NGSE points up, PASS points right (matching your layout)
+observed <- bind_rows(
+  gen_obs("SOP", 3, 4, 5, offset_x = -1.8, offset_y = 0, spread_x = 0, spread_y = 3),
+  gen_obs("NGSE", 6, 7.5, 8, offset_x = 0, offset_y = 1.5, spread_x = 5, spread_y = 0),
+  gen_obs("PASS", 9, 4, 4, offset_x = 1.8, offset_y = 0, spread_x = 0, spread_y = 2.5)
+)
+
+# 3. Define the Structural Paths (Mediation Model: SOP -> NGSE, SOP -> PASS, NGSE -> PASS)
+structural_paths <- data.frame(
+  from_x = c(3.2, 3.4, 6.2),
+  from_y = c(4.4, 4.0, 7.1),
+  to_x = c(5.6, 8.5, 8.6),
+  to_y = c(7.1, 4.0, 4.4)
+)
+
+# 4. Define the Measurement Paths
+measurement_paths <- bind_rows(
+  lapply(1:nrow(latents), function(i) {
+    obs_sub <- observed[grepl(latents$id[i], observed$id), ]
+    data.frame(
+      from_x = latents$x[i], from_y = latents$y[i],
+      to_x = obs_sub$x,      to_y = obs_sub$y
+    )
+  })
+)
+
+# 5. Build the Eye-Catching Plot
+cover_art_custom <- ggplot() +
+  
+  # Structural paths (thick, glowing gold)
+  geom_segment(data = structural_paths,
+               aes(x = from_x, y = from_y, xend = to_x, yend = to_y),
+               arrow = arrow(length = unit(0.5, "cm"), type = "closed"),
+               color = "#D4AF37", linewidth = 2.5, alpha = 0.85) +
+  
+  # Measurement paths (subtle slate/blue)
+  geom_segment(data = measurement_paths,
+               aes(x = from_x, y = from_y, xend = to_x, yend = to_y),
+               arrow = arrow(length = unit(0.25, "cm"), type = "closed"),
+               color = "#7A8B99", linewidth = 0.6, alpha = 0.5) +
+               
+  # Observed variables (Squares)
+  geom_point(data = observed, aes(x = x, y = y), 
+             shape = 15, size = 10, color = "#4A6B8C", alpha = 0.8) +
+             
+  # Latent variables (Circles with subtle shadow effect)
+  geom_point(data = latents, aes(x = x+0.07, y = y-0.07), size = 32, color = "gray80") +
+  geom_point(data = latents, aes(x = x, y = y), size = 32, color = "#002A54") +
+            
+  # Abstract background typography
+  annotate("text", x = 6, y = 5.2, label = "SEM", 
+           size = 12, fontface = "bold", color = "#002A54", alpha = 0.2, lineheight = 0.8) +
+           
+  # Canvas scaling and theme
+  coord_cartesian(xlim = c(0.5, 11.5), ylim = c(2, 9.5)) +
+  theme_void() +
+  theme(
+    plot.background = element_rect(fill = "#FCFBFA", color = NA),
+    panel.background = element_rect(fill = "#FCFBFA", color = NA)
+  )
+
+# Display and optionally save
+print(cover_art_custom)
+
+# Save high-res for the website index
+# ggsave("cover_art.png", cover_art_custom, width = 10, height = 6.5, dpi = 300)
+```
+
 🗓️ **Date:** April 24, 2026  
-⏰ **Time:** 13:00 – 16:00  
+⏰ **Time:** 13:00--16:00  
 🏛️ **Location:** E21-2034, University of Macau
 
 ## Overview
 
-This hands-on workshop introduces **Structural Equation Modeling (SEM)** to graduate students and researchers in psychology and the behavioral sciences. Designed for those with a working knowledge of regression and basic factor analysis, the workshop walks through the SEM framework from the ground up — from specifying models with path diagrams to evaluating fit and interpreting results using R.
+This hands-on workshop introduces **Structural Equation Modeling (SEM)** to graduate students and researchers in psychology and the behavioral sciences. Designed for those with a working knowledge of regression, the workshop walks through the SEM framework from the ground up---from specifying models with path diagrams to evaluating fit and interpreting results using R.
 
 By the end of this workshop, you will be able to:
 
@@ -39,7 +131,7 @@ By the end of this workshop, you will be able to:
 
 ## Instructor
 
-[**Mark Hok Chio Lai**](https://quantscience.rbind.io/) is an Associate Professor in the Department of Psychology at the University of Macau. His research focuses on advanced quantitative methods, including multilevel modeling, structural equation modeling, and Bayesian statistics, with applications in cross-cultural and longitudinal research.
+[**Mark Hok Chio LAI**](https://quantscience.rbind.io/) is an Associate Professor in the Faculty of Education at the University of Macau. His research focuses on the development and evaluation of advanced quantitative methods, including multilevel modeling, structural equation modeling, and Bayesian statistics, with applications in broad areas of social, behavioral, and other related fields.
 
 📧 marklai@um.edu.mo  
 🏢 E33-3030, University of Macau

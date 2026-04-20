@@ -31,6 +31,8 @@ if (!file.exists(tiego_raw_name)) {
 ### Load Data
 
 ```{r}
+#| label: load-tiego-data
+#| output: false
 tiego_raw <- read.csv(tiego_raw_name)
 # Notice that the minimum is -999 for many variables, so -999 is likely a missing code
 # Treat -999 as NA

@@ -23,6 +23,9 @@ website:
     right:
       - text: "Resources"
         file: resources.qmd
+    tools:
+      - icon: github
+        href: https://github.com/marklhc/sem-workshop
 
   page-footer:
     left: "Copyright 2026 Mark Hok Chio Lai"

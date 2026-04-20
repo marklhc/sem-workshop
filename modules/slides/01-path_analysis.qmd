@@ -49,11 +49,17 @@ library(countdown)
 
 :::: {.column width="60%"}
 ::: {.r-stack}
+::: {.content-hidden unless-profile="present"}
 ![](https://www.researchgate.net/publication/379786014/figure/fig1/AS:11431281236099590@1713011328370/Wrights-1920-path-diagram-showing-how-variations-in-coat-colour-in-guinea-pigs-can-be.png){.fragment fragment-index=1}
+:::
 
+::: {.content-hidden unless-profile="present"}
 ![](spearman_1904_p276.png){.fragment fragment-index=2}
+:::
 
+::: {.content-hidden unless-profile="present"}
 ![](Haavelmo_1943.png){.fragment fragment-index=3}
+:::
 :::
 ::::
 

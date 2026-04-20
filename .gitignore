@@ -30,3 +30,6 @@ build_site.sh
 /modules/slides/spearman_1904_p276.png
 /UM-Logo_H-Black_1.png
 /UM-Logo_H-White_1.png
+
+/_workshop/
+_quarto-present.yml
