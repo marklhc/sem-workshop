@@ -67,5 +67,19 @@ modelsummary::msummary(
     gof_map = gm
 )
 
+## ---- loadings-cfa ----
+fmt_apa <- function(x) gsub("^(-?)0\\.", "\\1.", sprintf("%.2f", x))
+standardizedSolution(fit_1f) |>
+    dplyr::filter(op == "=~") |>
+    dplyr::select(
+        Item = rhs,
+        Est = est.std,
+        LL = ci.lower,
+        UL = ci.upper
+    ) |>
+    tinytable::tt() |>
+    tinytable::format_tt(j = 2:4, fn = fmt_apa) |>
+    tinytable::style_tt(j = 2:4, align = "c")
+
 ## ---- composite-reliability ----
 semTools::compRelSEM(fit_1f)

@@ -1,5 +1,6 @@
 project:
   type: website
+  output-dir: docs
 
 execute: 
   freeze: auto
@@ -41,17 +42,18 @@ website:
           contents:
             # - href: "notes/intro-positron.qmd"
             - href: "notes/intro-quarto.qmd"
-        - section: "Part 1: CFA"
+        - section: "Part 1: Path Analysis"
+        - section: "Part 2: CFA"
           contents:
             - href: "notes/cfa.qmd"
             - href: "notes/cfa-asags.qmd"
         #     - href: "notes/cfa.qmd"
         #     - href: "notes/esem.qmd"
         #     - href: "notes/cfa-cat.qmd"
-        - section: "Part 2: Full SEM"
+        - section: "Part 3: Full SEM"
           contents:
             - href: "notes/structural.qmd"
-        - section: "Part 3: Other Topics"
+        - section: "Other Topics"
           contents:
             - href: "notes/esem.qmd"
             - href: "notes/mediation.qmd"

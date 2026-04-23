@@ -1,0 +1,2147 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.36">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>Mediation – FED-ETARC SEM Workshop</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../UM-Logo_H-Black_1.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-b7163fa3d00c4e1ebd61f4b5b358a8ad.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-15fc76de3e0ea9bb93638e3565ae9454.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-b7163fa3d00c4e1ebd61f4b5b358a8ad.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-9343ee8590bbc9118e926b4154910b0e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-a04b54ca9782974339946bf1dfc0f020.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-9343ee8590bbc9118e926b4154910b0e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script><link href="../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="../site_libs/pagedtable-1.1/js/pagedtable.js"></script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script><link rel="stylesheet" href="../styles.css">
+</head>
+<body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../UM-Logo_H-White_1.png" alt="University of Macau" class="navbar-logo light-content"><img src="../UM-Logo_H-White_1.png" alt="University of Macau" class="navbar-logo dark-content"></a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">FED-ETARC SEM Workshop</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+<li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../guide.html"> 
+<span class="menu-text">Setup</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../modules/index.html"> 
+<span class="menu-text">Modules</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../notes/cfa.html" aria-current="page"> 
+<span class="menu-text">Notes</span></a>
+  </li>  
+</ul>
+<ul class="navbar-nav navbar-nav-scroll ms-auto">
+<li class="nav-item">
+    <a class="nav-link" href="../resources.html"> 
+<span class="menu-text">Resources</span></a>
+  </li>  
+</ul>
+</div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+    <a href="https://github.com/marklhc/sem-workshop" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/esem.html">Other Topics</a></li><li class="breadcrumb-item"><a href="../notes/mediation.html">Mediation</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="https://fed.um.edu.mo/wp-content/uploads/2020/12/6-um_and_fed_logo_horizontal.png" alt="Faculty of Education | University of Macau" class="sidebar-logo light-content py-0 d-lg-inline d-none"><img src="https://fed.um.edu.mo/wp-content/uploads/2020/12/6-um_and_fed_logo_horizontal.png" alt="Faculty of Education | University of Macau" class="sidebar-logo dark-content py-0 d-lg-inline d-none"></a>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Setup</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show"></ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Part 1: Path Analysis</span></span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part 2: CFA</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/cfa.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CFA: Self-Oriented Perfectionism</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/cfa-asags.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">(Bnous) Another Example of Confirmatory Factor Analysis</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part 3: Full SEM</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/structural.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Structural Models</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Other Topics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/esem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exploratory Structural Equation Modeling (ESEM)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/mediation.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Mediation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/cfa-cat.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Confirmatory Factor Analysis With Categorical Indicators</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/invariance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Basics of Measurement Invariance</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+    </ul>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
+   
+  <ul>
+<li><a href="#background-potential-outcomes" id="toc-background-potential-outcomes" class="nav-link active" data-scroll-target="#background-potential-outcomes">Background: Potential Outcomes</a></li>
+  <li><a href="#example-data" id="toc-example-data" class="nav-link" data-scroll-target="#example-data">Example Data</a></li>
+  <li><a href="#summary-statistics" id="toc-summary-statistics" class="nav-link" data-scroll-target="#summary-statistics">Summary Statistics</a></li>
+  <li><a href="#randomization-removes-incoming-paths-for-treatment" id="toc-randomization-removes-incoming-paths-for-treatment" class="nav-link" data-scroll-target="#randomization-removes-incoming-paths-for-treatment">Randomization Removes Incoming Paths for Treatment</a></li>
+  <li>
+<a href="#causal-chains" id="toc-causal-chains" class="nav-link" data-scroll-target="#causal-chains">Causal Chains</a>
+  <ul class="collapse">
+<li><a href="#post-treatment-bias" id="toc-post-treatment-bias" class="nav-link" data-scroll-target="#post-treatment-bias">Post-Treatment Bias</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#causal-mediation" id="toc-causal-mediation" class="nav-link" data-scroll-target="#causal-mediation">Causal Mediation</a>
+  <ul class="collapse">
+<li><a href="#direct-and-indirect-effects" id="toc-direct-and-indirect-effects" class="nav-link" data-scroll-target="#direct-and-indirect-effects">Direct and Indirect Effects</a></li>
+  <li><a href="#using-the-mediation-package" id="toc-using-the-mediation-package" class="nav-link" data-scroll-target="#using-the-mediation-package">Using the <code>mediation</code> Package</a></li>
+  <li><a href="#sensitivity-analysis" id="toc-sensitivity-analysis" class="nav-link" data-scroll-target="#sensitivity-analysis">Sensitivity Analysis</a></li>
+  <li><a href="#using-lavaan" id="toc-using-lavaan" class="nav-link" data-scroll-target="#using-lavaan">Using <code>lavaan</code></a></li>
+  </ul>
+</li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="mediation.pdf"><i class="bi bi-file-pdf"></i>Typst</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/esem.html">Other Topics</a></li><li class="breadcrumb-item"><a href="../notes/mediation.html">Mediation</a></li></ol></nav><div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">Mediation</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<p class="subtitle lead">Data: Brader et al.&nbsp;(2008)</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header><div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://here.r-lib.org/">here</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://www.dagitty.net">dagitty</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/r-causal/ggdag">ggdag</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://imai.princeton.edu/projects/mechanisms.html">mediation</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://lavaan.ugent.be">lavaan</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/simsem/semTools/wiki">semTools</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://vincentarelbundock.github.io/tinytable/">tinytable</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://modelsummary.com">modelsummary</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/get_theme.html">theme_set</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>panel.grid.major.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_line</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"grey92"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="background-potential-outcomes" class="level2"><h2 class="anchored" data-anchor-id="background-potential-outcomes">Background: Potential Outcomes</h2>
+<p>Consider a binary treatment variable <span class="math inline">\(T\)</span> (e.g., <span class="math inline">\(T = 1\)</span> for treatment, <span class="math inline">\(T = 0\)</span> for control). For each individual <span class="math inline">\(i\)</span>, there are two <strong>potential outcomes</strong>:</p>
+<ul>
+<li>
+<span class="math inline">\(Y_i(1)\)</span>: The outcome if individual <span class="math inline">\(i\)</span> receives the treatment.</li>
+<li>
+<span class="math inline">\(Y_i(0)\)</span>: The outcome if individual <span class="math inline">\(i\)</span> does <em>not</em> receive the treatment.</li>
+</ul>
+<p>The causal effect of the treatment for individual <span class="math inline">\(i\)</span> is the difference <span class="math inline">\(Y_i(1) - Y_i(0)\)</span>. However, in reality, we can only observe <em>one</em> of these outcomes for any given person (the <strong>Fundamental Problem of Causal Inference</strong>). If person <span class="math inline">\(i\)</span> is treated, we observe <span class="math inline">\(Y_i(1)\)</span> but <span class="math inline">\(Y_i(0)\)</span> becomes counterfactual (what <em>would have</em> happened).</p>
+<p>Start with a hypothetical example where we can see both potential outcomes:</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Hypothetical Data with Potential Outcomes</caption>
+<thead><tr class="header">
+<th style="text-align: right;">ID</th>
+<th style="text-align: right;">y0</th>
+<th style="text-align: right;">y1</th>
+<th style="text-align: right;">T</th>
+<th style="text-align: right;">Y_obs</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">80</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">80</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">80</td>
+<td style="text-align: right;">72</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">80</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">75</td>
+<td style="text-align: right;">65</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">75</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">90</td>
+<td style="text-align: right;">88</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">90</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">85</td>
+<td style="text-align: right;">88</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">88</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">82</td>
+<td style="text-align: right;">79</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">82</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">95</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">100</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">78</td>
+<td style="text-align: right;">78</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">78</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>If we could observe both, we could calculate the <strong>Average Treatment Effect (ATE)</strong>:</p>
+<p><span class="math display">\[
+ATE = E[Y(1) - Y(0)]
+\]</span></p>
+<p>However, if we just compare the observed means of the treated and untreated groups (the <strong>Naive Comparison</strong>):</p>
+<p><span class="math display">\[
+E[Y | T = 1] - E[Y | T = 0]
+\]</span></p>
+<p>This naive estimate is often biased because people who choose (or are selected for) the treatment might be systematically different from those who do not (selection bias). For example, if those who would benefit most from a drug are the ones who take it, the naive comparison overestimates the drug’s effectiveness for the general population.</p>
+<p><strong>Randomization</strong> solves this by ensuring that the treatment assignment <span class="math inline">\(T\)</span> is independent of the potential outcomes (<span class="math inline">\(Y(1), Y(0)\)</span>). In other words, the treated group and the control group are comparable on average.</p>
+</section><section id="example-data" class="level2"><h2 class="anchored" data-anchor-id="example-data">Example Data</h2>
+<p>We’ll use the <code>framing</code> data set from the <code>mediation</code> package. The data were analyzed in a <a href="https://doi.org/10.1111/j.1540-5907.2008.00353.x">report in the American Journal of Political Science</a>. The study examined whether “news about the costs of immigration boosts white opposition” (p.&nbsp;959).</p>
+</section><section id="summary-statistics" class="level2"><h2 class="anchored" data-anchor-id="summary-statistics">Summary Statistics</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">framing</span>, package <span class="op">=</span> <span class="st">"mediation"</span><span class="op">)</span></span>
+<span><span class="co"># Subtract the `emo` variable by 3 so that it starts from 0-9</span></span>
+<span><span class="va">framing</span><span class="op">$</span><span class="va">emo</span> <span class="op">&lt;-</span> <span class="va">framing</span><span class="op">$</span><span class="va">emo</span> <span class="op">-</span> <span class="fl">3</span></span>
+<span><span class="co"># Quick summary of selected variables</span></span>
+<span><span class="va">framing</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">tone</span>, <span class="va">emo</span>, <span class="va">cong_mesg</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://modelsummary.com/man/datasummary_skim.html">datasummary_skim</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<!-- preamble start -->
+
+    <script src="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.js"></script><script>
+      // Create table-specific functions using external factory
+      const tableFns_tfskis4icy65npg89m6t = TinyTable.createTableFunctions("tinytable_tfskis4icy65npg89m6t");
+      // tinytable span after
+      window.addEventListener('load', function () {
+          var cellsToStyle = [
+            // tinytable style arrays after
+          { positions: [ { i: '3', j: 1 }, { i: '3', j: 2 }, { i: '3', j: 3 }, { i: '3', j: 4 }, { i: '3', j: 5 }, { i: '3', j: 6 }, { i: '3', j: 7 }, { i: '3', j: 8 }, { i: '3', j: 9 } ], css_id: 'tinytable_css_rhopm84q8cq5qb9ihbxp',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '1', j: 3 }, { i: '2', j: 3 }, { i: '1', j: 4 }, { i: '2', j: 4 }, { i: '1', j: 5 }, { i: '2', j: 5 }, { i: '1', j: 6 }, { i: '2', j: 6 }, { i: '1', j: 7 }, { i: '2', j: 7 }, { i: '1', j: 8 }, { i: '2', j: 8 }, { i: '1', j: 9 }, { i: '2', j: 9 } ], css_id: 'tinytable_css_ebdkmur9c8hdzj65jdw2',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 }, { i: '0', j: 3 }, { i: '0', j: 4 }, { i: '0', j: 5 }, { i: '0', j: 6 }, { i: '0', j: 7 }, { i: '0', j: 8 }, { i: '0', j: 9 } ], css_id: 'tinytable_css_sr2d5jh3un5fulcvsq4f',}, 
+          ];
+
+          // Loop over the arrays to style the cells
+          cellsToStyle.forEach(function (group) {
+              group.positions.forEach(function (cell) {
+                  tableFns_tfskis4icy65npg89m6t.styleCell(cell.i, cell.j, group.css_id);
+              });
+          });
+      });
+    </script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
+<style>
+    /* tinytable css entries after */
+    #tinytable_tfskis4icy65npg89m6t td.tinytable_css_rhopm84q8cq5qb9ihbxp, #tinytable_tfskis4icy65npg89m6t th.tinytable_css_rhopm84q8cq5qb9ihbxp {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_tfskis4icy65npg89m6t td.tinytable_css_ebdkmur9c8hdzj65jdw2, #tinytable_tfskis4icy65npg89m6t th.tinytable_css_ebdkmur9c8hdzj65jdw2 { text-align: left }
+    #tinytable_tfskis4icy65npg89m6t td.tinytable_css_sr2d5jh3un5fulcvsq4f, #tinytable_tfskis4icy65npg89m6t th.tinytable_css_sr2d5jh3un5fulcvsq4f {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    </style>
+<div class="container">
+      <table class="tinytable" id="tinytable_tfskis4icy65npg89m6t" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+<thead><tr>
+<th scope="col" data-row="0" data-col="1"> </th>
+                <th scope="col" data-row="0" data-col="2">Unique</th>
+                <th scope="col" data-row="0" data-col="3">Missing Pct.</th>
+                <th scope="col" data-row="0" data-col="4">Mean</th>
+                <th scope="col" data-row="0" data-col="5">SD</th>
+                <th scope="col" data-row="0" data-col="6">Min</th>
+                <th scope="col" data-row="0" data-col="7">Median</th>
+                <th scope="col" data-row="0" data-col="8">Max</th>
+                <th scope="col" data-row="0" data-col="9">Histogram</th>
+              </tr></thead>
+<tbody>
+<tr>
+<td data-row="1" data-col="1">tone</td>
+                  <td data-row="1" data-col="2">2</td>
+                  <td data-row="1" data-col="3">0</td>
+                  <td data-row="1" data-col="4">0.5</td>
+                  <td data-row="1" data-col="5">0.5</td>
+                  <td data-row="1" data-col="6">0.0</td>
+                  <td data-row="1" data-col="7">1.0</td>
+                  <td data-row="1" data-col="8">1.0</td>
+                  <td data-row="1" data-col="9"><img src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAABLAAAAGQCAMAAACJa2lsAAAAP1BMVEUAAAAzMzNAQEBCQkJRUVFSUlJWVlZcXFxjY2NqampxcXF3d3eIiIi7u7u8vLy+vr7Dw8PIyMjLy8vMzMz////1TW2vAAAITElEQVR4nO3US24YRxQEQdqy9aVFkfL9z+p17UxAbGUTERd4M4OpfPgX4BIPv/sBAP4vwQKuIVjANQQLuIZgAdcQLOAaggVcQ7CAawgWcA3BAq4hWMA1BAu4hmAB1xAsYDx+O+rxNc8mWMB4OOxVz/ZWLw3cSbCAawgWcA3BAq4hWMA1BAu4hmAB1xAs4BqCBVxDsIBrCBZwDcECrvFugvXnH0d9eN1nBn6FdxOs8osAv0Z554IFjPLOBQsY5Z0LFjDKOxcsYJR3LljAKO9csIBR3rlgAaO8c8ECRnnnggWM8s4FCxjlnQsWMMo7FyxglHcuWMAo71ywgFHeuWABo7xzwQJGeeeCBYzyzgULGOWdCxYwyjsXLGCUdy5YwCjvXLCAUd65YAGjvHPBAkZ554IFjPLOBQsY5Z0LFjDKOxcsYJR3LljAKO9csIBR3rlgAaO8c8ECRnnnggWM8s4FCxjlnQsWMMo7FyxglHcuWMAo71ywgFHeuWABo7xzwQJGeeeCBYzyzgULGOWdCxYwyjsXLGCUdy5YwCjvXLCAUd65YAGjvHPBAkZ554IFjPLOBQsY5Z0LFjDKOxcsYJR3LljAKO9csIBR3rlgAaO8c8ECRnnnggWM8s4FCxjlnQsWMMo7FyxglHcuWMAo71ywgFHeuWABo7xzwQJGeeeCBYzyzgULGOWdCxYwyjsXLGCUdy5YwCjvXLCAUd65YAGjvHPBAkZ554IFjPLOBQsY5Z0LFjDKOxcsYJR3LljAKO9csIBR3rlgAaO8c8ECRnnnggWM8s4FCxjlnQsWMMo7FyxglHcuWMAo71ywgFHeuWABo7xzwQJGeeeCBYzyzgULGOWdCxYwyjsXLGCUdy5YwCjvXLCAUd65YAGjvHPBAkZ554IFjPLOBQsY5Z0LFjDKOxcsYJR3LljAKO9csIBR3rlgAaO8c8ECRnnnggWM8s4FCxjlnQsWMMo7FyxglHcuWMAo71ywgFHeuWABo7xzwQJGeeeCBYzyzgULGOWdCxYwyjsXLGCUdy5YwCjvXLCAUd65YAGjvHPBAkZ554IFjPLOBQsY5Z0LFjDKOxcsYJR3LljAKO9csIBR3rlgAaO8c8ECRnnnggWM8s4FCxjlnQsWMMo7FyxglHcuWMAo71ywgFHeuWABo7xzwQJGeeeCBYzyzgULGOWdCxYwyjsXLGCUdy5YwCjvXLCAUd65YAGjvHPBAkZ554IFjPLOBQsY5Z0LFjDKOxcsYJR3LljAKO9csIBR3rlgAaO8c8ECRnnnggWM8s4FCxjlnQsWMMo7FyxglHcuWMAo71ywgFHeuWABo7xzwQJGeeeCBYzyzgULGOWdCxYwyjsXLGCUdy5YwCjvXLCAUd65YAGjvHPBAkZ554IFjPLOBQsY5Z0LFjDKOxcsYJR3LljAKO9csIBR3rlgAaO8c8ECRnnnggWM8s4FCxjlnQsWMMo7FyxglHcuWMAo71ywgFHeuWABo7xzwQJGeeeCBYzyzgULGOWdCxYwyjsXLGCUdy5YwCjvXLCAUd65YAGjvHPBAkZ554IFjPLOBQsY5Z0LFjDKOxcsYJR3LljAKO9csIBR3rlgAaO8c8ECRnnnggWM8s4FCxjlnQsWMMo7FyxglHcuWMAo71ywgFHeuWABo7xzwQJGeeeCBYzyzgULGOWdCxYwyjsXLGCUdy5YwCjvXLCAUd65YAGjvHPBAkZ554IFjPLOBQsY5Z0LFjDKOxcsYJR3LljAKO9csIBR3rlgAaO8c8ECRnnnggWM8s4FCxjlnQsWMMo7FyxglHcuWMAo71ywgFHeuWABo7xzwQJGeeeCBYzyzgULGOWdCxYwyjsXLGCUdy5YwCjvXLCAUd65YAGjvHPBAkZ554IFjPLOBQsY5Z0LFjDKOxcsYJR3LljAKO9csIBR3rlgAaO8c8ECRnnnggWM8s4FCxjlnQsWMMo7FyxglHcuWMAo71ywgFHeuWABo7xzwQJGeeeCBYzyzgULGOWdCxYwyjsXLGCUdy5YwCjvXLCAUd65YAGjvHPBAkZ554IFjPLOBQsY5Z0LFjDKOxcsYJR3LljAKO9csIBR3rlgAaO8c8ECRnnnggWM8s4FCxjlnQsWMMo7FyxglHcuWMAo71ywgFHeuWABo7xzwQJGeeeCBYzyzgULGOWdCxYwyjsXLGCUdy5YwCjvXLCAUd65YAGjvHPBAkZ554IFjPLOBQsY5Z0LFjDKOxcsYJR3LljAKO9csIBR3rlgAaO8c8ECRnnnggWM8s4FCxjlnQsWMMo7FyxglHcuWMAo71ywgFHeuWABo7xzwQJGeeeCBYzyzgULGOWdCxYwyjsXLGCUdy5YwCjvXLCAUd65YAGjvHPBAkZ554IFjPLOBQsY5Z0LFjDKOxcsYJR3LljAKO9csIBR3rlgAaO8c8ECRnnnggWM8s4FCxjlnQsWMMo7FyxglHcuWMAo71ywgFHeuWABo7xzwQJGeeeCBYzyzgULGOWdCxYwyjsXLGCUdy5YwCjvXLCAUd65YAGjvHPBAkZ554IFjPLOBQsY5Z0LFjDKOxcsYJR3LljAKO9csIBR3rlgAaO8c8ECRnnnggWM8s4FCxjlnQsWMMo7FyxglHcuWMAo71ywgFHeuWABo7xzwQJGeeeCBYzyzgULGOWdp4P186h/zp77/nL03NPz0XM/fhw99/x09NzL96PnTv+ap3f+ZsF6/HbUX+/63MevR899+nL03OfPR899+XT03NePR8+d/jX/Pnvu8c2CBfA7CRZwDcECriFYwDUEC7iGYAHXECzgGoIFXEOwgGsIFnANwQKuIVjANQQLuIZgAdf4D6tQe2wuPzucAAAAAElFTkSuQmCC" style="height: 1em;"></td>
+                </tr>
+<tr>
+<td data-row="2" data-col="1">emo</td>
+                  <td data-row="2" data-col="2">10</td>
+                  <td data-row="2" data-col="3">0</td>
+                  <td data-row="2" data-col="4">4.0</td>
+                  <td data-row="2" data-col="5">2.8</td>
+                  <td data-row="2" data-col="6">0.0</td>
+                  <td data-row="2" data-col="7">4.0</td>
+                  <td data-row="2" data-col="8">9.0</td>
+                  <td data-row="2" data-col="9"><img src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAABLAAAAGQCAMAAACJa2lsAAAAeFBMVEUAAAArKytERERGRkZISEhJSUlMTExPT09TU1NVVVVXV1daWlpcXFxeXl5paWlubm5xcXFzc3N1dXV3d3eIiIiZmZmoqKisrKy4uLi7u7vBwcHMzMzOzs7Y2Njg4ODk5OTl5eXu7u729vb4+Pj5+fn7+/v+/v7////gxi2aAAAHOElEQVR4nO3UWbIVVRBAUewBkUZQsRfb+c/Q3/dRFemN4FK5jbUmkCczqvajfwAiHl39AID/SrCADMECMgQLyBAsIEOwgAzBAjIEC8gQLCBDsIAMwQIyBAvIECwg46ZgvXl9nV/udQEg46ZgPbrQ23tdAMgQLCBDsIAMwQIyBAvIECwgQ7CADMECMgQLyBAsIEOwgAzBAjIEC8gQLCBDsIAMwQIyBAvIECwgQ7CADMECMgQLyBAsIEOwgAzBAjIEC8gQLCBDsIAMwQIyBAvIECwgQ7CADMECMgQLyBAsIEOwgAzBAjIEC8gQLCBDsIAMwQIyBAvIECwgQ7CADMECMgQLyBAsIEOwgAzBAjIEC8gQLCBDsIAMwQIyBAvIECwgQ7CADMECMgQLyBAsIEOwgAzBAjIEC8gQLCBDsIAMwQIyBAvIECwgQ7CADMECMgQLyBAsIEOwgAzBAjIEC8gQLCBDsIAMwQIyBAvIECwgQ7CADMECMgQLyBAsIEOwgAzBAjIEC8gQLCBDsIAMwQIyBAvIECwgQ7CADMECMgQLyBAsIEOwgAzBAjIEC8gQLCBDsIAMwQIyBAvIECwgQ7CADMECMgQLyBAsIEOwgAzBAjIEC8gQLCBDsIAMwQIyBAvIECwgQ7CADMECMgQLyBAsIEOwgAzBAjIEC8gQLCBDsIAMwQIyBAvIECwgQ7CADMECMgQLyBAsIEOwgAzBAjIEC8gQLCBDsIAMwQIyBAvIECwgQ7CAjEywvnt3md/vdfzZn9dt/e6P69aGE5lgXejTex1/9vWFa3913dpwQrBmH9/r+LOXF6795XVrwwnBmgkWLCFYM8GCJQRrJliwhGDNBAuWEKyZYMESgjUTLFhCsGaCBUsI1kywYAnBmgkWLCFYM8GCJQRrJliwhGDNBAuWEKyZYMESgjUTLFhCsGaCBUsI1kywYAnBmgkWLCFYM8GCJQRrJliwhGDNBAuWEKyZYMESgjUTLFhCsGaCBUsI1kywYAnBmgkWLCFYM8GCJQRrJliwhGDNBAuWEKyZYMESgjUTLFhCsGaCBUsI1kywYAnBmgkWLCFYM8GCJQRrJliwhGDNBAuWEKyZYMESgjUTLFhCsGaCBUsI1kywYAnBmgkWLCFYM8GCJQRr9tE3l/nkwrUFi30EixOCxT6CxQnBYh/B4oRgsY9gcUKw2EewOCFY7CNYnBAs9hEsTggW+wgWJwSLfQSLE4LFPoLFCcFiH8HihGCxj2BxQrDYR7A4IVjsI1icECz2ESxOCBb7CBYnBIt9BIsTgsU+gsUJwWIfweLEZz9e5qe/7/W9EydYLPTbvb534gSLhX691/dOnGCxkGBxTLBYSLA4JlgsJFgcEywWEiyOCRYLCRbHBIuFBItjgsVCgsUxwWIhweKYYLGQYHFMsFhIsDgmWCwkWBwTLBYSLI4JFgsJFscEi4UEi2OCxUKCxTHBYiHB4phgsZBgcUywWEiwOCZYLCRYHBMsFhIsjgkWCwkWxwSLhQSLY4LFQoLFMcFioc+fXObbe/1qq/183cGfPL/loYIFD7287U//n3h75clveahgwUOC9cHd8lDBgocE64O75aGCBQ8J1gd3y0MFCx4SrA/ulocKFjz0+PvL/HBbZN4nwQJu9NdtlXmPBAu4kWCNBAu2EKyRYMEWgjUSLNhCsEaCBVsI1kiwYAvBGgkWbCFYI8GCLQRrJFiwhWCNBAu2EKyRYMEWgjUSLNhCsEaCBVsI1kiwYAvBGgkWbCFYI8GCLQRrJFiwhWCNBAu2EKyRYMEWgjUSLNhCsEaCBVsI1kiwYAvBGgkWbCFYI8GCLQRrJFiwhWCNBAu2EKyRYMEWgjUSLNhCsEaCBVsI1kiwYAvBGgkWbCFYI8GCLQRrJFiwhWCNBAu2EKyRYMEWgjUSLNhCsEaCBVsI1kiwgEsJFpAhWECGYAEZggVkCBaQIVhAhmABGYIFZAgWkCFYQIZgARmCBWQIFpAhWECGYAEZggVkCBaQIVhAhmABGYIFZAgWkCFYQIZgARmCBWQIFpAhWECGYAEZggVkCBaQIVhAhmABGYIFZAgWkCFYQIZgARmCBWQIFpAhWECGYAEZggVkCBaQIVhAhmABGYIFZAgWkCFYQIZgARmCBWQIFpAhWECGYAEZggVkCBaQIVhAhmABGYIFZAgWkCFYQIZgARmCBWQIFpAhWECGYAEZggVkCBaQIVhAhmABGYIFZAgWkCFYQIZgARmCBWQIFpAhWECGYAEZggVkCBaQIVhAhmABGYIFZAgWkCFYQIZgARmCBWQIFpAhWECGYAEZggVkCBaQIVhAhmABGYIFZAgWkCFYQIZgARl3C9ab15d59vy62V9cN/rpi8tGv3p82ejXj19dNvrF08tGX/mhPX923ew3dwsWwJUEC8gQLCBDsIAMwQIyBAvIECwgQ7CADMECMgQLyBAsIEOwgAzBAjIEC8j4F1WQmXV4zMBeAAAAAElFTkSuQmCC" style="height: 1em;"></td>
+                </tr>
+<tr>
+<td data-row="3" data-col="1">cong_mesg</td>
+                  <td data-row="3" data-col="2">2</td>
+                  <td data-row="3" data-col="3">0</td>
+                  <td data-row="3" data-col="4">0.3</td>
+                  <td data-row="3" data-col="5">0.5</td>
+                  <td data-row="3" data-col="6">0.0</td>
+                  <td data-row="3" data-col="7">0.0</td>
+                  <td data-row="3" data-col="8">1.0</td>
+                  <td data-row="3" data-col="9"><img src="data:image/png;base64,%20iVBORw0KGgoAAAANSUhEUgAABLAAAAGQCAMAAACJa2lsAAAAPFBMVEUAAABRUVFSUlJWVlZcXFxjY2NqampxcXF3d3eIiIiqqqq5ubm7u7u8vLy+vr7Dw8PIyMjLy8vMzMz////qCssXAAAHIElEQVR4nO3USXIUQRREQYHGRmjk/ndlHTu06FQE5n6BX2lW8W7+AIy4+e4PAPhXggXMECxghmABMwQLmCFYwAzBAmYIFjBDsIAZggXMECxghmABMwQLmPGlYF2ejrpc69HApi8F6+awaz0a2CRYwAzBAmYIFjBDsIAZggXMECxghmABMwQLmCFYwAzBAmYIFjBDsIAZggXMECxghmABMwQLmCFYwAzBAmYIFjBDsIAZggXMECxghmABMwQLmCFYwAzBAmYIFjBDsIAZggXMECxghmABMwQLmCFYwAzBAmYIFjBDsIAZggXMECxghmABMwQLmCFYwAzBAmYIFjBDsIAZggXMECxghmABMwQLmCFYwAzBAmYIFjBDsIAZggXMECxghmABMwQLmCFYwAzBAmYIFjBDsIAZggXMECxghmABMwQLmCFYwAzBAmYIFjBDsIAZggXMECxghmABMwQLmCFYwAzBAmYIFjBDsIAZggXMECxghmABMwQLmCFYwAzBAmYIFjBDsIAZggXMECxghmABMwQLmCFYwAzBAmYIFjBDsIAZggXMECxghmABMwQLmCFYwAzBAmYIFjBDsIAZggXMECxghmABMwQLmCFYwAzBAmYIFjBDsIAZggXMECxghmABMwQLmCFYwAzBAmYIFjBDsIAZggXMECxghmABMwQLmCFYwAzBAmYIFjBDsIAZggXMECxghmABMwQLmCFYwAzBAmYIFjBDsIAZggXMECxghmABMwQLmCFYwAzBAmYIFjBDsIAZggXMECxghmABMwQLmCFYwAzBAmYIFjBDsIAZggXMECxghmABMwQLmCFYwAzBAmYIFjBDsIAZggXMECxghmABMwQLmCFYwAzBAmYIFjBDsIAZggXMECxghmABMwQLmCFYwAzBAmYIFjBDsIAZggXMECxghmABMwQLmCFYwAzBAmYIFjBDsIAZggXMECxghmABMwQLmCFYQHj+ddTzV75NsIDQvHPBAkLzzgULCM07FywgNO9csIDQvHPBAkLzzgULCM07FywgNO9csIDQvHPBAkLzzgULCM07FywgNO9csIDQvHPBAkLzzgULCM07FywgNO9csIDQvHPBAkLzzgULCM07FywgNO9csIDQvHPBAkLzzgULCM07FywgNO9csIDQvHPBAkLzzgULCM07FywgNO9csIDQvHPBAkLzzgULCM07FywgNO9csIDQvHPBAkLzzgULCM07FywgNO9csIDQvHPBAkLzzgULCM07FywgNO9csIDQvHPBAkLzzgULCM07FywgNO9csIDQvHPBAkLzzgULCM07FywgNO9csIDQvHPBAkLzzgULCM07FywgNO9csIDQvHPBAkLzzgULCM07FywgNO9csIDQvHPBAkLzzgULCM07FywgNO9csIDQvHPBAkLzzgULCM07FywgNO9csIDQvHPBAkLzzgULCM07FywgNO9csIDQvHPBAkLzzgULCM07FywgNO9csIDQvHPBAkLzzgULCM07FywgNO9csIDQvHPBAkLzzgULCM07FywgNO9csIDQvHPBAkLzzgULCM07FywgNO9csIDQvHPBAkLzzgULCM07FywgNO9csIDQvHPBAkLzzgULCM07FywgNO9csIDQvHPBAkLzzgULCM07FywgNO9csIDQvHPBAkLzzgULCM07FywgNO9csIDQvHPBAkLzzgULCM07FywgNO9csIDQvHPBAkLzzgULCM07FywgNO9csIDQvHPBAkLzzgULCM07FywgNO9csIDQvHPBAkLzzgULCM07FywgNO9csIDQvHPBAkLzzgULCM07FywgNO9csIDQvHPBAkLzzgULCM07FywgNO9csIDQvHPBAkLzzgULCM07FywgNO9csIDQvHPBAkLzzgULCM07FywgNO9csIDQvHPBAkLzzgULCM07FywgNO9csIDQvHPBAkLzzgULCM07FywgNO9csIDQvHPBAkLzzgULCM07FywgNO9csIDQvHPBAkLzzgULCM07FywgNO9csIDQvHPBAkLzzgULCM07FywgNO9csIDQvHPBAkLzzgULCM07FywgNO9csIDQvHPBAkLzzgULCM07FywgNO9csIDQvHPBAkLzzgULCM07FywgNO9csIDQvHPBAkLzzgULCM07FywgNO9csIDQvHPBAkLzzgULCM07FywgNO9csIDQvHPBAkLzzgULCM07FywgNO9csIDQvHPBAkLzzgULCM07FywgNO9csIDQvHPBAkLzzgULCM07rw7W51G/z557+Th67vX96Lm3t6Pn3l+Pnvt4OXru9K95eudXC9bl6agf//W528ej5+4ejp67vz967uHu6LnH26PnTv+aP8+eu1wtWADfSbCAGYIFzBAsYIZgATMEC5ghWMAMwQJmCBYwQ7CAGYIFzBAsYIZgATMEC5jxFx9/9ozeGKpeAAAAAElFTkSuQmCC" style="height: 1em;"></td>
+                </tr>
+</tbody>
+</table>
+</div>
+<!-- hack to avoid NA insertion in last line -->
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Summary by treatment condition (`tone`)</span></span>
+<span><span class="fu"><a href="https://modelsummary.com/man/datasummary_balance.html">datasummary_balance</a></span><span class="op">(</span><span class="va">age</span> <span class="op">+</span> <span class="va">income</span> <span class="op">+</span> <span class="va">emo</span> <span class="op">+</span> <span class="va">cong_mesg</span> <span class="op">~</span> <span class="va">tone</span>, data <span class="op">=</span> <span class="va">framing</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<!-- preamble start -->
+
+    <script src="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.js"></script><script>
+      // Create table-specific functions using external factory
+      const tableFns_vbjxdtwnfum8xb95paa1 = TinyTable.createTableFunctions("tinytable_vbjxdtwnfum8xb95paa1");
+      // tinytable span after
+      window.addEventListener('load', function () {
+          var cellsToStyle = [
+            // tinytable style arrays after
+          { positions: [ { i: '-1', j: 3 }, { i: '-1', j: 5 } ], css_id: 'tinytable_css_i98giaosekp9cqub4a2c',}, 
+          { positions: [ { i: '4', j: 2 }, { i: '4', j: 3 }, { i: '4', j: 4 }, { i: '4', j: 5 }, { i: '4', j: 6 }, { i: '4', j: 7 } ], css_id: 'tinytable_css_lg1iv2kf5jlv946488np',}, 
+          { positions: [ { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '3', j: 2 }, { i: '1', j: 3 }, { i: '2', j: 3 }, { i: '3', j: 3 }, { i: '1', j: 4 }, { i: '2', j: 4 }, { i: '3', j: 4 }, { i: '1', j: 5 }, { i: '2', j: 5 }, { i: '3', j: 5 }, { i: '1', j: 6 }, { i: '2', j: 6 }, { i: '3', j: 6 }, { i: '1', j: 7 }, { i: '2', j: 7 }, { i: '3', j: 7 } ], css_id: 'tinytable_css_zyx2ulij09n6jlda6qsp',}, 
+          { positions: [ { i: '0', j: 2 }, { i: '0', j: 3 }, { i: '0', j: 4 }, { i: '0', j: 5 }, { i: '0', j: 6 }, { i: '0', j: 7 } ], css_id: 'tinytable_css_jbmaur53ru59r0m70dor',}, 
+          { positions: [ { i: '-1', j: 2 }, { i: '-1', j: 4 } ], css_id: 'tinytable_css_4yc2tnp8jyk419b0cdgu',}, 
+          { positions: [ { i: '4', j: 1 } ], css_id: 'tinytable_css_xixy31hefyspk7mn8cna',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 } ], css_id: 'tinytable_css_b47f7diwr4qq06yvtdzu',}, 
+          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_dzpxuifiyuspc7oerit2',}, 
+          { positions: [ { i: '-1', j: 1 }, { i: '-1', j: 6 }, { i: '-1', j: 7 } ], css_id: 'tinytable_css_ojnksmp3es4fhyr595kr',}, 
+          ];
+
+          // Loop over the arrays to style the cells
+          cellsToStyle.forEach(function (group) {
+              group.positions.forEach(function (cell) {
+                  tableFns_vbjxdtwnfum8xb95paa1.styleCell(cell.i, cell.j, group.css_id);
+              });
+          });
+      });
+    </script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
+<style>
+    /* tinytable css entries after */
+    #tinytable_vbjxdtwnfum8xb95paa1 td.tinytable_css_i98giaosekp9cqub4a2c, #tinytable_vbjxdtwnfum8xb95paa1 th.tinytable_css_i98giaosekp9cqub4a2c {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: black; --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.03em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 3%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_vbjxdtwnfum8xb95paa1 td.tinytable_css_lg1iv2kf5jlv946488np, #tinytable_vbjxdtwnfum8xb95paa1 th.tinytable_css_lg1iv2kf5jlv946488np {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: right }
+    #tinytable_vbjxdtwnfum8xb95paa1 td.tinytable_css_zyx2ulij09n6jlda6qsp, #tinytable_vbjxdtwnfum8xb95paa1 th.tinytable_css_zyx2ulij09n6jlda6qsp { text-align: right }
+    #tinytable_vbjxdtwnfum8xb95paa1 td.tinytable_css_jbmaur53ru59r0m70dor, #tinytable_vbjxdtwnfum8xb95paa1 th.tinytable_css_jbmaur53ru59r0m70dor {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: right }
+    #tinytable_vbjxdtwnfum8xb95paa1 td.tinytable_css_4yc2tnp8jyk419b0cdgu, #tinytable_vbjxdtwnfum8xb95paa1 th.tinytable_css_4yc2tnp8jyk419b0cdgu {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: black; --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.03em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 3%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_vbjxdtwnfum8xb95paa1 td.tinytable_css_xixy31hefyspk7mn8cna, #tinytable_vbjxdtwnfum8xb95paa1 th.tinytable_css_xixy31hefyspk7mn8cna {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_vbjxdtwnfum8xb95paa1 td.tinytable_css_b47f7diwr4qq06yvtdzu, #tinytable_vbjxdtwnfum8xb95paa1 th.tinytable_css_b47f7diwr4qq06yvtdzu { text-align: left }
+    #tinytable_vbjxdtwnfum8xb95paa1 td.tinytable_css_dzpxuifiyuspc7oerit2, #tinytable_vbjxdtwnfum8xb95paa1 th.tinytable_css_dzpxuifiyuspc7oerit2 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_vbjxdtwnfum8xb95paa1 td.tinytable_css_ojnksmp3es4fhyr595kr, #tinytable_vbjxdtwnfum8xb95paa1 th.tinytable_css_ojnksmp3es4fhyr595kr {  position: relative; --border-bottom: 0; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    </style>
+<div class="container">
+      <table class="tinytable" id="tinytable_vbjxdtwnfum8xb95paa1" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+<thead>
+<tr>
+<th scope="col" align="center" colspan="1" data-row="-1" data-col="1"> </th>
+<th scope="col" align="center" colspan="2" data-row="-1" data-col="2">0</th>
+<th scope="col" align="center" colspan="2" data-row="-1" data-col="4">1</th>
+<th scope="col" align="center" colspan="1" data-row="-1" data-col="6"> </th>
+<th scope="col" align="center" colspan="1" data-row="-1" data-col="7"> </th>
+</tr>
+<tr>
+<th scope="col" data-row="0" data-col="1"> </th>
+                <th scope="col" data-row="0" data-col="2">Mean</th>
+                <th scope="col" data-row="0" data-col="3">Std. Dev.</th>
+                <th scope="col" data-row="0" data-col="4">Mean</th>
+                <th scope="col" data-row="0" data-col="5">Std. Dev.</th>
+                <th scope="col" data-row="0" data-col="6">Diff. in Means</th>
+                <th scope="col" data-row="0" data-col="7">Std. Error</th>
+              </tr>
+</thead>
+<tbody>
+<tr>
+<td data-row="1" data-col="1">age</td>
+                  <td data-row="1" data-col="2">48.4</td>
+                  <td data-row="1" data-col="3">16.0</td>
+                  <td data-row="1" data-col="4">47.1</td>
+                  <td data-row="1" data-col="5">16.0</td>
+                  <td data-row="1" data-col="6">-1.3</td>
+                  <td data-row="1" data-col="7">2.0</td>
+                </tr>
+<tr>
+<td data-row="2" data-col="1">income</td>
+                  <td data-row="2" data-col="2">11.0</td>
+                  <td data-row="2" data-col="3">3.9</td>
+                  <td data-row="2" data-col="4">10.6</td>
+                  <td data-row="2" data-col="5">3.9</td>
+                  <td data-row="2" data-col="6">-0.4</td>
+                  <td data-row="2" data-col="7">0.5</td>
+                </tr>
+<tr>
+<td data-row="3" data-col="1">emo</td>
+                  <td data-row="3" data-col="2">3.4</td>
+                  <td data-row="3" data-col="3">2.6</td>
+                  <td data-row="3" data-col="4">4.5</td>
+                  <td data-row="3" data-col="5">2.8</td>
+                  <td data-row="3" data-col="6">1.1</td>
+                  <td data-row="3" data-col="7">0.3</td>
+                </tr>
+<tr>
+<td data-row="4" data-col="1">cong_mesg</td>
+                  <td data-row="4" data-col="2">0.3</td>
+                  <td data-row="4" data-col="3">0.5</td>
+                  <td data-row="4" data-col="4">0.4</td>
+                  <td data-row="4" data-col="5">0.5</td>
+                  <td data-row="4" data-col="6">0.0</td>
+                  <td data-row="4" data-col="7">0.1</td>
+                </tr>
+</tbody>
+</table>
+</div>
+<!-- hack to avoid NA insertion in last line -->
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Correlation table</span></span>
+<span><span class="va">framing</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">tone</span>, <span class="va">emo</span>, <span class="va">cong_mesg</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://modelsummary.com/man/datasummary_correlation.html">datasummary_correlation</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"pearson"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<!-- preamble start -->
+
+    <script src="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.js"></script><script>
+      // Create table-specific functions using external factory
+      const tableFns_ty5nz94927c2emkqbibq = TinyTable.createTableFunctions("tinytable_ty5nz94927c2emkqbibq");
+      // tinytable span after
+      window.addEventListener('load', function () {
+          var cellsToStyle = [
+            // tinytable style arrays after
+          { positions: [ { i: '3', j: 2 }, { i: '3', j: 3 }, { i: '3', j: 4 } ], css_id: 'tinytable_css_n3q02qb0qiwm7lhqi84o',}, 
+          { positions: [ { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '1', j: 3 }, { i: '2', j: 3 }, { i: '1', j: 4 }, { i: '2', j: 4 } ], css_id: 'tinytable_css_leklf88qpta78qwtrpix',}, 
+          { positions: [ { i: '0', j: 2 }, { i: '0', j: 3 }, { i: '0', j: 4 } ], css_id: 'tinytable_css_s6zyjvqlpbm6vjpmcucx',}, 
+          { positions: [ { i: '3', j: 1 } ], css_id: 'tinytable_css_tp3rziq3z632k2kka8j1',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 } ], css_id: 'tinytable_css_p7pvug0qao4p3bexs9e3',}, 
+          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_2hzqb6rljm5w3d096d9w',}, 
+          ];
+
+          // Loop over the arrays to style the cells
+          cellsToStyle.forEach(function (group) {
+              group.positions.forEach(function (cell) {
+                  tableFns_ty5nz94927c2emkqbibq.styleCell(cell.i, cell.j, group.css_id);
+              });
+          });
+      });
+    </script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
+<style>
+    /* tinytable css entries after */
+    #tinytable_ty5nz94927c2emkqbibq td.tinytable_css_n3q02qb0qiwm7lhqi84o, #tinytable_ty5nz94927c2emkqbibq th.tinytable_css_n3q02qb0qiwm7lhqi84o {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: right }
+    #tinytable_ty5nz94927c2emkqbibq td.tinytable_css_leklf88qpta78qwtrpix, #tinytable_ty5nz94927c2emkqbibq th.tinytable_css_leklf88qpta78qwtrpix { text-align: right }
+    #tinytable_ty5nz94927c2emkqbibq td.tinytable_css_s6zyjvqlpbm6vjpmcucx, #tinytable_ty5nz94927c2emkqbibq th.tinytable_css_s6zyjvqlpbm6vjpmcucx {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: right }
+    #tinytable_ty5nz94927c2emkqbibq td.tinytable_css_tp3rziq3z632k2kka8j1, #tinytable_ty5nz94927c2emkqbibq th.tinytable_css_tp3rziq3z632k2kka8j1 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_ty5nz94927c2emkqbibq td.tinytable_css_p7pvug0qao4p3bexs9e3, #tinytable_ty5nz94927c2emkqbibq th.tinytable_css_p7pvug0qao4p3bexs9e3 { text-align: left }
+    #tinytable_ty5nz94927c2emkqbibq td.tinytable_css_2hzqb6rljm5w3d096d9w, #tinytable_ty5nz94927c2emkqbibq th.tinytable_css_2hzqb6rljm5w3d096d9w {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    </style>
+<div class="container">
+      <table class="tinytable" id="tinytable_ty5nz94927c2emkqbibq" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+<thead><tr>
+<th scope="col" data-row="0" data-col="1"> </th>
+                <th scope="col" data-row="0" data-col="2">tone</th>
+                <th scope="col" data-row="0" data-col="3">emo</th>
+                <th scope="col" data-row="0" data-col="4">cong_mesg</th>
+              </tr></thead>
+<tbody>
+<tr>
+<td data-row="1" data-col="1">tone</td>
+                  <td data-row="1" data-col="2">1</td>
+                  <td data-row="1" data-col="3">.</td>
+                  <td data-row="1" data-col="4">.</td>
+                </tr>
+<tr>
+<td data-row="2" data-col="1">emo</td>
+                  <td data-row="2" data-col="2">.21</td>
+                  <td data-row="2" data-col="3">1</td>
+                  <td data-row="2" data-col="4">.</td>
+                </tr>
+<tr>
+<td data-row="3" data-col="1">cong_mesg</td>
+                  <td data-row="3" data-col="2">.05</td>
+                  <td data-row="3" data-col="3">.37</td>
+                  <td data-row="3" data-col="4">1</td>
+                </tr>
+</tbody>
+</table>
+</div>
+<!-- hack to avoid NA insertion in last line -->
+</div>
+</div>
+</section><section id="randomization-removes-incoming-paths-for-treatment" class="level2"><h2 class="anchored" data-anchor-id="randomization-removes-incoming-paths-for-treatment">Randomization Removes Incoming Paths for Treatment</h2>
+<p>Let’s consider a DAG without randomization, for the following two variables:</p>
+<ul>
+<li>X: Exposure to a negatively framed news story about immigrants</li>
+<li>Y: Anti-immigration political action</li>
+</ul>
+<p>There are many possible confounders when we observe these two variables in data (e.g., an individual’s political affiliation and the state in which a person resides). We can represent these unobserved confounders as U, so the DAG will be something like</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dag2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/dagitty/man/dagitty.html">dagitty</a></span><span class="op">(</span></span>
+<span>    <span class="st">"dag{</span></span>
+<span><span class="st">      X -&gt; Y; U -&gt; X; U -&gt; Y</span></span>
+<span><span class="st">      U [unobserved]</span></span>
+<span><span class="st">    }"</span></span>
+<span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/dagitty/man/coordinates.html">coordinates</a></span><span class="op">(</span><span class="va">dag2</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>X <span class="op">=</span> <span class="fl">0</span>, U <span class="op">=</span> <span class="fl">1</span>, Y <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>,</span>
+<span>                          y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>X <span class="op">=</span> <span class="fl">0</span>, U <span class="op">=</span> <span class="fl">1</span>, Y <span class="op">=</span> <span class="fl">0</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co"># Plot</span></span>
+<span><span class="fu"><a href="https://r-causal.github.io/ggdag/reference/ggdag.html">ggdag</a></span><span class="op">(</span><span class="va">dag2</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://r-causal.github.io/ggdag/reference/theme_dag_blank.html">theme_dag</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="fig-dag2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-dag2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="mediation_files/figure-html/fig-dag2-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dag2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: DAG with an unobserved confounder
+</figcaption></figure>
+</div>
+</div>
+</div>
+<p>The magic of randomization—randomly assigning individuals to a manipulated level of X—is that it blocks the path U → X. Therefore, with randomization, the reason a person sees a negatively-framed news story about immigrants is not related to reasons that the person may have intentions for anti-immigration actions. The DAG becomes</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dag3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/dagitty/man/dagitty.html">dagitty</a></span><span class="op">(</span></span>
+<span>    <span class="st">"dag{</span></span>
+<span><span class="st">      X -&gt; Y; U -&gt; Y</span></span>
+<span><span class="st">      U [unobserved]</span></span>
+<span><span class="st">    }"</span></span>
+<span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/dagitty/man/coordinates.html">coordinates</a></span><span class="op">(</span><span class="va">dag3</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>X <span class="op">=</span> <span class="fl">0</span>, U <span class="op">=</span> <span class="fl">1</span>, Y <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>,</span>
+<span>                          y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>X <span class="op">=</span> <span class="fl">0</span>, U <span class="op">=</span> <span class="fl">1</span>, Y <span class="op">=</span> <span class="fl">0</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co"># Plot</span></span>
+<span><span class="fu"><a href="https://r-causal.github.io/ggdag/reference/ggdag.html">ggdag</a></span><span class="op">(</span><span class="va">dag3</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://r-causal.github.io/ggdag/reference/theme_dag_blank.html">theme_dag</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="fig-dag3" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-dag3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="mediation_files/figure-html/fig-dag3-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dag3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: DAG with randomization
+</figcaption></figure>
+</div>
+</div>
+</div>
+<p>Therefore, when randomization is successful, the path coefficient of X → Y is the causal effect of X on Y. However, randomized experiments do not always rule out all confounding. For example, suppose participants are randomly assigned to different experimental conditions, but those who disagree with the presented news story drop out. In that case, such attrition can induce a non-zero correlation between X and Y in the remaining sample.</p>
+</section><section id="causal-chains" class="level2"><h2 class="anchored" data-anchor-id="causal-chains">Causal Chains</h2>
+<section id="post-treatment-bias" class="level3"><h3 class="anchored" data-anchor-id="post-treatment-bias">Post-Treatment Bias</h3>
+<p>Here are some key variables from the <code>framing</code> data set:</p>
+<ul>
+<li>
+<code>cong_mesg</code>: binary variable indicating whether or not the participant agreed to send a letter about immigration policy to his or her member of Congress</li>
+<li>
+<code>emo</code>: posttest anxiety about increased immigration (0-9)</li>
+<li>
+<code>tone</code>: framing of news story (0 = positive, 1 = negative)</li>
+</ul>
+<p>We can compare the results of two models:</p>
+<ol type="1">
+<li>
+<code>tone</code> → <code>cong_mesg</code>
+</li>
+<li>
+<code>tone</code> → <code>cong_mesg</code>, adjusting for <code>emo</code>
+</li>
+</ol>
+<p>Which model gives us the causal effect estimate for <code>tone</code>? Let’s run the two models using logistic regression (<code>glm</code>).</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">m_no_adjust</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/glm.html">glm</a></span><span class="op">(</span><span class="va">cong_mesg</span> <span class="op">~</span> <span class="va">tone</span>,</span>
+<span>                   data <span class="op">=</span> <span class="va">framing</span>,</span>
+<span>                   family <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/family.html">binomial</a></span><span class="op">(</span>link <span class="op">=</span> <span class="st">"logit"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">m_adjust</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/glm.html">glm</a></span><span class="op">(</span><span class="va">cong_mesg</span> <span class="op">~</span> <span class="va">tone</span> <span class="op">+</span> <span class="va">emo</span>,</span>
+<span>                data <span class="op">=</span> <span class="va">framing</span>,</span>
+<span>                family <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/family.html">binomial</a></span><span class="op">(</span>link <span class="op">=</span> <span class="st">"logit"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>We can combine the results in a table:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://modelsummary.com/man/modelsummary.html">modelsummary</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>`No adjustment` <span class="op">=</span> <span class="va">m_no_adjust</span>,</span>
+<span>         `Adjusting for feeling` <span class="op">=</span> <span class="va">m_adjust</span><span class="op">)</span>,</span>
+<span>    fmt <span class="op">=</span> <span class="fl">2</span>,</span>
+<span>    exponentiate <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>    statistic <span class="op">=</span> <span class="st">"conf.int"</span></span>
+<span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<!-- preamble start -->
+
+    <script src="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.js"></script><script>
+      // Create table-specific functions using external factory
+      const tableFns_6cynuq0jftnroudmsp25 = TinyTable.createTableFunctions("tinytable_6cynuq0jftnroudmsp25");
+      // tinytable span after
+      window.addEventListener('load', function () {
+          var cellsToStyle = [
+            // tinytable style arrays after
+          { positions: [ { i: '12', j: 2 }, { i: '12', j: 3 } ], css_id: 'tinytable_css_bkbul1g5k5h2ztgewzgb',}, 
+          { positions: [ { i: '6', j: 2 }, { i: '6', j: 3 } ], css_id: 'tinytable_css_mauh2f5vzg71unxp6moz',}, 
+          { positions: [ { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '3', j: 2 }, { i: '4', j: 2 }, { i: '5', j: 2 }, { i: '7', j: 2 }, { i: '8', j: 2 }, { i: '9', j: 2 }, { i: '10', j: 2 }, { i: '11', j: 2 }, { i: '1', j: 3 }, { i: '2', j: 3 }, { i: '3', j: 3 }, { i: '4', j: 3 }, { i: '5', j: 3 }, { i: '7', j: 3 }, { i: '8', j: 3 }, { i: '9', j: 3 }, { i: '10', j: 3 }, { i: '11', j: 3 } ], css_id: 'tinytable_css_odmydwoo7k8janb5xqsz',}, 
+          { positions: [ { i: '0', j: 2 }, { i: '0', j: 3 } ], css_id: 'tinytable_css_absbhro2jqukawt871vd',}, 
+          { positions: [ { i: '12', j: 1 } ], css_id: 'tinytable_css_qow7unz3apvvohctaftn',}, 
+          { positions: [ { i: '6', j: 1 } ], css_id: 'tinytable_css_feicxagy8012aqa3pklo',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 }, { i: '4', j: 1 }, { i: '5', j: 1 }, { i: '7', j: 1 }, { i: '8', j: 1 }, { i: '9', j: 1 }, { i: '10', j: 1 }, { i: '11', j: 1 } ], css_id: 'tinytable_css_71xp57arpyleqoj3flz2',}, 
+          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_jieqc4n927hngckk5h3z',}, 
+          ];
+
+          // Loop over the arrays to style the cells
+          cellsToStyle.forEach(function (group) {
+              group.positions.forEach(function (cell) {
+                  tableFns_6cynuq0jftnroudmsp25.styleCell(cell.i, cell.j, group.css_id);
+              });
+          });
+      });
+    </script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
+<style>
+    /* tinytable css entries after */
+    #tinytable_6cynuq0jftnroudmsp25 td.tinytable_css_bkbul1g5k5h2ztgewzgb, #tinytable_6cynuq0jftnroudmsp25 th.tinytable_css_bkbul1g5k5h2ztgewzgb {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_6cynuq0jftnroudmsp25 td.tinytable_css_mauh2f5vzg71unxp6moz, #tinytable_6cynuq0jftnroudmsp25 th.tinytable_css_mauh2f5vzg71unxp6moz {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_6cynuq0jftnroudmsp25 td.tinytable_css_odmydwoo7k8janb5xqsz, #tinytable_6cynuq0jftnroudmsp25 th.tinytable_css_odmydwoo7k8janb5xqsz { text-align: center }
+    #tinytable_6cynuq0jftnroudmsp25 td.tinytable_css_absbhro2jqukawt871vd, #tinytable_6cynuq0jftnroudmsp25 th.tinytable_css_absbhro2jqukawt871vd {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_6cynuq0jftnroudmsp25 td.tinytable_css_qow7unz3apvvohctaftn, #tinytable_6cynuq0jftnroudmsp25 th.tinytable_css_qow7unz3apvvohctaftn {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_6cynuq0jftnroudmsp25 td.tinytable_css_feicxagy8012aqa3pklo, #tinytable_6cynuq0jftnroudmsp25 th.tinytable_css_feicxagy8012aqa3pklo {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_6cynuq0jftnroudmsp25 td.tinytable_css_71xp57arpyleqoj3flz2, #tinytable_6cynuq0jftnroudmsp25 th.tinytable_css_71xp57arpyleqoj3flz2 { text-align: left }
+    #tinytable_6cynuq0jftnroudmsp25 td.tinytable_css_jieqc4n927hngckk5h3z, #tinytable_6cynuq0jftnroudmsp25 th.tinytable_css_jieqc4n927hngckk5h3z {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    </style>
+<div class="container">
+      <table class="tinytable" id="tinytable_6cynuq0jftnroudmsp25" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+<thead><tr>
+<th scope="col" data-row="0" data-col="1"> </th>
+                <th scope="col" data-row="0" data-col="2">No adjustment</th>
+                <th scope="col" data-row="0" data-col="3">Adjusting for feeling</th>
+              </tr></thead>
+<tbody>
+<tr>
+<td data-row="1" data-col="1">(Intercept)</td>
+                  <td data-row="1" data-col="2">0.44</td>
+                  <td data-row="1" data-col="3">0.14</td>
+                </tr>
+<tr>
+<td data-row="2" data-col="1"></td>
+                  <td data-row="2" data-col="2">[0.30, 0.64]</td>
+                  <td data-row="2" data-col="3">[0.07, 0.24]</td>
+                </tr>
+<tr>
+<td data-row="3" data-col="1">tone</td>
+                  <td data-row="3" data-col="2">1.24</td>
+                  <td data-row="3" data-col="3">0.87</td>
+                </tr>
+<tr>
+<td data-row="4" data-col="1"></td>
+                  <td data-row="4" data-col="2">[0.74, 2.08]</td>
+                  <td data-row="4" data-col="3">[0.49, 1.53]</td>
+                </tr>
+<tr>
+<td data-row="5" data-col="1">emo</td>
+                  <td data-row="5" data-col="2"></td>
+                  <td data-row="5" data-col="3">1.37</td>
+                </tr>
+<tr>
+<td data-row="6" data-col="1"></td>
+                  <td data-row="6" data-col="2"></td>
+                  <td data-row="6" data-col="3">[1.23, 1.53]</td>
+                </tr>
+<tr>
+<td data-row="7" data-col="1">Num.Obs.</td>
+                  <td data-row="7" data-col="2">265</td>
+                  <td data-row="7" data-col="3">265</td>
+                </tr>
+<tr>
+<td data-row="8" data-col="1">AIC</td>
+                  <td data-row="8" data-col="2">340.2</td>
+                  <td data-row="8" data-col="3">305.0</td>
+                </tr>
+<tr>
+<td data-row="9" data-col="1">BIC</td>
+                  <td data-row="9" data-col="2">347.4</td>
+                  <td data-row="9" data-col="3">315.7</td>
+                </tr>
+<tr>
+<td data-row="10" data-col="1">Log.Lik.</td>
+                  <td data-row="10" data-col="2">-168.102</td>
+                  <td data-row="10" data-col="3">-149.486</td>
+                </tr>
+<tr>
+<td data-row="11" data-col="1">F</td>
+                  <td data-row="11" data-col="2">0.683</td>
+                  <td data-row="11" data-col="3">16.378</td>
+                </tr>
+<tr>
+<td data-row="12" data-col="1">RMSE</td>
+                  <td data-row="12" data-col="2">0.47</td>
+                  <td data-row="12" data-col="3">0.44</td>
+                </tr>
+</tbody>
+</table>
+</div>
+<!-- hack to avoid NA insertion in last line -->
+</div>
+</div>
+<p>We can see that the coefficient (log odds) for <code>tone</code> was positive without <code>emo</code>, but was negative with <code>emo</code>. Which one should we believe? The model with <code>emo</code> might have better predictive power, but just because something helps predict the outcome does not make it a causal variable to control for. To repeat,</p>
+<blockquote class="blockquote">
+<p>Coefficients in a predictive model are not causal effects.</p>
+</blockquote>
+<p>And to emphasize again,</p>
+<blockquote class="blockquote">
+<p>Causal inference requires causal assumptions, and these assumptions are not in the data.</p>
+</blockquote>
+<p>So instead, we need a DAG. Given that we know <code>emo</code> is measured <strong>after</strong> the intervention, it seems reasonable to think that a negatively framed story about immigrants would elicit some negative emotions about increased immigration, and that emotion may prompt people to take anti-immigrant actions. Therefore, we have the following DAG:</p>
+<div class="cell">
+<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dag5</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/dagitty/man/dagitty.html">dagitty</a></span><span class="op">(</span></span>
+<span>    <span class="st">"dag{</span></span>
+<span><span class="st">      T -&gt; C; T -&gt; E; E -&gt; C</span></span>
+<span><span class="st">    }"</span></span>
+<span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/dagitty/man/coordinates.html">coordinates</a></span><span class="op">(</span><span class="va">dag5</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>T <span class="op">=</span> <span class="fl">0</span>, E <span class="op">=</span> <span class="fl">1</span>, C <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>,</span>
+<span>                          y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>T <span class="op">=</span> <span class="fl">0</span>, E <span class="op">=</span> <span class="fl">1</span>, C <span class="op">=</span> <span class="fl">0</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co"># Plot</span></span>
+<span><span class="fu"><a href="https://r-causal.github.io/ggdag/reference/ggdag.html">ggdag</a></span><span class="op">(</span><span class="va">dag5</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://r-causal.github.io/ggdag/reference/theme_dag_blank.html">theme_dag</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details><div id="tbl-dag5" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-dag5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: DAG for a mediation model with emotion as a mediator.
+</figcaption><div aria-describedby="tbl-dag5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="mediation_files/figure-html/tbl-dag5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>This is an example of a pipe/chain. It is a causal chain going from T(one) → E(motion) → C(ongress message). If we are interested in the causal effect of T, we should not condition on E; conditioning on E would mean comparing those who saw the negatively-framed story and <em>those who saw the positively-framed story but had the same negative emotion towards immigrants.</em> In other words, adjusting for E would mean taking out part of the effect of T on C through E.</p>
+<p>As another example, think about a drug that is supposed to lower the risk of a heart attack. Imagine someone conducting a study comparing drug/no drug conditions on their probability of getting heart attacks. Should we adjust for participants’ blood pressure after the intervention? If we want to know the drug’s effect, and that the drug works by lowering blood pressure, we should not adjust for posttest blood pressure. Otherwise, we would be asking the question: Does the drug help prevent heart attacks through something other than lowering one’s blood pressure?</p>
+<p>The latter question can be answered in mediation analysis.</p>
+</section></section><section id="causal-mediation" class="level2"><h2 class="anchored" data-anchor-id="causal-mediation">Causal Mediation</h2>
+<p>In the DAG above, E is a post-treatment variable potentially influenced by T, which we call a <strong>mediator</strong>. Mediator is an important topic in causal inference, as it informs the mechanism of how a variable has a causal effect on an outcome.</p>
+<p>One thing to be careful of is that, statistically speaking, a mediator behaves very much like a confounder, and their difference is based on causal assumptions.</p>
+<section id="direct-and-indirect-effects" class="level3"><h3 class="anchored" data-anchor-id="direct-and-indirect-effects">Direct and Indirect Effects</h3>
+<p>In a mediation model, the effect of X on Y has two mechanisms:</p>
+<ul>
+<li>
+<strong>Indirect effect</strong>: X causes Y because X causes M, and M causes Y</li>
+<li>
+<strong>Direct effect</strong>: X causes Y without involving M</li>
+</ul>
+<p>More specifically, the <strong>direct effect</strong> is the change in Y for one unit change in X, holding M constant. In our example, it means comparing subsets of the treatment and the control groups, <em>under the condition that both subsets have the same level of negative emotion about increased immigration</em>.</p>
+<p>The <strong>indirect effect</strong> takes more effort to understand: it is the change in Y for the control group (or the treatment group) if their mediator value is set to the same level as the treatment group. In our example, it would mean comparing the control group and the <em>counterfactual</em> where the control group had their negative emotion changed to the same level as the treatment group.</p>
+<section id="causal-estimands" class="level4"><h4 class="anchored" data-anchor-id="causal-estimands">Causal Estimands</h4>
+<p>We can formalize these definitions using potential outcomes notation. Let <span class="math inline">\(M_i(t)\)</span> be the potential value of the mediator for person <span class="math inline">\(i\)</span> under treatment <span class="math inline">\(t\)</span>. Let <span class="math inline">\(Y_i(t, m)\)</span> be the potential outcome for person <span class="math inline">\(i\)</span> under treatment <span class="math inline">\(t\)</span> and mediator value <span class="math inline">\(m\)</span>.</p>
+<ul>
+<li><p><strong>Controlled Direct Effect (CDE)</strong>: The effect of Treatment on Outcome if we intervene to fix the Mediator to a specific level <span class="math inline">\(m\)</span>. <span class="math display">\[
+CDE(m) = E[Y(1, m) - Y(0, m)]
+\]</span></p></li>
+<li><p><strong>Natural Direct Effect (NDE)</strong>: The effect of Treatment on Outcome, but keeping the Mediator at the level it <em>would have been</em> under the control condition (<span class="math inline">\(M_0\)</span>). <span class="math display">\[
+NDE = E[Y(1, M_0) - Y(0, M_0)]
+\]</span></p></li>
+<li><p><strong>Natural Indirect Effect (NIE)</strong>: Also known as <strong>Average Causal Mediation Effect (ACME)</strong>. The effect of changing the Mediator from what it would be under Control (<span class="math inline">\(M_0\)</span>) to what it would be under Treatment (<span class="math inline">\(M_1\)</span>), while keeping Treatment status constant (usually at <span class="math inline">\(T=1\)</span> or <span class="math inline">\(T=0\)</span>). <span class="math display">\[
+NIE = E[Y(0, M_1) - Y(0, M_0)]
+\]</span></p></li>
+</ul>
+<p>The <strong>Total Effect</strong> decomposes into the NDE and NIE: <span class="math display">\[
+\text{Total Effect} = NDE + NIE
+\]</span></p>
+</section></section><section id="using-the-mediation-package" class="level3"><h3 class="anchored" data-anchor-id="using-the-mediation-package">Using the <code>mediation</code> Package</h3>
+<p>The <code>mediation</code> package allows for the estimation of causal mediation effects using the potential outcomes framework. It requires two models:</p>
+<ol type="1">
+<li>
+<strong>Mediator Model</strong>: Predicting the mediator (<code>emo</code>) from the treatment (<code>tone</code>) and optional covariates.</li>
+<li>
+<strong>Outcome Model</strong>: Predicting the outcome (<code>cong_mesg</code>) from the treatment (<code>tone</code>) AND the mediator (<code>emo</code>).</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Model M: Mediator model</span></span>
+<span><span class="va">med_fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">emo</span> <span class="op">~</span> <span class="va">tone</span>, data <span class="op">=</span> <span class="va">framing</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Model Y: Outcome model</span></span>
+<span><span class="va">out_fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/glm.html">glm</a></span><span class="op">(</span><span class="va">cong_mesg</span> <span class="op">~</span> <span class="va">tone</span> <span class="op">+</span> <span class="va">emo</span>,</span>
+<span>               data <span class="op">=</span> <span class="va">framing</span>,</span>
+<span>               family <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/family.html">binomial</a></span><span class="op">(</span><span class="st">"probit"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>We then use the <code><a href="https://rdrr.io/pkg/mediation/man/mediate.html">mediate()</a></code> function to estimate the Average Causal Mediation Effect (ACME) (also known as the indirect effect) and the Average Direct Effect (ADE). This uses simulation (Quasi-Bayesian Monte Carlo) to obtain confidence intervals.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">1234</span><span class="op">)</span></span>
+<span><span class="va">med_out</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/mediation/man/mediate.html">mediate</a></span><span class="op">(</span><span class="va">med_fit</span>, <span class="va">out_fit</span>,</span>
+<span>                   treat <span class="op">=</span> <span class="st">"tone"</span>, mediator <span class="op">=</span> <span class="st">"emo"</span>,</span>
+<span>                   sims <span class="op">=</span> <span class="fl">1999</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">med_out</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Causal Mediation Analysis 
+
+Quasi-Bayesian Confidence Intervals
+
+                           Estimate 95% CI Lower 95% CI Upper  p-value   
+ACME (control)             0.070632     0.027559     0.119185 0.001001 **
+ACME (treated)             0.068200     0.027015     0.114051 0.001001 **
+ADE (control)             -0.027040    -0.131497     0.075207 0.605303   
+ADE (treated)             -0.029472    -0.143459     0.081754 0.605303   
+Total Effect               0.041160    -0.073421     0.148724 0.484242   
+Prop. Mediated (control)   0.905201   -15.389476    13.529789 0.485243   
+Prop. Mediated (treated)   0.914232   -14.365956    12.304396 0.485243   
+ACME (average)             0.069416     0.027407     0.115206 0.001001 **
+ADE (average)             -0.028256    -0.136730     0.079564 0.605303   
+Prop. Mediated (average)   0.909717   -15.002854    13.048048 0.485243   
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Sample Size Used: 265 
+
+
+Simulations: 1999 </code></pre>
+</div>
+</div>
+<p>The output gives us:</p>
+<ul>
+<li>
+<strong>ACME (Average Causal Mediation Effect)</strong>: The part of the effect of Tone on Congress Message that goes <em>through</em> Emotion.</li>
+<li>
+<strong>ADE (Average Direct Effect)</strong>: The part of the effect that does <em>not</em> go through Emotion.</li>
+<li>
+<strong>Total Effect</strong>: The sum of ACME and ADE.</li>
+<li>
+<strong>Prop. Mediated</strong>: The proportion of the total effect that is mediated.</li>
+</ul></section><section id="sensitivity-analysis" class="level3"><h3 class="anchored" data-anchor-id="sensitivity-analysis">Sensitivity Analysis</h3>
+<p>The “Sequential Ignorability” assumption (no unmeasured confounding) is strong and untestable. However, we can perform a <strong>sensitivity analysis</strong> to see how robust our results are to potential violations of this assumption. Specifically, we ask: how highly correlated (<span class="math inline">\(\rho\)</span>) would the error terms of the mediator and outcome models need to be for the ACME to vanish (i.e., cross zero)? A non-zero <span class="math inline">\(\rho\)</span> implies the existence of unmeasured confounders affecting both <span class="math inline">\(M\)</span> and <span class="math inline">\(Y\)</span>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sens_out</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/mediation/man/medsens.html">medsens</a></span><span class="op">(</span><span class="va">med_out</span>, rho.by <span class="op">=</span> <span class="fl">0.1</span>, effect.type <span class="op">=</span> <span class="st">"indirect"</span>, sims <span class="op">=</span> <span class="fl">1999</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in rho^2 * (1 - r.sq.m) * (1 - r.sq.y): Recycling array of length 1 in vector-array arithmetic is deprecated.
+  Use c() or as.vector() instead.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in err.cr.d^2 * (1 - r.sq.m) * (1 - r.sq.y): Recycling array of length 1 in vector-array arithmetic is deprecated.
+  Use c() or as.vector() instead.</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">sens_out</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">sens_out</span>, sens.par <span class="op">=</span> <span class="st">"rho"</span>, main <span class="op">=</span> <span class="st">"Sensitivity Analysis"</span>, ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">0.2</span>, <span class="fl">0.2</span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="cell-output cell-output-stdout quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<pre><code>
+Mediation Sensitivity Analysis: Average Mediation Effect
+
+Sensitivity Region: ACME for Control Group
+
+     Rho ACME(control) 95% CI Lower 95% CI Upper R^2_M*R^2_Y* R^2_M~R^2_Y~
+[1,] 0.3        0.0053      -0.0059       0.0173         0.09       0.0677
+[2,] 0.4       -0.0092      -0.0246       0.0013         0.16       0.1204
+
+Rho at which ACME for Control Group = 0: 0.3
+R^2_M*R^2_Y* at which ACME for Control Group = 0: 0.09
+R^2_M~R^2_Y~ at which ACME for Control Group = 0: 0.0677 
+
+
+Sensitivity Region: ACME for Treatment Group
+
+     Rho ACME(treated) 95% CI Lower 95% CI Upper R^2_M*R^2_Y* R^2_M~R^2_Y~
+[1,] 0.3        0.0054      -0.0064       0.0172         0.09       0.0677
+[2,] 0.4       -0.0099      -0.0283       0.0013         0.16       0.1204
+
+Rho at which ACME for Treatment Group = 0: 0.3
+R^2_M*R^2_Y* at which ACME for Treatment Group = 0: 0.09
+R^2_M~R^2_Y~ at which ACME for Treatment Group = 0: 0.0677 </code></pre>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="mediation_files/figure-html/mediation-sensitivity-1.png" class="img-fluid figure-img" width="480"></p>
+<figcaption>Sensitivity Analysis for ACME with respect to the correlation between error terms (rho).</figcaption></figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="mediation_files/figure-html/mediation-sensitivity-2.png" class="img-fluid figure-img" width="480"></p>
+<figcaption>Sensitivity Analysis for ACME with respect to the correlation between error terms (rho).</figcaption></figure>
+</div>
+</div>
+</div>
+</div>
+<p>The plot shows the estimated ACME (solid line) and its confidence intervals (dashed lines) as a function of the sensitivity parameter <span class="math inline">\(\rho\)</span>. If the confidence interval includes zero only at high values of <span class="math inline">\(\rho\)</span>, the results are considered robust.</p>
+</section><section id="using-lavaan" class="level3"><h3 class="anchored" data-anchor-id="using-lavaan">Using <code>lavaan</code>
+</h3>
+<p>We can also estimate mediation models using Path Analysis in <code>lavaan</code>. Because the outcome <code>cong_mesg</code> is binary, we should treat it as an ordered categorical variable. <code>lavaan</code> typically uses the <strong>DWLS</strong> (Diagonally Weighted Least Squares) estimator for such data.</p>
+<p>Also, because the product of coefficients (used for the indirect effect) is rarely normally distributed, we use <strong>Monte Carlo</strong> confidence intervals. This approach simulates the sampling distribution of the indirect effect by drawing repeatedly from the multivariate normal distribution of the estimated parameter covariance matrix. Note that when defining the product <span class="math inline">\(a \times b\)</span>, the coefficients are on the underlying latent response scale (probit link by default), so interpretability will be different from the probability scale used in <code><a href="https://rdrr.io/pkg/mediation/man/mediate.html">mediate()</a></code>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">model_med</span> <span class="op">&lt;-</span> <span class="st">'</span></span>
+<span><span class="st">  # a path</span></span>
+<span><span class="st">  emo ~ a * tone</span></span>
+<span><span class="st"></span></span>
+<span><span class="st">  # b path and c prime path</span></span>
+<span><span class="st">  cong_mesg ~ b * emo + c_prime * tone</span></span>
+<span><span class="st"></span></span>
+<span><span class="st">  # Indirect effect (a * b)</span></span>
+<span><span class="st">  ab := a * b</span></span>
+<span><span class="st"></span></span>
+<span><span class="st">  # Total effect</span></span>
+<span><span class="st">  total := c_prime + (a * b)</span></span>
+<span><span class="st">'</span></span>
+<span></span>
+<span><span class="co"># Estimate using DWLS</span></span>
+<span><span class="va">fit_med</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lavaan/man/sem.html">sem</a></span><span class="op">(</span><span class="va">model_med</span>, data <span class="op">=</span> <span class="va">framing</span>, ordered <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"cong_mesg"</span><span class="op">)</span>,</span>
+<span>               estimator <span class="op">=</span> <span class="st">"DWLS"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Monte Carlo confidence intervals (20,000 draws)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">1234</span><span class="op">)</span></span>
+<span><span class="va">mc_ci</span> <span class="op">&lt;-</span> <span class="fu">semTools</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/semTools/man/monteCarloCI.html">monteCarloCI</a></span><span class="op">(</span><span class="va">fit_med</span>, nRep <span class="op">=</span> <span class="fl">20000</span><span class="op">)</span></span>
+<span><span class="va">mc_ci</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"indirect"</span>, <span class="st">"total"</span><span class="op">)</span>, <span class="op">]</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span>digits <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead><tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">est</th>
+<th style="text-align: right;">ci.lower</th>
+<th style="text-align: right;">ci.upper</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">total</td>
+<td style="text-align: right;">0.132</td>
+<td style="text-align: right;">-0.179</td>
+<td style="text-align: right;">0.446</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section></section><section id="summary" class="level2"><h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<ul>
+<li>
+<strong>Direct Effect</strong>: Effect of <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span> holding <span class="math inline">\(M\)</span> constant.</li>
+<li>
+<strong>Indirect Effect</strong>: Effect of <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span> through <span class="math inline">\(M\)</span>.</li>
+<li>
+<strong>Assumptions</strong>: Mediation analysis relies on strong causal assumptions (no unmeasured confounding between <span class="math inline">\(M\)</span> and <span class="math inline">\(Y\)</span>), which randomization of <span class="math inline">\(X\)</span> alone does not guarantee.</li>
+</ul></section><section id="references" class="level2"><h2 class="anchored" data-anchor-id="references">References</h2>
+<p>Kline, R. B. (2023). <em>Principles and practice of structural equation modeling</em> (5th ed.). Guilford Press.</p>
+
+
+<!-- -->
+
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Mediation"</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Data: Brader et al. (2008)"</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: setup</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dagitty)</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggdag)</span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mediation)</span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lavaan)</span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(semTools)</span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tinytable)</span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a>   <span class="fu">theme</span>(<span class="at">panel.grid.major.y =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"grey92"</span>)))</span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a><span class="fu">## Background: Potential Outcomes</span></span>
+<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a>Consider a binary treatment variable $T$ (e.g., $T = 1$ for treatment, $T = 0$ for control). For each individual $i$, there are two **potential outcomes**:</span>
+<span id="cb19-29"><a href="#cb19-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-30"><a href="#cb19-30" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$Y_i(1)$: The outcome if individual $i$ receives the treatment.</span>
+<span id="cb19-31"><a href="#cb19-31" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$Y_i(0)$: The outcome if individual $i$ does *not* receive the treatment.</span>
+<span id="cb19-32"><a href="#cb19-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-33"><a href="#cb19-33" aria-hidden="true" tabindex="-1"></a>The causal effect of the treatment for individual $i$ is the difference $Y_i(1) - Y_i(0)$. However, in reality, we can only observe *one* of these outcomes for any given person (the **Fundamental Problem of Causal Inference**). If person $i$ is treated, we observe $Y_i(1)$ but $Y_i(0)$ becomes counterfactual (what *would have* happened).</span>
+<span id="cb19-34"><a href="#cb19-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-35"><a href="#cb19-35" aria-hidden="true" tabindex="-1"></a>Start with a hypothetical example where we can see both potential outcomes:</span>
+<span id="cb19-36"><a href="#cb19-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-39"><a href="#cb19-39" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-40"><a href="#cb19-40" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: potential-outcomes-table</span></span>
+<span id="cb19-41"><a href="#cb19-41" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb19-42"><a href="#cb19-42" aria-hidden="true" tabindex="-1"></a>po_dat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb19-43"><a href="#cb19-43" aria-hidden="true" tabindex="-1"></a>  <span class="at">ID =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>,</span>
+<span id="cb19-44"><a href="#cb19-44" aria-hidden="true" tabindex="-1"></a>  <span class="at">y0 =</span> <span class="fu">c</span>(<span class="dv">70</span>, <span class="dv">80</span>, <span class="dv">75</span>, <span class="dv">90</span>, <span class="dv">85</span>, <span class="dv">82</span>, <span class="dv">95</span>, <span class="dv">78</span>),</span>
+<span id="cb19-45"><a href="#cb19-45" aria-hidden="true" tabindex="-1"></a>  <span class="at">y1 =</span> <span class="fu">c</span>(<span class="dv">75</span>, <span class="dv">80</span>, <span class="dv">70</span>, <span class="dv">90</span>, <span class="dv">85</span>, <span class="dv">82</span>, <span class="dv">95</span>, <span class="dv">78</span>) <span class="sc">+</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="sc">-</span><span class="dv">8</span>, <span class="sc">-</span><span class="dv">5</span>, <span class="sc">-</span><span class="dv">2</span>, <span class="dv">3</span>, <span class="sc">-</span><span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">0</span>)</span>
+<span id="cb19-46"><a href="#cb19-46" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb19-47"><a href="#cb19-47" aria-hidden="true" tabindex="-1"></a><span class="co"># Suppose T is assigned based on potential outcomes (selection bias)</span></span>
+<span id="cb19-48"><a href="#cb19-48" aria-hidden="true" tabindex="-1"></a>po_dat<span class="sc">$</span>T <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(po_dat<span class="sc">$</span>y1 <span class="sc">&gt;</span> po_dat<span class="sc">$</span>y0, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb19-49"><a href="#cb19-49" aria-hidden="true" tabindex="-1"></a>po_dat<span class="sc">$</span>Y_obs <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(po_dat<span class="sc">$</span>T <span class="sc">==</span> <span class="dv">1</span>, po_dat<span class="sc">$</span>y1, po_dat<span class="sc">$</span>y0)</span>
+<span id="cb19-50"><a href="#cb19-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-51"><a href="#cb19-51" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(po_dat, <span class="at">caption =</span> <span class="st">"Hypothetical Data with Potential Outcomes"</span>)</span>
+<span id="cb19-52"><a href="#cb19-52" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-53"><a href="#cb19-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-54"><a href="#cb19-54" aria-hidden="true" tabindex="-1"></a>If we could observe both, we could calculate the **Average Treatment Effect (ATE)**:</span>
+<span id="cb19-55"><a href="#cb19-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-56"><a href="#cb19-56" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb19-57"><a href="#cb19-57" aria-hidden="true" tabindex="-1"></a>ATE = E<span class="co">[</span><span class="ot">Y(1) - Y(0)</span><span class="co">]</span></span>
+<span id="cb19-58"><a href="#cb19-58" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb19-59"><a href="#cb19-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-60"><a href="#cb19-60" aria-hidden="true" tabindex="-1"></a>However, if we just compare the observed means of the treated and untreated groups (the **Naive Comparison**):</span>
+<span id="cb19-61"><a href="#cb19-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-62"><a href="#cb19-62" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb19-63"><a href="#cb19-63" aria-hidden="true" tabindex="-1"></a>E<span class="co">[</span><span class="ot">Y | T = 1</span><span class="co">]</span> - E<span class="co">[</span><span class="ot">Y | T = 0</span><span class="co">]</span></span>
+<span id="cb19-64"><a href="#cb19-64" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb19-65"><a href="#cb19-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-66"><a href="#cb19-66" aria-hidden="true" tabindex="-1"></a>This naive estimate is often biased because people who choose (or are selected for) the treatment might be systematically different from those who do not (selection bias). For example, if those who would benefit most from a drug are the ones who take it, the naive comparison overestimates the drug's effectiveness for the general population.</span>
+<span id="cb19-67"><a href="#cb19-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-68"><a href="#cb19-68" aria-hidden="true" tabindex="-1"></a>**Randomization** solves this by ensuring that the treatment assignment $T$ is independent of the potential outcomes ($Y(1), Y(0)$). In other words, the treated group and the control group are comparable on average.</span>
+<span id="cb19-69"><a href="#cb19-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-70"><a href="#cb19-70" aria-hidden="true" tabindex="-1"></a><span class="fu">## Example Data</span></span>
+<span id="cb19-71"><a href="#cb19-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-72"><a href="#cb19-72" aria-hidden="true" tabindex="-1"></a>We'll use the <span class="in">`framing`</span> data set from the <span class="in">`mediation`</span> package. The data were analyzed in a <span class="co">[</span><span class="ot">report in the American Journal of Political Science</span><span class="co">](https://doi.org/10.1111/j.1540-5907.2008.00353.x)</span>. The study examined whether "news about the costs of immigration boosts white opposition" (p. 959).</span>
+<span id="cb19-73"><a href="#cb19-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-74"><a href="#cb19-74" aria-hidden="true" tabindex="-1"></a><span class="fu">## Summary Statistics</span></span>
+<span id="cb19-75"><a href="#cb19-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-78"><a href="#cb19-78" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-79"><a href="#cb19-79" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(framing, <span class="at">package =</span> <span class="st">"mediation"</span>)</span>
+<span id="cb19-80"><a href="#cb19-80" aria-hidden="true" tabindex="-1"></a><span class="co"># Subtract the `emo` variable by 3 so that it starts from 0-9</span></span>
+<span id="cb19-81"><a href="#cb19-81" aria-hidden="true" tabindex="-1"></a>framing<span class="sc">$</span>emo <span class="ot">&lt;-</span> framing<span class="sc">$</span>emo <span class="sc">-</span> <span class="dv">3</span></span>
+<span id="cb19-82"><a href="#cb19-82" aria-hidden="true" tabindex="-1"></a><span class="co"># Quick summary of selected variables</span></span>
+<span id="cb19-83"><a href="#cb19-83" aria-hidden="true" tabindex="-1"></a>framing <span class="sc">|&gt;</span></span>
+<span id="cb19-84"><a href="#cb19-84" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">select</span>(tone, emo, cong_mesg) <span class="sc">|&gt;</span></span>
+<span id="cb19-85"><a href="#cb19-85" aria-hidden="true" tabindex="-1"></a>    <span class="fu">datasummary_skim</span>()</span>
+<span id="cb19-86"><a href="#cb19-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-87"><a href="#cb19-87" aria-hidden="true" tabindex="-1"></a><span class="co"># Summary by treatment condition (`tone`)</span></span>
+<span id="cb19-88"><a href="#cb19-88" aria-hidden="true" tabindex="-1"></a><span class="fu">datasummary_balance</span>(age <span class="sc">+</span> income <span class="sc">+</span> emo <span class="sc">+</span> cong_mesg <span class="sc">~</span> tone, <span class="at">data =</span> framing)</span>
+<span id="cb19-89"><a href="#cb19-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-90"><a href="#cb19-90" aria-hidden="true" tabindex="-1"></a><span class="co"># Correlation table</span></span>
+<span id="cb19-91"><a href="#cb19-91" aria-hidden="true" tabindex="-1"></a>framing <span class="sc">|&gt;</span></span>
+<span id="cb19-92"><a href="#cb19-92" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">select</span>(tone, emo, cong_mesg) <span class="sc">|&gt;</span></span>
+<span id="cb19-93"><a href="#cb19-93" aria-hidden="true" tabindex="-1"></a>    <span class="fu">datasummary_correlation</span>(<span class="at">method =</span> <span class="st">"pearson"</span>)</span>
+<span id="cb19-94"><a href="#cb19-94" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-95"><a href="#cb19-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-96"><a href="#cb19-96" aria-hidden="true" tabindex="-1"></a><span class="fu">## Randomization Removes Incoming Paths for Treatment</span></span>
+<span id="cb19-97"><a href="#cb19-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-98"><a href="#cb19-98" aria-hidden="true" tabindex="-1"></a>Let's consider a DAG without randomization, for the following two variables:</span>
+<span id="cb19-99"><a href="#cb19-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-100"><a href="#cb19-100" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>X: Exposure to a negatively framed news story about immigrants</span>
+<span id="cb19-101"><a href="#cb19-101" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Y: Anti-immigration political action</span>
+<span id="cb19-102"><a href="#cb19-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-103"><a href="#cb19-103" aria-hidden="true" tabindex="-1"></a>There are many possible confounders when we observe these two variables in data (e.g., an individual's political affiliation and the state in which a person resides). We can represent these unobserved confounders as U, so the DAG will be something like</span>
+<span id="cb19-104"><a href="#cb19-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-107"><a href="#cb19-107" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-108"><a href="#cb19-108" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-dag2</span></span>
+<span id="cb19-109"><a href="#cb19-109" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "DAG with an unobserved confounder"</span></span>
+<span id="cb19-110"><a href="#cb19-110" aria-hidden="true" tabindex="-1"></a>dag2 <span class="ot">&lt;-</span> <span class="fu">dagitty</span>(</span>
+<span id="cb19-111"><a href="#cb19-111" aria-hidden="true" tabindex="-1"></a>    <span class="st">"dag{</span></span>
+<span id="cb19-112"><a href="#cb19-112" aria-hidden="true" tabindex="-1"></a><span class="st">      X -&gt; Y; U -&gt; X; U -&gt; Y</span></span>
+<span id="cb19-113"><a href="#cb19-113" aria-hidden="true" tabindex="-1"></a><span class="st">      U [unobserved]</span></span>
+<span id="cb19-114"><a href="#cb19-114" aria-hidden="true" tabindex="-1"></a><span class="st">    }"</span></span>
+<span id="cb19-115"><a href="#cb19-115" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb19-116"><a href="#cb19-116" aria-hidden="true" tabindex="-1"></a><span class="fu">coordinates</span>(dag2) <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="at">X =</span> <span class="dv">0</span>, <span class="at">U =</span> <span class="dv">1</span>, <span class="at">Y =</span> <span class="dv">2</span>),</span>
+<span id="cb19-117"><a href="#cb19-117" aria-hidden="true" tabindex="-1"></a>                          <span class="at">y =</span> <span class="fu">c</span>(<span class="at">X =</span> <span class="dv">0</span>, <span class="at">U =</span> <span class="dv">1</span>, <span class="at">Y =</span> <span class="dv">0</span>))</span>
+<span id="cb19-118"><a href="#cb19-118" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
+<span id="cb19-119"><a href="#cb19-119" aria-hidden="true" tabindex="-1"></a><span class="fu">ggdag</span>(dag2) <span class="sc">+</span> <span class="fu">theme_dag</span>()</span>
+<span id="cb19-120"><a href="#cb19-120" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-121"><a href="#cb19-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-122"><a href="#cb19-122" aria-hidden="true" tabindex="-1"></a>The magic of randomization---randomly assigning individuals to a manipulated level of X---is that it blocks the path U <span class="dv">&amp;rarr;</span> X. Therefore, with randomization, the reason a person sees a negatively-framed news story about immigrants is not related to reasons that the person may have intentions for anti-immigration actions. The DAG becomes</span>
+<span id="cb19-123"><a href="#cb19-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-126"><a href="#cb19-126" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-127"><a href="#cb19-127" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: false</span></span>
+<span id="cb19-128"><a href="#cb19-128" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-dag3</span></span>
+<span id="cb19-129"><a href="#cb19-129" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "DAG with randomization"</span></span>
+<span id="cb19-130"><a href="#cb19-130" aria-hidden="true" tabindex="-1"></a>dag3 <span class="ot">&lt;-</span> <span class="fu">dagitty</span>(</span>
+<span id="cb19-131"><a href="#cb19-131" aria-hidden="true" tabindex="-1"></a>    <span class="st">"dag{</span></span>
+<span id="cb19-132"><a href="#cb19-132" aria-hidden="true" tabindex="-1"></a><span class="st">      X -&gt; Y; U -&gt; Y</span></span>
+<span id="cb19-133"><a href="#cb19-133" aria-hidden="true" tabindex="-1"></a><span class="st">      U [unobserved]</span></span>
+<span id="cb19-134"><a href="#cb19-134" aria-hidden="true" tabindex="-1"></a><span class="st">    }"</span></span>
+<span id="cb19-135"><a href="#cb19-135" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb19-136"><a href="#cb19-136" aria-hidden="true" tabindex="-1"></a><span class="fu">coordinates</span>(dag3) <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="at">X =</span> <span class="dv">0</span>, <span class="at">U =</span> <span class="dv">1</span>, <span class="at">Y =</span> <span class="dv">2</span>),</span>
+<span id="cb19-137"><a href="#cb19-137" aria-hidden="true" tabindex="-1"></a>                          <span class="at">y =</span> <span class="fu">c</span>(<span class="at">X =</span> <span class="dv">0</span>, <span class="at">U =</span> <span class="dv">1</span>, <span class="at">Y =</span> <span class="dv">0</span>))</span>
+<span id="cb19-138"><a href="#cb19-138" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
+<span id="cb19-139"><a href="#cb19-139" aria-hidden="true" tabindex="-1"></a><span class="fu">ggdag</span>(dag3) <span class="sc">+</span> <span class="fu">theme_dag</span>()</span>
+<span id="cb19-140"><a href="#cb19-140" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-141"><a href="#cb19-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-142"><a href="#cb19-142" aria-hidden="true" tabindex="-1"></a>Therefore, when randomization is successful, the path coefficient of X <span class="dv">&amp;rarr;</span> Y is the causal effect of X on Y. However, randomized experiments do not always rule out all confounding. For example, suppose participants are randomly assigned to different experimental conditions, but those who disagree with the presented news story drop out. In that case, such attrition can induce a non-zero correlation between X and Y in the remaining sample.</span>
+<span id="cb19-143"><a href="#cb19-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-144"><a href="#cb19-144" aria-hidden="true" tabindex="-1"></a><span class="fu">## Causal Chains</span></span>
+<span id="cb19-145"><a href="#cb19-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-146"><a href="#cb19-146" aria-hidden="true" tabindex="-1"></a><span class="fu">### Post-Treatment Bias</span></span>
+<span id="cb19-147"><a href="#cb19-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-148"><a href="#cb19-148" aria-hidden="true" tabindex="-1"></a>Here are some key variables from the <span class="in">`framing`</span> data set:</span>
+<span id="cb19-149"><a href="#cb19-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-150"><a href="#cb19-150" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`cong_mesg`</span>: binary variable indicating whether or not the participant agreed to send a letter about immigration policy to his or her member of Congress</span>
+<span id="cb19-151"><a href="#cb19-151" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`emo`</span>: posttest anxiety about increased immigration (0-9)</span>
+<span id="cb19-152"><a href="#cb19-152" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`tone`</span>: framing of news story (0 = positive, 1 = negative)</span>
+<span id="cb19-153"><a href="#cb19-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-154"><a href="#cb19-154" aria-hidden="true" tabindex="-1"></a>We can compare the results of two models:</span>
+<span id="cb19-155"><a href="#cb19-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-156"><a href="#cb19-156" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span><span class="in">`tone`</span> <span class="dv">&amp;rarr;</span> <span class="in">`cong_mesg`</span></span>
+<span id="cb19-157"><a href="#cb19-157" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span><span class="in">`tone`</span> <span class="dv">&amp;rarr;</span> <span class="in">`cong_mesg`</span>, adjusting for <span class="in">`emo`</span></span>
+<span id="cb19-158"><a href="#cb19-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-159"><a href="#cb19-159" aria-hidden="true" tabindex="-1"></a>Which model gives us the causal effect estimate for <span class="in">`tone`</span>? Let's run the two models using logistic regression (<span class="in">`glm`</span>).</span>
+<span id="cb19-160"><a href="#cb19-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-163"><a href="#cb19-163" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-164"><a href="#cb19-164" aria-hidden="true" tabindex="-1"></a>m_no_adjust <span class="ot">&lt;-</span> <span class="fu">glm</span>(cong_mesg <span class="sc">~</span> tone,</span>
+<span id="cb19-165"><a href="#cb19-165" aria-hidden="true" tabindex="-1"></a>                   <span class="at">data =</span> framing,</span>
+<span id="cb19-166"><a href="#cb19-166" aria-hidden="true" tabindex="-1"></a>                   <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"logit"</span>))</span>
+<span id="cb19-167"><a href="#cb19-167" aria-hidden="true" tabindex="-1"></a>m_adjust <span class="ot">&lt;-</span> <span class="fu">glm</span>(cong_mesg <span class="sc">~</span> tone <span class="sc">+</span> emo,</span>
+<span id="cb19-168"><a href="#cb19-168" aria-hidden="true" tabindex="-1"></a>                <span class="at">data =</span> framing,</span>
+<span id="cb19-169"><a href="#cb19-169" aria-hidden="true" tabindex="-1"></a>                <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"logit"</span>))</span>
+<span id="cb19-170"><a href="#cb19-170" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-171"><a href="#cb19-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-172"><a href="#cb19-172" aria-hidden="true" tabindex="-1"></a>We can combine the results in a table:</span>
+<span id="cb19-173"><a href="#cb19-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-176"><a href="#cb19-176" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-177"><a href="#cb19-177" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(</span>
+<span id="cb19-178"><a href="#cb19-178" aria-hidden="true" tabindex="-1"></a>    <span class="fu">list</span>(<span class="st">`</span><span class="at">No adjustment</span><span class="st">`</span> <span class="ot">=</span> m_no_adjust,</span>
+<span id="cb19-179"><a href="#cb19-179" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Adjusting for feeling</span><span class="st">`</span> <span class="ot">=</span> m_adjust),</span>
+<span id="cb19-180"><a href="#cb19-180" aria-hidden="true" tabindex="-1"></a>    <span class="at">fmt =</span> <span class="dv">2</span>,</span>
+<span id="cb19-181"><a href="#cb19-181" aria-hidden="true" tabindex="-1"></a>    <span class="at">exponentiate =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb19-182"><a href="#cb19-182" aria-hidden="true" tabindex="-1"></a>    <span class="at">statistic =</span> <span class="st">"conf.int"</span></span>
+<span id="cb19-183"><a href="#cb19-183" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb19-184"><a href="#cb19-184" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-185"><a href="#cb19-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-186"><a href="#cb19-186" aria-hidden="true" tabindex="-1"></a>We can see that the coefficient (log odds) for <span class="in">`tone`</span> was positive without <span class="in">`emo`</span>, but was negative with <span class="in">`emo`</span>. Which one should we believe? The model with <span class="in">`emo`</span> might have better predictive power, but just because something helps predict the outcome does not make it a causal variable to control for. To repeat,</span>
+<span id="cb19-187"><a href="#cb19-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-188"><a href="#cb19-188" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Coefficients in a predictive model are not causal effects.</span></span>
+<span id="cb19-189"><a href="#cb19-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-190"><a href="#cb19-190" aria-hidden="true" tabindex="-1"></a>And to emphasize again,</span>
+<span id="cb19-191"><a href="#cb19-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-192"><a href="#cb19-192" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Causal inference requires causal assumptions, and these assumptions are not in the data.</span></span>
+<span id="cb19-193"><a href="#cb19-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-194"><a href="#cb19-194" aria-hidden="true" tabindex="-1"></a>So instead, we need a DAG. Given that we know <span class="in">`emo`</span> is measured **after** the intervention, it seems reasonable to think that a negatively framed story about immigrants would elicit some negative emotions about increased immigration, and that emotion may prompt people to take anti-immigrant actions. Therefore, we have the following DAG:</span>
+<span id="cb19-195"><a href="#cb19-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-198"><a href="#cb19-198" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-199"><a href="#cb19-199" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
+<span id="cb19-200"><a href="#cb19-200" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-dag5</span></span>
+<span id="cb19-201"><a href="#cb19-201" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "DAG for a mediation model with emotion as a mediator."</span></span>
+<span id="cb19-202"><a href="#cb19-202" aria-hidden="true" tabindex="-1"></a>dag5 <span class="ot">&lt;-</span> <span class="fu">dagitty</span>(</span>
+<span id="cb19-203"><a href="#cb19-203" aria-hidden="true" tabindex="-1"></a>    <span class="st">"dag{</span></span>
+<span id="cb19-204"><a href="#cb19-204" aria-hidden="true" tabindex="-1"></a><span class="st">      T -&gt; C; T -&gt; E; E -&gt; C</span></span>
+<span id="cb19-205"><a href="#cb19-205" aria-hidden="true" tabindex="-1"></a><span class="st">    }"</span></span>
+<span id="cb19-206"><a href="#cb19-206" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb19-207"><a href="#cb19-207" aria-hidden="true" tabindex="-1"></a><span class="fu">coordinates</span>(dag5) <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="at">T =</span> <span class="dv">0</span>, <span class="at">E =</span> <span class="dv">1</span>, <span class="at">C =</span> <span class="dv">2</span>),</span>
+<span id="cb19-208"><a href="#cb19-208" aria-hidden="true" tabindex="-1"></a>                          <span class="at">y =</span> <span class="fu">c</span>(<span class="at">T =</span> <span class="dv">0</span>, <span class="at">E =</span> <span class="dv">1</span>, <span class="at">C =</span> <span class="dv">0</span>))</span>
+<span id="cb19-209"><a href="#cb19-209" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
+<span id="cb19-210"><a href="#cb19-210" aria-hidden="true" tabindex="-1"></a><span class="fu">ggdag</span>(dag5) <span class="sc">+</span> <span class="fu">theme_dag</span>()</span>
+<span id="cb19-211"><a href="#cb19-211" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-212"><a href="#cb19-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-213"><a href="#cb19-213" aria-hidden="true" tabindex="-1"></a>This is an example of a pipe/chain. It is a causal chain going from T(one) <span class="dv">&amp;rarr;</span> E(motion) <span class="dv">&amp;rarr;</span> C(ongress message). If we are interested in the causal effect of T, we should not condition on E; conditioning on E would mean comparing those who saw the negatively-framed story and *those who saw the positively-framed story but had the same negative emotion towards immigrants.* In other words, adjusting for E would mean taking out part of the effect of T on C through E. </span>
+<span id="cb19-214"><a href="#cb19-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-215"><a href="#cb19-215" aria-hidden="true" tabindex="-1"></a>As another example, think about a drug that is supposed to lower the risk of a heart attack. Imagine someone conducting a study comparing drug/no drug conditions on their probability of getting heart attacks. Should we adjust for participants' blood pressure after the intervention? If we want to know the drug's effect, and that the drug works by lowering blood pressure, we should not adjust for posttest blood pressure. Otherwise, we would be asking the question: Does the drug help prevent heart attacks through something other than lowering one's blood pressure?</span>
+<span id="cb19-216"><a href="#cb19-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-217"><a href="#cb19-217" aria-hidden="true" tabindex="-1"></a>The latter question can be answered in mediation analysis.</span>
+<span id="cb19-218"><a href="#cb19-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-219"><a href="#cb19-219" aria-hidden="true" tabindex="-1"></a><span class="fu">## Causal Mediation</span></span>
+<span id="cb19-220"><a href="#cb19-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-221"><a href="#cb19-221" aria-hidden="true" tabindex="-1"></a>In the DAG above, E is a post-treatment variable potentially influenced by T, which we call a **mediator**. Mediator is an important topic in causal inference, as it informs the mechanism of how a variable has a causal effect on an outcome. </span>
+<span id="cb19-222"><a href="#cb19-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-223"><a href="#cb19-223" aria-hidden="true" tabindex="-1"></a>One thing to be careful of is that, statistically speaking, a mediator behaves very much like a confounder, and their difference is based on causal assumptions.</span>
+<span id="cb19-224"><a href="#cb19-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-225"><a href="#cb19-225" aria-hidden="true" tabindex="-1"></a><span class="fu">### Direct and Indirect Effects</span></span>
+<span id="cb19-226"><a href="#cb19-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-227"><a href="#cb19-227" aria-hidden="true" tabindex="-1"></a>In a mediation model, the effect of X on Y has two mechanisms:</span>
+<span id="cb19-228"><a href="#cb19-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-229"><a href="#cb19-229" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Indirect effect**: X causes Y because X causes M, and M causes Y </span>
+<span id="cb19-230"><a href="#cb19-230" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Direct effect**: X causes Y without involving M</span>
+<span id="cb19-231"><a href="#cb19-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-232"><a href="#cb19-232" aria-hidden="true" tabindex="-1"></a>More specifically, the **direct effect** is the change in Y for one unit change in X, holding M constant. In our example, it means comparing subsets of the treatment and the control groups, *under the condition that both subsets have the same level of negative emotion about increased immigration*. </span>
+<span id="cb19-233"><a href="#cb19-233" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-234"><a href="#cb19-234" aria-hidden="true" tabindex="-1"></a>The **indirect effect** takes more effort to understand: it is the change in Y for the control group (or the treatment group) if their mediator value is set to the same level as the treatment group. In our example, it would mean comparing the control group and the *counterfactual* where the control group had their negative emotion changed to the same level as the treatment group.</span>
+<span id="cb19-235"><a href="#cb19-235" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-236"><a href="#cb19-236" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Causal Estimands</span></span>
+<span id="cb19-237"><a href="#cb19-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-238"><a href="#cb19-238" aria-hidden="true" tabindex="-1"></a>We can formalize these definitions using potential outcomes notation. Let $M_i(t)$ be the potential value of the mediator for person $i$ under treatment $t$. Let $Y_i(t, m)$ be the potential outcome for person $i$ under treatment $t$ and mediator value $m$.</span>
+<span id="cb19-239"><a href="#cb19-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-240"><a href="#cb19-240" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Controlled Direct Effect (CDE)**: The effect of Treatment on Outcome if we intervene to fix the Mediator to a specific level $m$.</span>
+<span id="cb19-241"><a href="#cb19-241" aria-hidden="true" tabindex="-1"></a>  $$</span>
+<span id="cb19-242"><a href="#cb19-242" aria-hidden="true" tabindex="-1"></a>  CDE(m) = E<span class="co">[</span><span class="ot">Y(1, m) - Y(0, m)</span><span class="co">]</span></span>
+<span id="cb19-243"><a href="#cb19-243" aria-hidden="true" tabindex="-1"></a>  $$</span>
+<span id="cb19-244"><a href="#cb19-244" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb19-245"><a href="#cb19-245" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Natural Direct Effect (NDE)**: The effect of Treatment on Outcome, but keeping the Mediator at the level it *would have been* under the control condition ($M_0$).</span>
+<span id="cb19-246"><a href="#cb19-246" aria-hidden="true" tabindex="-1"></a>  $$</span>
+<span id="cb19-247"><a href="#cb19-247" aria-hidden="true" tabindex="-1"></a>  NDE = E<span class="co">[</span><span class="ot">Y(1, M_0) - Y(0, M_0)</span><span class="co">]</span></span>
+<span id="cb19-248"><a href="#cb19-248" aria-hidden="true" tabindex="-1"></a>  $$</span>
+<span id="cb19-249"><a href="#cb19-249" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb19-250"><a href="#cb19-250" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Natural Indirect Effect (NIE)**: Also known as **Average Causal Mediation Effect (ACME)**. The effect of changing the Mediator from what it would be under Control ($M_0$) to what it would be under Treatment ($M_1$), while keeping Treatment status constant (usually at $T=1$ or $T=0$).</span>
+<span id="cb19-251"><a href="#cb19-251" aria-hidden="true" tabindex="-1"></a>  $$</span>
+<span id="cb19-252"><a href="#cb19-252" aria-hidden="true" tabindex="-1"></a>  NIE = E<span class="co">[</span><span class="ot">Y(0, M_1) - Y(0, M_0)</span><span class="co">]</span></span>
+<span id="cb19-253"><a href="#cb19-253" aria-hidden="true" tabindex="-1"></a>  $$</span>
+<span id="cb19-254"><a href="#cb19-254" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb19-255"><a href="#cb19-255" aria-hidden="true" tabindex="-1"></a>The **Total Effect** decomposes into the NDE and NIE:</span>
+<span id="cb19-256"><a href="#cb19-256" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb19-257"><a href="#cb19-257" aria-hidden="true" tabindex="-1"></a>\text{Total Effect} = NDE + NIE</span>
+<span id="cb19-258"><a href="#cb19-258" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb19-259"><a href="#cb19-259" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-260"><a href="#cb19-260" aria-hidden="true" tabindex="-1"></a><span class="fu">### Using the `mediation` Package</span></span>
+<span id="cb19-261"><a href="#cb19-261" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-262"><a href="#cb19-262" aria-hidden="true" tabindex="-1"></a>The <span class="in">`mediation`</span> package allows for the estimation of causal mediation effects using the potential outcomes framework. It requires two models:</span>
+<span id="cb19-263"><a href="#cb19-263" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-264"><a href="#cb19-264" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Mediator Model**: Predicting the mediator (<span class="in">`emo`</span>) from the treatment (<span class="in">`tone`</span>) and optional covariates.</span>
+<span id="cb19-265"><a href="#cb19-265" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Outcome Model**: Predicting the outcome (<span class="in">`cong_mesg`</span>) from the treatment (<span class="in">`tone`</span>) AND the mediator (<span class="in">`emo`</span>).</span>
+<span id="cb19-266"><a href="#cb19-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-269"><a href="#cb19-269" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-270"><a href="#cb19-270" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: mediation-models</span></span>
+<span id="cb19-271"><a href="#cb19-271" aria-hidden="true" tabindex="-1"></a><span class="co"># Model M: Mediator model</span></span>
+<span id="cb19-272"><a href="#cb19-272" aria-hidden="true" tabindex="-1"></a>med_fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(emo <span class="sc">~</span> tone, <span class="at">data =</span> framing)</span>
+<span id="cb19-273"><a href="#cb19-273" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-274"><a href="#cb19-274" aria-hidden="true" tabindex="-1"></a><span class="co"># Model Y: Outcome model</span></span>
+<span id="cb19-275"><a href="#cb19-275" aria-hidden="true" tabindex="-1"></a>out_fit <span class="ot">&lt;-</span> <span class="fu">glm</span>(cong_mesg <span class="sc">~</span> tone <span class="sc">+</span> emo,</span>
+<span id="cb19-276"><a href="#cb19-276" aria-hidden="true" tabindex="-1"></a>               <span class="at">data =</span> framing,</span>
+<span id="cb19-277"><a href="#cb19-277" aria-hidden="true" tabindex="-1"></a>               <span class="at">family =</span> <span class="fu">binomial</span>(<span class="st">"probit"</span>))</span>
+<span id="cb19-278"><a href="#cb19-278" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-279"><a href="#cb19-279" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-280"><a href="#cb19-280" aria-hidden="true" tabindex="-1"></a>We then use the <span class="in">`mediate()`</span> function to estimate the Average Causal Mediation Effect (ACME) (also known as the indirect effect) and the Average Direct Effect (ADE). This uses simulation (Quasi-Bayesian Monte Carlo) to obtain confidence intervals.</span>
+<span id="cb19-281"><a href="#cb19-281" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-284"><a href="#cb19-284" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-285"><a href="#cb19-285" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: mediation-run</span></span>
+<span id="cb19-286"><a href="#cb19-286" aria-hidden="true" tabindex="-1"></a><span class="co">#| cache: true</span></span>
+<span id="cb19-287"><a href="#cb19-287" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb19-288"><a href="#cb19-288" aria-hidden="true" tabindex="-1"></a>med_out <span class="ot">&lt;-</span> <span class="fu">mediate</span>(med_fit, out_fit,</span>
+<span id="cb19-289"><a href="#cb19-289" aria-hidden="true" tabindex="-1"></a>                   <span class="at">treat =</span> <span class="st">"tone"</span>, <span class="at">mediator =</span> <span class="st">"emo"</span>,</span>
+<span id="cb19-290"><a href="#cb19-290" aria-hidden="true" tabindex="-1"></a>                   <span class="at">sims =</span> <span class="dv">1999</span>)</span>
+<span id="cb19-291"><a href="#cb19-291" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(med_out)</span>
+<span id="cb19-292"><a href="#cb19-292" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-293"><a href="#cb19-293" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-294"><a href="#cb19-294" aria-hidden="true" tabindex="-1"></a>The output gives us:</span>
+<span id="cb19-295"><a href="#cb19-295" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-296"><a href="#cb19-296" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**ACME (Average Causal Mediation Effect)**: The part of the effect of Tone on Congress Message that goes *through* Emotion.</span>
+<span id="cb19-297"><a href="#cb19-297" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**ADE (Average Direct Effect)**: The part of the effect that does *not* go through Emotion.</span>
+<span id="cb19-298"><a href="#cb19-298" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Total Effect**: The sum of ACME and ADE.</span>
+<span id="cb19-299"><a href="#cb19-299" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Prop. Mediated**: The proportion of the total effect that is mediated.</span>
+<span id="cb19-300"><a href="#cb19-300" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-301"><a href="#cb19-301" aria-hidden="true" tabindex="-1"></a><span class="fu">### Sensitivity Analysis</span></span>
+<span id="cb19-302"><a href="#cb19-302" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-303"><a href="#cb19-303" aria-hidden="true" tabindex="-1"></a>The "Sequential Ignorability" assumption (no unmeasured confounding) is strong and untestable. However, we can perform a **sensitivity analysis** to see how robust our results are to potential violations of this assumption. Specifically, we ask: how highly correlated ($\rho$) would the error terms of the mediator and outcome models need to be for the ACME to vanish (i.e., cross zero)? A non-zero $\rho$ implies the existence of unmeasured confounders affecting both $M$ and $Y$.</span>
+<span id="cb19-304"><a href="#cb19-304" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-307"><a href="#cb19-307" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-308"><a href="#cb19-308" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: mediation-sensitivity</span></span>
+<span id="cb19-309"><a href="#cb19-309" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Sensitivity Analysis for ACME with respect to the correlation between error terms (rho)."</span></span>
+<span id="cb19-310"><a href="#cb19-310" aria-hidden="true" tabindex="-1"></a><span class="co">#| layout-ncol: 2</span></span>
+<span id="cb19-311"><a href="#cb19-311" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-height: 5</span></span>
+<span id="cb19-312"><a href="#cb19-312" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-width: 5</span></span>
+<span id="cb19-313"><a href="#cb19-313" aria-hidden="true" tabindex="-1"></a>sens_out <span class="ot">&lt;-</span> <span class="fu">medsens</span>(med_out, <span class="at">rho.by =</span> <span class="fl">0.1</span>, <span class="at">effect.type =</span> <span class="st">"indirect"</span>, <span class="at">sims =</span> <span class="dv">1999</span>)</span>
+<span id="cb19-314"><a href="#cb19-314" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(sens_out)</span>
+<span id="cb19-315"><a href="#cb19-315" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sens_out, <span class="at">sens.par =</span> <span class="st">"rho"</span>, <span class="at">main =</span> <span class="st">"Sensitivity Analysis"</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.2</span>, <span class="fl">0.2</span>))</span>
+<span id="cb19-316"><a href="#cb19-316" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-317"><a href="#cb19-317" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-318"><a href="#cb19-318" aria-hidden="true" tabindex="-1"></a>The plot shows the estimated ACME (solid line) and its confidence intervals (dashed lines) as a function of the sensitivity parameter $\rho$. If the confidence interval includes zero only at high values of $\rho$, the results are considered robust.</span>
+<span id="cb19-319"><a href="#cb19-319" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-320"><a href="#cb19-320" aria-hidden="true" tabindex="-1"></a><span class="fu">### Using `lavaan`</span></span>
+<span id="cb19-321"><a href="#cb19-321" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-322"><a href="#cb19-322" aria-hidden="true" tabindex="-1"></a>We can also estimate mediation models using Path Analysis in <span class="in">`lavaan`</span>. Because the outcome <span class="in">`cong_mesg`</span> is binary, we should treat it as an ordered categorical variable. <span class="in">`lavaan`</span> typically uses the **DWLS** (Diagonally Weighted Least Squares) estimator for such data.</span>
+<span id="cb19-323"><a href="#cb19-323" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-324"><a href="#cb19-324" aria-hidden="true" tabindex="-1"></a>Also, because the product of coefficients (used for the indirect effect) is rarely normally distributed, we use **Monte Carlo** confidence intervals. This approach simulates the sampling distribution of the indirect effect by drawing repeatedly from the multivariate normal distribution of the estimated parameter covariance matrix. Note that when defining the product $a \times b$, the coefficients are on the underlying latent response scale (probit link by default), so interpretability will be different from the probability scale used in <span class="in">`mediate()`</span>.</span>
+<span id="cb19-325"><a href="#cb19-325" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-328"><a href="#cb19-328" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-329"><a href="#cb19-329" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: lavaan-mediation</span></span>
+<span id="cb19-330"><a href="#cb19-330" aria-hidden="true" tabindex="-1"></a><span class="co">#| cache: true</span></span>
+<span id="cb19-331"><a href="#cb19-331" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb19-332"><a href="#cb19-332" aria-hidden="true" tabindex="-1"></a>model_med <span class="ot">&lt;-</span> <span class="st">'</span></span>
+<span id="cb19-333"><a href="#cb19-333" aria-hidden="true" tabindex="-1"></a><span class="st">  # a path</span></span>
+<span id="cb19-334"><a href="#cb19-334" aria-hidden="true" tabindex="-1"></a><span class="st">  emo ~ a * tone</span></span>
+<span id="cb19-335"><a href="#cb19-335" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-336"><a href="#cb19-336" aria-hidden="true" tabindex="-1"></a><span class="st">  # b path and c prime path</span></span>
+<span id="cb19-337"><a href="#cb19-337" aria-hidden="true" tabindex="-1"></a><span class="st">  cong_mesg ~ b * emo + c_prime * tone</span></span>
+<span id="cb19-338"><a href="#cb19-338" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-339"><a href="#cb19-339" aria-hidden="true" tabindex="-1"></a><span class="st">  # Indirect effect (a * b)</span></span>
+<span id="cb19-340"><a href="#cb19-340" aria-hidden="true" tabindex="-1"></a><span class="st">  ab := a * b</span></span>
+<span id="cb19-341"><a href="#cb19-341" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-342"><a href="#cb19-342" aria-hidden="true" tabindex="-1"></a><span class="st">  # Total effect</span></span>
+<span id="cb19-343"><a href="#cb19-343" aria-hidden="true" tabindex="-1"></a><span class="st">  total := c_prime + (a * b)</span></span>
+<span id="cb19-344"><a href="#cb19-344" aria-hidden="true" tabindex="-1"></a><span class="st">'</span></span>
+<span id="cb19-345"><a href="#cb19-345" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-346"><a href="#cb19-346" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimate using DWLS</span></span>
+<span id="cb19-347"><a href="#cb19-347" aria-hidden="true" tabindex="-1"></a>fit_med <span class="ot">&lt;-</span> <span class="fu">sem</span>(model_med, <span class="at">data =</span> framing, <span class="at">ordered =</span> <span class="fu">c</span>(<span class="st">"cong_mesg"</span>),</span>
+<span id="cb19-348"><a href="#cb19-348" aria-hidden="true" tabindex="-1"></a>               <span class="at">estimator =</span> <span class="st">"DWLS"</span>)</span>
+<span id="cb19-349"><a href="#cb19-349" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-350"><a href="#cb19-350" aria-hidden="true" tabindex="-1"></a><span class="co"># Monte Carlo confidence intervals (20,000 draws)</span></span>
+<span id="cb19-351"><a href="#cb19-351" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb19-352"><a href="#cb19-352" aria-hidden="true" tabindex="-1"></a>mc_ci <span class="ot">&lt;-</span> semTools<span class="sc">::</span><span class="fu">monteCarloCI</span>(fit_med, <span class="at">nRep =</span> <span class="dv">20000</span>)</span>
+<span id="cb19-353"><a href="#cb19-353" aria-hidden="true" tabindex="-1"></a>mc_ci[<span class="fu">c</span>(<span class="st">"indirect"</span>, <span class="st">"total"</span>), ] <span class="sc">|&gt;</span></span>
+<span id="cb19-354"><a href="#cb19-354" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span>
+<span id="cb19-355"><a href="#cb19-355" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-356"><a href="#cb19-356" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-357"><a href="#cb19-357" aria-hidden="true" tabindex="-1"></a><span class="fu">## Summary</span></span>
+<span id="cb19-358"><a href="#cb19-358" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-359"><a href="#cb19-359" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Direct Effect**: Effect of $X$ on $Y$ holding $M$ constant.</span>
+<span id="cb19-360"><a href="#cb19-360" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Indirect Effect**: Effect of $X$ on $Y$ through $M$.</span>
+<span id="cb19-361"><a href="#cb19-361" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Assumptions**: Mediation analysis relies on strong causal assumptions (no unmeasured confounding between $M$ and $Y$), which randomization of $X$ alone does not guarantee.</span>
+<span id="cb19-362"><a href="#cb19-362" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-363"><a href="#cb19-363" aria-hidden="true" tabindex="-1"></a><span class="fu">## References</span></span>
+<span id="cb19-364"><a href="#cb19-364" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-365"><a href="#cb19-365" aria-hidden="true" tabindex="-1"></a>Kline, R. B. (2023). *Principles and practice of structural equation modeling* (5th ed.). Guilford Press.</span>
+</code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<footer class="footer"><div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Copyright 2026 Mark Hok Chio Lai</p>
+</div>   
+    <div class="nav-footer-center">
+<p>Faculty of Education, University of Macau</p>
+</div>
+    <div class="nav-footer-right">
+<p><a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></p>
+</div>
+  </div>
+</footer>
+
+
+</body></html>

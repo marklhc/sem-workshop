@@ -573,6 +573,17 @@ See [documentation of *lavaan*](https://lavaan.ugent.be/tutorial/est.html). Othe
 
 # Using the *lavaan* Package
 
+## Data Exploration
+
+```{r}
+#| fig-align: center
+#| echo: true
+library(psych)
+pairs.panels(we_data[, c("SOP", "NGSE", "PASS")],
+             smooth = TRUE, method = "pearson",
+             hist.col = "steelblue", ellipses = FALSE)
+```
+
 ## Model Specification
 
 ```{r}
@@ -651,6 +662,10 @@ library(semPlot)
 semPaths(reg2, whatLabels = "std", layout = "tree", edge.label.cex = 1.2,
          sizeMan = 6, nCharNodes = 0)
 ```
+
+## Reporting Sample
+
+> We used the R package *lavaan* to test the indirect effect of SOP on PASS through NGSE, with maximum likelihood estimation. Figure X shows the path diagram with standardized coefficients ($\beta$). We found a significant and negative indirect effect of Self-Oriented Perfectionism on Academic Procrastination through General Self-Efficacy, as indicated by the significant positive path from SOP to NGSE, $\beta_1$ = `r round(pe2[pe2$lhs == "NGSE" & pe2$rhs == "SOP", "std.all"], 2)`, *SE* = `r round(pe2[pe2$lhs == "NGSE" & pe2$rhs == "SOP", "se"], 2)`, *p* `r ifelse(pe2[pe2$lhs == "NGSE" & pe2$rhs == "SOP", "pvalue"] < 0.001, "< 0.001", paste0("= ", round(pe2[pe2$lhs == "NGSE" & pe2$rhs == "SOP", "pvalue"], 2)))`, and the significant negative path from NGSE to PASS $\beta_2$ = `r round(pe2[pe2$lhs == "PASS" & pe2$rhs == "NGSE", "std.all"], 2)`, *SE* = `r round(pe2[pe2$lhs == "PASS" & pe2$rhs == "NGSE", "se"], 2)`, *p* `r ifelse(pe2[pe2$lhs == "PASS" & pe2$rhs == "NGSE", "pvalue"] < 0.001, "< 0.001", paste0("= ", round(pe2[pe2$lhs == "PASS" & pe2$rhs == "NGSE", "pvalue"], 2)))`.
 
 ## Testing
 

@@ -1,0 +1,1850 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.36">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>Confirmatory Factor Analysis With Categorical Indicators – FED-ETARC SEM Workshop</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../UM-Logo_H-Black_1.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-b7163fa3d00c4e1ebd61f4b5b358a8ad.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-15fc76de3e0ea9bb93638e3565ae9454.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-b7163fa3d00c4e1ebd61f4b5b358a8ad.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-9343ee8590bbc9118e926b4154910b0e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-a04b54ca9782974339946bf1dfc0f020.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-9343ee8590bbc9118e926b4154910b0e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script><link href="../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="../site_libs/pagedtable-1.1/js/pagedtable.js"></script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script><link rel="stylesheet" href="../styles.css">
+</head>
+<body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../UM-Logo_H-White_1.png" alt="University of Macau" class="navbar-logo light-content"><img src="../UM-Logo_H-White_1.png" alt="University of Macau" class="navbar-logo dark-content"></a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">FED-ETARC SEM Workshop</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+<li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../guide.html"> 
+<span class="menu-text">Setup</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../modules/index.html"> 
+<span class="menu-text">Modules</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../notes/cfa.html" aria-current="page"> 
+<span class="menu-text">Notes</span></a>
+  </li>  
+</ul>
+<ul class="navbar-nav navbar-nav-scroll ms-auto">
+<li class="nav-item">
+    <a class="nav-link" href="../resources.html"> 
+<span class="menu-text">Resources</span></a>
+  </li>  
+</ul>
+</div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+    <a href="https://github.com/marklhc/sem-workshop" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/esem.html">Other Topics</a></li><li class="breadcrumb-item"><a href="../notes/cfa-cat.html">Confirmatory Factor Analysis With Categorical Indicators</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="https://fed.um.edu.mo/wp-content/uploads/2020/12/6-um_and_fed_logo_horizontal.png" alt="Faculty of Education | University of Macau" class="sidebar-logo light-content py-0 d-lg-inline d-none"><img src="https://fed.um.edu.mo/wp-content/uploads/2020/12/6-um_and_fed_logo_horizontal.png" alt="Faculty of Education | University of Macau" class="sidebar-logo dark-content py-0 d-lg-inline d-none"></a>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Setup</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show"></ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Part 1: Path Analysis</span></span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part 2: CFA</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/cfa.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CFA: Self-Oriented Perfectionism</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/cfa-asags.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">(Bnous) Another Example of Confirmatory Factor Analysis</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Part 3: Full SEM</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/structural.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Structural Models</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Other Topics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/esem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exploratory Structural Equation Modeling (ESEM)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/mediation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mediation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/cfa-cat.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Confirmatory Factor Analysis With Categorical Indicators</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notes/invariance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Basics of Measurement Invariance</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+    </ul>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
+   
+  <ul>
+<li><a href="#load-data" id="toc-load-data" class="nav-link active" data-scroll-target="#load-data">Load Data</a></li>
+  <li>
+<a href="#background-on-categorical-data" id="toc-background-on-categorical-data" class="nav-link" data-scroll-target="#background-on-categorical-data">Background on Categorical Data</a>
+  <ul class="collapse">
+<li><a href="#underlying-latent-response-formulation" id="toc-underlying-latent-response-formulation" class="nav-link" data-scroll-target="#underlying-latent-response-formulation">Underlying Latent Response Formulation</a></li>
+  <li><a href="#polychoric-correlations" id="toc-polychoric-correlations" class="nav-link" data-scroll-target="#polychoric-correlations">Polychoric Correlations</a></li>
+  <li><a href="#wlsmv-estimator" id="toc-wlsmv-estimator" class="nav-link" data-scroll-target="#wlsmv-estimator">WLSMV Estimator</a></li>
+  </ul>
+</li>
+  <li><a href="#not-recommended-treating-items-as-continuous" id="toc-not-recommended-treating-items-as-continuous" class="nav-link" data-scroll-target="#not-recommended-treating-items-as-continuous">(Not Recommended) Treating Items as Continuous</a></li>
+  <li>
+<a href="#ordinal-cfa" id="toc-ordinal-cfa" class="nav-link" data-scroll-target="#ordinal-cfa">Ordinal CFA</a>
+  <ul class="collapse">
+<li><a href="#updated-models" id="toc-updated-models" class="nav-link" data-scroll-target="#updated-models">Updated Models</a></li>
+  </ul>
+</li>
+  </ul><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="cfa-cat.pdf"><i class="bi bi-file-pdf"></i>Typst</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/esem.html">Other Topics</a></li><li class="breadcrumb-item"><a href="../notes/cfa-cat.html">Confirmatory Factor Analysis With Categorical Indicators</a></li></ol></nav><div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">Confirmatory Factor Analysis With Categorical Indicators</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header><div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://here.r-lib.org/">here</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://lavaan.ugent.be">lavaan</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://modelsummary.com">modelsummary</a></span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The data come from this paper: <a href="https://doi.org/10.1111/desc.12918" class="uri">https://doi.org/10.1111/desc.12918</a>. The authors kindly shared the data on OSF: <a href="https://osf.io/hq4xy/overview" class="uri">https://osf.io/hq4xy/overview</a>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Download data from OSF</span></span>
+<span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/files2.html">dir.exists</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"data"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/files2.html">dir.create</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"data"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span><span class="co"># Raw items</span></span>
+<span><span class="va">tiego_raw_name</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="st">"data"</span>, <span class="st">"tiego_raw.csv"</span><span class="op">)</span></span>
+<span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span><span class="op">(</span><span class="va">tiego_raw_name</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/utils/download.file.html">download.file</a></span><span class="op">(</span></span>
+<span>        <span class="st">"https://osf.io/download/mtnqj/"</span>,</span>
+<span>        destfile <span class="op">=</span> <span class="va">tiego_raw_name</span></span>
+<span>    <span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="load-data" class="level3"><h3 class="anchored" data-anchor-id="load-data">Load Data</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">tiego_raw</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="va">tiego_raw_name</span><span class="op">)</span></span>
+<span><span class="co"># Notice that the minimum is -999 for many variables, so -999 is likely a missing code</span></span>
+<span><span class="co"># Treat -999 as NA</span></span>
+<span><span class="va">tiego_raw</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="va">tiego_raw_name</span>, na.strings <span class="op">=</span> <span class="op">-</span><span class="fl">999</span><span class="op">)</span></span>
+<span><span class="co"># Looks like the CBCL items also have some other missing codes</span></span>
+<span><span class="va">tiego_raw</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">starts_with</a></span><span class="op">(</span><span class="st">"CBCLProb"</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co"># Recode 9 to NA as well</span></span>
+<span><span class="va">tiego_raw</span> <span class="op">&lt;-</span> <span class="va">tiego_raw</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">starts_with</a></span><span class="op">(</span><span class="st">"CBCLProb"</span><span class="op">)</span>,</span>
+<span>                  <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">.x</span> <span class="op">==</span> <span class="fl">9</span>, <span class="cn">NA</span>, <span class="va">.x</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The data contain items from CBCL (Child Behavior Checklist). The items are rated on a 3-point scale (0 = not true, 1 = somewhat or sometimes true, 2 = very true or often true), and should not be treated as continuous. We will focus on the 7-item DSM-oriented Attention Deficit/Hyperactivity Problems scale, with the seven items being Items 4, 8, 10, 41, 78, 93, 104.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Gather the items into a smaller data set</span></span>
+<span><span class="va">tiego_adhd</span> <span class="op">&lt;-</span> <span class="va">tiego_raw</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span></span>
+<span>        adhd1 <span class="op">=</span> <span class="va">CBCLProb4</span>,  <span class="co"># fails to finish</span></span>
+<span>        adhd2 <span class="op">=</span> <span class="va">CBCLProb8</span>,  <span class="co"># concentrate</span></span>
+<span>        adhd3 <span class="op">=</span> <span class="va">CBCLProb10</span>,  <span class="co"># sit still</span></span>
+<span>        adhd4 <span class="op">=</span> <span class="va">CBCLProb41</span>,  <span class="co"># impulsive</span></span>
+<span>        adhd5 <span class="op">=</span> <span class="va">CBCLProb78</span>,  <span class="co"># inattentive</span></span>
+<span>        adhd6 <span class="op">=</span> <span class="va">CBCLProb93</span>,  <span class="co"># talk much</span></span>
+<span>        adhd7 <span class="op">=</span> <span class="va">CBCLProb104</span>  <span class="co"># loud</span></span>
+<span>    <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="co"># recode to be ordinal</span></span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
+<span>        <span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span></span>
+<span>            <span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html">everything</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>            <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">ordered</a></span><span class="op">(</span><span class="va">.x</span>, levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span>,</span>
+<span>                      labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"not true"</span>, <span class="st">"somewhat or sometimes true"</span>,</span>
+<span>                                 <span class="st">"very true or often true"</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>            .names <span class="op">=</span> <span class="st">"{.col}_c"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://modelsummary.com/man/datasummary_skim.html">datasummary_skim</a></span><span class="op">(</span><span class="va">tiego_adhd</span><span class="op">[</span>, <span class="fl">8</span><span class="op">:</span><span class="fl">14</span><span class="op">]</span><span class="op">)</span>  <span class="co"># check the recoded items</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<!-- preamble start -->
+
+    <script src="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.js"></script><script>
+      // Create table-specific functions using external factory
+      const tableFns_djanv9vhv0jnlt5si5ew = TinyTable.createTableFunctions("tinytable_djanv9vhv0jnlt5si5ew");
+      // tinytable span after
+      window.addEventListener('load', function () {
+          var cellsToStyle = [
+            // tinytable style arrays after
+          { positions: [ { i: '21', j: 3 }, { i: '21', j: 4 } ], css_id: 'tinytable_css_lsz9285q62h2n10vspov',}, 
+          { positions: [ { i: '1', j: 3 }, { i: '2', j: 3 }, { i: '3', j: 3 }, { i: '4', j: 3 }, { i: '5', j: 3 }, { i: '6', j: 3 }, { i: '7', j: 3 }, { i: '8', j: 3 }, { i: '9', j: 3 }, { i: '10', j: 3 }, { i: '11', j: 3 }, { i: '12', j: 3 }, { i: '13', j: 3 }, { i: '14', j: 3 }, { i: '15', j: 3 }, { i: '16', j: 3 }, { i: '17', j: 3 }, { i: '18', j: 3 }, { i: '19', j: 3 }, { i: '20', j: 3 }, { i: '1', j: 4 }, { i: '2', j: 4 }, { i: '3', j: 4 }, { i: '4', j: 4 }, { i: '5', j: 4 }, { i: '6', j: 4 }, { i: '7', j: 4 }, { i: '8', j: 4 }, { i: '9', j: 4 }, { i: '10', j: 4 }, { i: '11', j: 4 }, { i: '12', j: 4 }, { i: '13', j: 4 }, { i: '14', j: 4 }, { i: '15', j: 4 }, { i: '16', j: 4 }, { i: '17', j: 4 }, { i: '18', j: 4 }, { i: '19', j: 4 }, { i: '20', j: 4 } ], css_id: 'tinytable_css_kcvrqg3542mlh88j5prm',}, 
+          { positions: [ { i: '0', j: 3 }, { i: '0', j: 4 } ], css_id: 'tinytable_css_0dkwqtamgamtcovdcbr5',}, 
+          { positions: [ { i: '21', j: 1 }, { i: '21', j: 2 } ], css_id: 'tinytable_css_xqj4n64kymf2t0vaafgb',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 }, { i: '4', j: 1 }, { i: '5', j: 1 }, { i: '6', j: 1 }, { i: '7', j: 1 }, { i: '8', j: 1 }, { i: '9', j: 1 }, { i: '10', j: 1 }, { i: '11', j: 1 }, { i: '12', j: 1 }, { i: '13', j: 1 }, { i: '14', j: 1 }, { i: '15', j: 1 }, { i: '16', j: 1 }, { i: '17', j: 1 }, { i: '18', j: 1 }, { i: '19', j: 1 }, { i: '20', j: 1 }, { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '3', j: 2 }, { i: '4', j: 2 }, { i: '5', j: 2 }, { i: '6', j: 2 }, { i: '7', j: 2 }, { i: '8', j: 2 }, { i: '9', j: 2 }, { i: '10', j: 2 }, { i: '11', j: 2 }, { i: '12', j: 2 }, { i: '13', j: 2 }, { i: '14', j: 2 }, { i: '15', j: 2 }, { i: '16', j: 2 }, { i: '17', j: 2 }, { i: '18', j: 2 }, { i: '19', j: 2 }, { i: '20', j: 2 } ], css_id: 'tinytable_css_qv6tucxamq4jr045fn07',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_31idc0fr90qj06hwfqxd',}, 
+          ];
+
+          // Loop over the arrays to style the cells
+          cellsToStyle.forEach(function (group) {
+              group.positions.forEach(function (cell) {
+                  tableFns_djanv9vhv0jnlt5si5ew.styleCell(cell.i, cell.j, group.css_id);
+              });
+          });
+      });
+    </script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
+<style>
+    /* tinytable css entries after */
+    #tinytable_djanv9vhv0jnlt5si5ew td.tinytable_css_lsz9285q62h2n10vspov, #tinytable_djanv9vhv0jnlt5si5ew th.tinytable_css_lsz9285q62h2n10vspov {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: right }
+    #tinytable_djanv9vhv0jnlt5si5ew td.tinytable_css_kcvrqg3542mlh88j5prm, #tinytable_djanv9vhv0jnlt5si5ew th.tinytable_css_kcvrqg3542mlh88j5prm { text-align: right }
+    #tinytable_djanv9vhv0jnlt5si5ew td.tinytable_css_0dkwqtamgamtcovdcbr5, #tinytable_djanv9vhv0jnlt5si5ew th.tinytable_css_0dkwqtamgamtcovdcbr5 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: right }
+    #tinytable_djanv9vhv0jnlt5si5ew td.tinytable_css_xqj4n64kymf2t0vaafgb, #tinytable_djanv9vhv0jnlt5si5ew th.tinytable_css_xqj4n64kymf2t0vaafgb {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_djanv9vhv0jnlt5si5ew td.tinytable_css_qv6tucxamq4jr045fn07, #tinytable_djanv9vhv0jnlt5si5ew th.tinytable_css_qv6tucxamq4jr045fn07 { text-align: left }
+    #tinytable_djanv9vhv0jnlt5si5ew td.tinytable_css_31idc0fr90qj06hwfqxd, #tinytable_djanv9vhv0jnlt5si5ew th.tinytable_css_31idc0fr90qj06hwfqxd {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    </style>
+<div class="container">
+      <table class="tinytable" id="tinytable_djanv9vhv0jnlt5si5ew" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+<thead><tr>
+<th scope="col" data-row="0" data-col="1"> </th>
+                <th scope="col" data-row="0" data-col="2">  </th>
+                <th scope="col" data-row="0" data-col="3">N</th>
+                <th scope="col" data-row="0" data-col="4">%</th>
+              </tr></thead>
+<tbody>
+<tr>
+<td data-row="1" data-col="1">adhd1_c</td>
+                  <td data-row="1" data-col="2">not true</td>
+                  <td data-row="1" data-col="3">56</td>
+                  <td data-row="1" data-col="4">41.2</td>
+                </tr>
+<tr>
+<td data-row="2" data-col="1"></td>
+                  <td data-row="2" data-col="2">somewhat or sometimes true</td>
+                  <td data-row="2" data-col="3">57</td>
+                  <td data-row="2" data-col="4">41.9</td>
+                </tr>
+<tr>
+<td data-row="3" data-col="1"></td>
+                  <td data-row="3" data-col="2">very true or often true</td>
+                  <td data-row="3" data-col="3">21</td>
+                  <td data-row="3" data-col="4">15.4</td>
+                </tr>
+<tr>
+<td data-row="4" data-col="1">adhd2_c</td>
+                  <td data-row="4" data-col="2">not true</td>
+                  <td data-row="4" data-col="3">74</td>
+                  <td data-row="4" data-col="4">54.4</td>
+                </tr>
+<tr>
+<td data-row="5" data-col="1"></td>
+                  <td data-row="5" data-col="2">somewhat or sometimes true</td>
+                  <td data-row="5" data-col="3">39</td>
+                  <td data-row="5" data-col="4">28.7</td>
+                </tr>
+<tr>
+<td data-row="6" data-col="1"></td>
+                  <td data-row="6" data-col="2">very true or often true</td>
+                  <td data-row="6" data-col="3">21</td>
+                  <td data-row="6" data-col="4">15.4</td>
+                </tr>
+<tr>
+<td data-row="7" data-col="1">adhd3_c</td>
+                  <td data-row="7" data-col="2">not true</td>
+                  <td data-row="7" data-col="3">80</td>
+                  <td data-row="7" data-col="4">58.8</td>
+                </tr>
+<tr>
+<td data-row="8" data-col="1"></td>
+                  <td data-row="8" data-col="2">somewhat or sometimes true</td>
+                  <td data-row="8" data-col="3">41</td>
+                  <td data-row="8" data-col="4">30.1</td>
+                </tr>
+<tr>
+<td data-row="9" data-col="1"></td>
+                  <td data-row="9" data-col="2">very true or often true</td>
+                  <td data-row="9" data-col="3">12</td>
+                  <td data-row="9" data-col="4">8.8</td>
+                </tr>
+<tr>
+<td data-row="10" data-col="1">adhd4_c</td>
+                  <td data-row="10" data-col="2">not true</td>
+                  <td data-row="10" data-col="3">80</td>
+                  <td data-row="10" data-col="4">58.8</td>
+                </tr>
+<tr>
+<td data-row="11" data-col="1"></td>
+                  <td data-row="11" data-col="2">somewhat or sometimes true</td>
+                  <td data-row="11" data-col="3">38</td>
+                  <td data-row="11" data-col="4">27.9</td>
+                </tr>
+<tr>
+<td data-row="12" data-col="1"></td>
+                  <td data-row="12" data-col="2">very true or often true</td>
+                  <td data-row="12" data-col="3">15</td>
+                  <td data-row="12" data-col="4">11.0</td>
+                </tr>
+<tr>
+<td data-row="13" data-col="1">adhd5_c</td>
+                  <td data-row="13" data-col="2">not true</td>
+                  <td data-row="13" data-col="3">78</td>
+                  <td data-row="13" data-col="4">57.4</td>
+                </tr>
+<tr>
+<td data-row="14" data-col="1"></td>
+                  <td data-row="14" data-col="2">somewhat or sometimes true</td>
+                  <td data-row="14" data-col="3">36</td>
+                  <td data-row="14" data-col="4">26.5</td>
+                </tr>
+<tr>
+<td data-row="15" data-col="1"></td>
+                  <td data-row="15" data-col="2">very true or often true</td>
+                  <td data-row="15" data-col="3">20</td>
+                  <td data-row="15" data-col="4">14.7</td>
+                </tr>
+<tr>
+<td data-row="16" data-col="1">adhd6_c</td>
+                  <td data-row="16" data-col="2">not true</td>
+                  <td data-row="16" data-col="3">89</td>
+                  <td data-row="16" data-col="4">65.4</td>
+                </tr>
+<tr>
+<td data-row="17" data-col="1"></td>
+                  <td data-row="17" data-col="2">somewhat or sometimes true</td>
+                  <td data-row="17" data-col="3">35</td>
+                  <td data-row="17" data-col="4">25.7</td>
+                </tr>
+<tr>
+<td data-row="18" data-col="1"></td>
+                  <td data-row="18" data-col="2">very true or often true</td>
+                  <td data-row="18" data-col="3">10</td>
+                  <td data-row="18" data-col="4">7.4</td>
+                </tr>
+<tr>
+<td data-row="19" data-col="1">adhd7_c</td>
+                  <td data-row="19" data-col="2">not true</td>
+                  <td data-row="19" data-col="3">103</td>
+                  <td data-row="19" data-col="4">75.7</td>
+                </tr>
+<tr>
+<td data-row="20" data-col="1"></td>
+                  <td data-row="20" data-col="2">somewhat or sometimes true</td>
+                  <td data-row="20" data-col="3">24</td>
+                  <td data-row="20" data-col="4">17.6</td>
+                </tr>
+<tr>
+<td data-row="21" data-col="1"></td>
+                  <td data-row="21" data-col="2">very true or often true</td>
+                  <td data-row="21" data-col="3">6</td>
+                  <td data-row="21" data-col="4">4.4</td>
+                </tr>
+</tbody>
+</table>
+</div>
+<!-- hack to avoid NA insertion in last line -->
+</div>
+</div>
+</section><section id="background-on-categorical-data" class="level2"><h2 class="anchored" data-anchor-id="background-on-categorical-data">Background on Categorical Data</h2>
+<p>Many scales in psychology, like the CBCL, use Likert-type response formats (e.g., 0-1-2). Standard CFA using Maximum Likelihood (ML) assumes that the observed variables are:</p>
+<ol type="1">
+<li>
+<strong>Continuous</strong>: Can take any value within a range.</li>
+<li>
+<strong>Normally Distributed</strong>: Follow a bell curve.</li>
+</ol>
+<p>When we have ordinal data with few categories (e.g., fewer than 5), treating them as continuous can lead to:</p>
+<ul>
+<li>Biased parameter estimates (e.g., underestimated factor loadings).</li>
+<li>Incorrect standard errors and <span class="math inline">\(\chi^2\)</span> statistics.</li>
+<li>Spurious multidimensionality (factors defined by item difficulty rather than content).</li>
+</ul>
+<section id="underlying-latent-response-formulation" class="level3"><h3 class="anchored" data-anchor-id="underlying-latent-response-formulation">Underlying Latent Response Formulation</h3>
+<p>Instead of analyzing the discrete scores directly (0, 1, 2), we assume that for each observed categorical item <span class="math inline">\(Y\)</span>, there is an underlying, unobserved continuous variable <span class="math inline">\(Y^*\)</span> (Y-star). The observed score is determined by where <span class="math inline">\(Y^*\)</span> falls relative to certain <strong>thresholds</strong> (<span class="math inline">\(\tau\)</span>):</p>
+<p><span class="math display">\[
+Y = \begin{cases}
+0 &amp; \text{if } Y^* \le \tau_1 \\
+1 &amp; \text{if } \tau_1 &lt; Y^* \le \tau_2 \\
+2 &amp; \text{if } Y^* &gt; \tau_2
+\end{cases}
+\]</span></p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="cfa-cat_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="polychoric-correlations" class="level3"><h3 class="anchored" data-anchor-id="polychoric-correlations">Polychoric Correlations</h3>
+<p>Because we care about the relationships between the underlying latent responses (<span class="math inline">\(Y^*\)</span>), we estimate the correlations between these <span class="math inline">\(Y^*\)</span> variables rather than the Pearson correlations of the observed integers. These correlations are called <strong>polychoric correlations</strong>. They are typically stronger than the Pearson correlations calculated on coarse categorical data.</p>
+</section><section id="wlsmv-estimator" class="level3"><h3 class="anchored" data-anchor-id="wlsmv-estimator">WLSMV Estimator</h3>
+<p>For categorical CFA, we typically use the <strong>WLSMV</strong> (Weighted Least Squares Mean and Variance adjusted) estimator.</p>
+<ul>
+<li>
+<strong>DWLS</strong>: The core estimation method is Diagonally Weighted Least Squares (DWLS). Unlike Full WLS which requires the inversion of a massive weight matrix (dimensions increase rapidly with more items), DWLS only uses the diagonal elements of the weight matrix. This makes it much more computationally stable and feasible for larger models and smaller sample sizes.</li>
+<li>
+<strong>MV</strong>: It then applies robust corrections to the standard errors and test statistics (like <span class="math inline">\(\chi^2\)</span>) to account for the fact that the full weight matrix was not used. Specifically, it adjusts both the Mean and Variance of the test statistic distribution.</li>
+</ul></section></section><section id="not-recommended-treating-items-as-continuous" class="level2"><h2 class="anchored" data-anchor-id="not-recommended-treating-items-as-continuous">(Not Recommended) Treating Items as Continuous</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">fit_cont</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lavaan/man/cfa.html">cfa</a></span><span class="op">(</span></span>
+<span>    <span class="st">" ADHD =~ adhd1 + adhd2 + adhd3 + adhd4 + adhd5 + adhd6 + adhd7 "</span>,</span>
+<span>    data <span class="op">=</span> <span class="va">tiego_adhd</span>, missing <span class="op">=</span> <span class="st">"fiml"</span>, estimator <span class="op">=</span> <span class="st">"MLR"</span></span>
+<span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: lavaan-&gt;lav_data_full():  
+   some cases are empty and will be ignored: 83 132.</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_cont</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span>, standardized <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>lavaan 0.6-21 ended normally after 32 iterations
+
+  Estimator                                         ML
+  Optimization method                           NLMINB
+  Number of model parameters                        21
+
+                                                  Used       Total
+  Number of observations                           134         136
+  Number of missing patterns                         4            
+
+Model Test User Model:
+                                              Standard      Scaled
+  Test Statistic                                61.701      50.338
+  Degrees of freedom                                14          14
+  P-value (Chi-square)                           0.000       0.000
+  Scaling correction factor                                  1.226
+    Yuan-Bentler correction (Mplus variant)                       
+
+Model Test Baseline Model:
+
+  Test statistic                               433.846     336.246
+  Degrees of freedom                                21          21
+  P-value                                        0.000       0.000
+  Scaling correction factor                                  1.290
+
+User Model versus Baseline Model:
+
+  Comparative Fit Index (CFI)                    0.884       0.885
+  Tucker-Lewis Index (TLI)                       0.827       0.827
+                                                                  
+  Robust Comparative Fit Index (CFI)                         0.889
+  Robust Tucker-Lewis Index (TLI)                            0.833
+
+Loglikelihood and Information Criteria:
+
+  Loglikelihood user model (H0)               -763.251    -763.251
+  Scaling correction factor                                  1.143
+      for the MLR correction                                      
+  Loglikelihood unrestricted model (H1)       -732.400    -732.400
+  Scaling correction factor                                  1.176
+      for the MLR correction                                      
+                                                                  
+  Akaike (AIC)                                1568.501    1568.501
+  Bayesian (BIC)                              1629.356    1629.356
+  Sample-size adjusted Bayesian (SABIC)       1562.928    1562.928
+
+Root Mean Square Error of Approximation:
+
+  RMSEA                                          0.159       0.139
+  90 Percent confidence interval - lower         0.120       0.103
+  90 Percent confidence interval - upper         0.201       0.177
+  P-value H_0: RMSEA &lt;= 0.050                    0.000       0.000
+  P-value H_0: RMSEA &gt;= 0.080                    0.999       0.995
+                                                                  
+  Robust RMSEA                                               0.156
+  90 Percent confidence interval - lower                     0.112
+  90 Percent confidence interval - upper                     0.202
+  P-value H_0: Robust RMSEA &lt;= 0.050                         0.000
+  P-value H_0: Robust RMSEA &gt;= 0.080                         0.997
+
+Standardized Root Mean Square Residual:
+
+  SRMR                                           0.074       0.074
+
+Parameter Estimates:
+
+  Standard errors                             Sandwich
+  Information bread                           Observed
+  Observed information based on                Hessian
+
+Latent Variables:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+  ADHD =~                                                               
+    adhd1             1.000                               0.481    0.676
+    adhd2             1.258    0.137    9.218    0.000    0.605    0.814
+    adhd3             0.794    0.140    5.665    0.000    0.382    0.582
+    adhd4             1.115    0.165    6.738    0.000    0.536    0.779
+    adhd5             1.354    0.154    8.819    0.000    0.651    0.883
+    adhd6             0.640    0.172    3.724    0.000    0.308    0.492
+    adhd7             0.522    0.158    3.300    0.001    0.251    0.468
+
+Intercepts:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+   .adhd1             0.739    0.061   12.018    0.000    0.739    1.038
+   .adhd2             0.604    0.064    9.414    0.000    0.604    0.813
+   .adhd3             0.486    0.057    8.570    0.000    0.486    0.741
+   .adhd4             0.511    0.060    8.581    0.000    0.511    0.742
+   .adhd5             0.567    0.064    8.902    0.000    0.567    0.769
+   .adhd6             0.410    0.054    7.596    0.000    0.410    0.656
+   .adhd7             0.271    0.047    5.831    0.000    0.271    0.506
+
+Variances:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+   .adhd1             0.275    0.039    7.002    0.000    0.275    0.543
+   .adhd2             0.186    0.034    5.528    0.000    0.186    0.337
+   .adhd3             0.284    0.045    6.294    0.000    0.284    0.661
+   .adhd4             0.186    0.034    5.440    0.000    0.186    0.393
+   .adhd5             0.120    0.029    4.163    0.000    0.120    0.220
+   .adhd6             0.296    0.041    7.236    0.000    0.296    0.758
+   .adhd7             0.224    0.033    6.729    0.000    0.224    0.781
+    ADHD              0.231    0.052    4.451    0.000    1.000    1.000</code></pre>
+</div>
+</div>
+</section><section id="ordinal-cfa" class="level2"><h2 class="anchored" data-anchor-id="ordinal-cfa">Ordinal CFA</h2>
+<p>The ordinal CFA approach is based on the polychoric correlations among the items:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">psych</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/psych/man/tetrachor.html">polychoric</a></span><span class="op">(</span><span class="va">tiego_adhd</span><span class="op">[</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">7</span><span class="op">]</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Call: psych::polychoric(x = tiego_adhd[, 1:7])
+Polychoric correlations 
+      adhd1 adhd2 adhd3 adhd4 adhd5 adhd6 adhd7
+adhd1 1.00                                     
+adhd2 0.80  1.00                               
+adhd3 0.46  0.61  1.00                         
+adhd4 0.57  0.72  0.57  1.00                   
+adhd5 0.73  0.86  0.61  0.84  1.00             
+adhd6 0.33  0.37  0.55  0.60  0.55  1.00       
+adhd7 0.28  0.42  0.55  0.66  0.48  0.65  1.00 
+
+ with tau of 
+          1   2
+adhd1 -0.21 1.0
+adhd2  0.13 1.0
+adhd3  0.26 1.3
+adhd4  0.26 1.2
+adhd5  0.21 1.0
+adhd6  0.42 1.4
+adhd7  0.75 1.7</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">fit_ord</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lavaan/man/cfa.html">cfa</a></span><span class="op">(</span></span>
+<span>    <span class="st">" ADHD =~ adhd1_c + adhd2_c + adhd3_c + adhd4_c + adhd5_c + adhd6_c + adhd7_c "</span>,</span>
+<span>    data <span class="op">=</span> <span class="va">tiego_adhd</span>, estimator <span class="op">=</span> <span class="st">"WLSMV"</span>, ordered <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_ord</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span>, standardized <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>lavaan 0.6-21 ended normally after 17 iterations
+
+  Estimator                                       DWLS
+  Optimization method                           NLMINB
+  Number of model parameters                        21
+
+                                                  Used       Total
+  Number of observations                           131         136
+
+Model Test User Model:
+                                              Standard      Scaled
+  Test Statistic                                34.438      53.338
+  Degrees of freedom                                14          14
+  P-value (Unknown)                                 NA       0.000
+  Scaling correction factor                                  0.687
+  Shift parameter                                            3.194
+    simple second-order correction                                
+
+Model Test Baseline Model:
+
+  Test statistic                              1686.338    1026.339
+  Degrees of freedom                                21          21
+  P-value                                           NA       0.000
+  Scaling correction factor                                  1.656
+
+User Model versus Baseline Model:
+
+  Comparative Fit Index (CFI)                    0.988       0.961
+  Tucker-Lewis Index (TLI)                       0.982       0.941
+                                                                  
+  Robust Comparative Fit Index (CFI)                         0.849
+  Robust Tucker-Lewis Index (TLI)                            0.774
+
+Root Mean Square Error of Approximation:
+
+  RMSEA                                          0.106       0.147
+  90 Percent confidence interval - lower         0.062       0.106
+  90 Percent confidence interval - upper         0.151       0.190
+  P-value H_0: RMSEA &lt;= 0.050                    0.022       0.000
+  P-value H_0: RMSEA &gt;= 0.080                    0.847       0.996
+                                                                  
+  Robust RMSEA                                               0.247
+  90 Percent confidence interval - lower                     0.164
+  90 Percent confidence interval - upper                     0.333
+  P-value H_0: Robust RMSEA &lt;= 0.050                         0.000
+  P-value H_0: Robust RMSEA &gt;= 0.080                         0.999
+
+Standardized Root Mean Square Residual:
+
+  SRMR                                           0.101       0.101
+
+Parameter Estimates:
+
+  Parameterization                               Delta
+  Standard errors                           Robust.sem
+  Information                                 Expected
+  Information saturated (h1) model        Unstructured
+
+Latent Variables:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+  ADHD =~                                                               
+    adhd1_c           1.000                               0.772    0.772
+    adhd2_c           1.178    0.101   11.679    0.000    0.910    0.910
+    adhd3_c           0.889    0.096    9.300    0.000    0.686    0.686
+    adhd4_c           1.125    0.089   12.580    0.000    0.868    0.868
+    adhd5_c           1.213    0.089   13.674    0.000    0.937    0.937
+    adhd6_c           0.832    0.115    7.256    0.000    0.642    0.642
+    adhd7_c           0.826    0.116    7.119    0.000    0.638    0.638
+
+Thresholds:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+    adhd1_c|t1       -0.202    0.111   -1.827    0.068   -0.202   -0.202
+    adhd1_c|t2        0.993    0.132    7.519    0.000    0.993    0.993
+    adhd2_c|t1        0.144    0.110    1.305    0.192    0.144    0.144
+    adhd2_c|t2        0.993    0.132    7.519    0.000    0.993    0.993
+    adhd3_c|t1        0.281    0.112    2.521    0.012    0.281    0.281
+    adhd3_c|t2        1.331    0.154    8.655    0.000    1.331    1.331
+    adhd4_c|t1        0.242    0.111    2.174    0.030    0.242    0.242
+    adhd4_c|t2        1.203    0.144    8.335    0.000    1.203    1.203
+    adhd5_c|t1        0.202    0.111    1.827    0.068    0.202    0.202
+    adhd5_c|t2        1.025    0.134    7.666    0.000    1.025    1.025
+    adhd6_c|t1        0.403    0.113    3.558    0.000    0.403    0.403
+    adhd6_c|t2        1.430    0.162    8.811    0.000    1.430    1.430
+    adhd7_c|t1        0.742    0.122    6.100    0.000    0.742    0.742
+    adhd7_c|t2        1.687    0.191    8.846    0.000    1.687    1.687
+
+Variances:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+   .adhd1_c           0.404                               0.404    0.404
+   .adhd2_c           0.173                               0.173    0.173
+   .adhd3_c           0.529                               0.529    0.529
+   .adhd4_c           0.246                               0.246    0.246
+   .adhd5_c           0.123                               0.123    0.123
+   .adhd6_c           0.587                               0.587    0.587
+   .adhd7_c           0.593                               0.593    0.593
+    ADHD              0.596    0.081    7.396    0.000    1.000    1.000</code></pre>
+</div>
+</div>
+<p>The fit indices are different from those in the continuous CFA, and does not appear adequate. We can check the residuals and modification indices to see where the model misfits.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/residuals.html">resid</a></span><span class="op">(</span><span class="va">fit_ord</span>, type <span class="op">=</span> <span class="st">"cor.bentler"</span><span class="op">)</span><span class="op">$</span><span class="va">cov</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        adhd1_ adhd2_ adhd3_ adhd4_ adhd5_ adhd6_ adhd7_
+adhd1_c  0.000                                          
+adhd2_c  0.097  0.000                                   
+adhd3_c -0.071 -0.018  0.000                            
+adhd4_c -0.100 -0.069 -0.019  0.000                     
+adhd5_c  0.003  0.008 -0.024  0.029  0.000              
+adhd6_c -0.162 -0.209  0.119  0.034 -0.051  0.000       
+adhd7_c -0.210 -0.156  0.118  0.105 -0.119  0.240  0.000</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/lavaan/man/modificationIndices.html">modindices</a></span><span class="op">(</span><span class="va">fit_ord</span>, sort. <span class="op">=</span> <span class="cn">TRUE</span>, minimum.value <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["lhs"],"name":[1],"type":["chr"],"align":["left"]},{"label":["op"],"name":[2],"type":["chr"],"align":["left"]},{"label":["rhs"],"name":[3],"type":["chr"],"align":["left"]},{"label":["mi"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["epc"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["sepc.lv"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["sepc.all"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["sepc.nox"],"name":[8],"type":["dbl"],"align":["right"]}],"data":[{"1":"adhd1_c","2":"~~","3":"adhd2_c","4":"11.20478","5":"0.2600665","6":"0.2600665","7":"0.9844902","8":"0.9844902","_rn_":"45"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<section id="updated-models" class="level3"><h3 class="anchored" data-anchor-id="updated-models">Updated Models</h3>
+<ol type="1">
+<li>Add unique covariance between <code>adhd1_c</code> and <code>adhd2_c</code> and between adhd6_c and adhd7_c based on modification indices.</li>
+</ol>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span>Reminder
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When adding unique covariances, make sure they make theoretical sense. Also, avoid adding too many unique covariances post hoc.</p>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">fit_ord2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lavaan/man/cfa.html">cfa</a></span><span class="op">(</span></span>
+<span>    <span class="st">" ADHD =~ adhd1_c + adhd2_c + adhd3_c + adhd4_c + adhd5_c + adhd6_c + adhd7_c </span></span>
+<span><span class="st">      adhd1_c ~~ adhd2_c</span></span>
+<span><span class="st">      adhd6_c ~~ adhd7_c "</span>,</span>
+<span>    data <span class="op">=</span> <span class="va">tiego_adhd</span>, estimator <span class="op">=</span> <span class="st">"WLSMV"</span>, ordered <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_ord2</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span>, standardized <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>lavaan 0.6-21 ended normally after 21 iterations
+
+  Estimator                                       DWLS
+  Optimization method                           NLMINB
+  Number of model parameters                        23
+
+                                                  Used       Total
+  Number of observations                           131         136
+
+Model Test User Model:
+                                              Standard      Scaled
+  Test Statistic                                14.788      27.170
+  Degrees of freedom                                12          12
+  P-value (Unknown)                                 NA       0.007
+  Scaling correction factor                                  0.604
+  Shift parameter                                            2.673
+    simple second-order correction                                
+
+Model Test Baseline Model:
+
+  Test statistic                              1686.338    1026.339
+  Degrees of freedom                                21          21
+  P-value                                           NA       0.000
+  Scaling correction factor                                  1.656
+
+User Model versus Baseline Model:
+
+  Comparative Fit Index (CFI)                    0.998       0.985
+  Tucker-Lewis Index (TLI)                       0.997       0.974
+                                                                  
+  Robust Comparative Fit Index (CFI)                         0.938
+  Robust Tucker-Lewis Index (TLI)                            0.891
+
+Root Mean Square Error of Approximation:
+
+  RMSEA                                          0.042       0.099
+  90 Percent confidence interval - lower         0.000       0.049
+  90 Percent confidence interval - upper         0.104       0.148
+  P-value H_0: RMSEA &lt;= 0.050                    0.521       0.053
+  P-value H_0: RMSEA &gt;= 0.080                    0.186       0.762
+                                                                  
+  Robust RMSEA                                               0.171
+  90 Percent confidence interval - lower                     0.055
+  90 Percent confidence interval - upper                     0.276
+  P-value H_0: Robust RMSEA &lt;= 0.050                         0.045
+  P-value H_0: Robust RMSEA &gt;= 0.080                         0.918
+
+Standardized Root Mean Square Residual:
+
+  SRMR                                           0.067       0.067
+
+Parameter Estimates:
+
+  Parameterization                               Delta
+  Standard errors                           Robust.sem
+  Information                                 Expected
+  Information saturated (h1) model        Unstructured
+
+Latent Variables:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+  ADHD =~                                                               
+    adhd1_c           1.000                               0.670    0.670
+    adhd2_c           1.260    0.126    9.991    0.000    0.844    0.844
+    adhd3_c           1.053    0.125    8.394    0.000    0.706    0.706
+    adhd4_c           1.316    0.134    9.848    0.000    0.882    0.882
+    adhd5_c           1.451    0.155    9.375    0.000    0.973    0.973
+    adhd6_c           0.896    0.146    6.142    0.000    0.601    0.601
+    adhd7_c           0.897    0.156    5.766    0.000    0.601    0.601
+
+Covariances:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+ .adhd1_c ~~                                                            
+   .adhd2_c           0.234    0.066    3.551    0.000    0.234    0.588
+ .adhd6_c ~~                                                            
+   .adhd7_c           0.289    0.097    2.975    0.003    0.289    0.452
+
+Thresholds:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+    adhd1_c|t1       -0.202    0.111   -1.827    0.068   -0.202   -0.202
+    adhd1_c|t2        0.993    0.132    7.519    0.000    0.993    0.993
+    adhd2_c|t1        0.144    0.110    1.305    0.192    0.144    0.144
+    adhd2_c|t2        0.993    0.132    7.519    0.000    0.993    0.993
+    adhd3_c|t1        0.281    0.112    2.521    0.012    0.281    0.281
+    adhd3_c|t2        1.331    0.154    8.655    0.000    1.331    1.331
+    adhd4_c|t1        0.242    0.111    2.174    0.030    0.242    0.242
+    adhd4_c|t2        1.203    0.144    8.335    0.000    1.203    1.203
+    adhd5_c|t1        0.202    0.111    1.827    0.068    0.202    0.202
+    adhd5_c|t2        1.025    0.134    7.666    0.000    1.025    1.025
+    adhd6_c|t1        0.403    0.113    3.558    0.000    0.403    0.403
+    adhd6_c|t2        1.430    0.162    8.811    0.000    1.430    1.430
+    adhd7_c|t1        0.742    0.122    6.100    0.000    0.742    0.742
+    adhd7_c|t2        1.687    0.191    8.846    0.000    1.687    1.687
+
+Variances:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+   .adhd1_c           0.551                               0.551    0.551
+   .adhd2_c           0.287                               0.287    0.287
+   .adhd3_c           0.502                               0.502    0.502
+   .adhd4_c           0.222                               0.222    0.222
+   .adhd5_c           0.054                               0.054    0.054
+   .adhd6_c           0.639                               0.639    0.639
+   .adhd7_c           0.639                               0.639    0.639
+    ADHD              0.449    0.089    5.037    0.000    1.000    1.000</code></pre>
+</div>
+</div>
+
+
+<!-- -->
+
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Confirmatory Factor Analysis With Categorical Indicators"</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: setup</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lavaan)</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>The data come from this paper: <span class="ot">&lt;https://doi.org/10.1111/desc.12918&gt;</span>. The authors kindly shared the data on OSF: <span class="ot">&lt;https://osf.io/hq4xy/overview&gt;</span>.</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Download data from OSF</span></span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">dir.exists</span>(<span class="fu">here</span>(<span class="st">"data"</span>))) {</span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">dir.create</span>(<span class="fu">here</span>(<span class="st">"data"</span>))</span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Raw items</span></span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>tiego_raw_name <span class="ot">&lt;-</span> <span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"tiego_raw.csv"</span>)</span>
+<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(tiego_raw_name)) {</span>
+<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">download.file</span>(</span>
+<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a>        <span class="st">"https://osf.io/download/mtnqj/"</span>,</span>
+<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a>        <span class="at">destfile =</span> tiego_raw_name</span>
+<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb18-34"><a href="#cb18-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-35"><a href="#cb18-35" aria-hidden="true" tabindex="-1"></a><span class="fu">### Load Data</span></span>
+<span id="cb18-36"><a href="#cb18-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-39"><a href="#cb18-39" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb18-40"><a href="#cb18-40" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: load-tiego-data</span></span>
+<span id="cb18-41"><a href="#cb18-41" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: false</span></span>
+<span id="cb18-42"><a href="#cb18-42" aria-hidden="true" tabindex="-1"></a>tiego_raw <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(tiego_raw_name)</span>
+<span id="cb18-43"><a href="#cb18-43" aria-hidden="true" tabindex="-1"></a><span class="co"># Notice that the minimum is -999 for many variables, so -999 is likely a missing code</span></span>
+<span id="cb18-44"><a href="#cb18-44" aria-hidden="true" tabindex="-1"></a><span class="co"># Treat -999 as NA</span></span>
+<span id="cb18-45"><a href="#cb18-45" aria-hidden="true" tabindex="-1"></a>tiego_raw <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(tiego_raw_name, <span class="at">na.strings =</span> <span class="sc">-</span><span class="dv">999</span>)</span>
+<span id="cb18-46"><a href="#cb18-46" aria-hidden="true" tabindex="-1"></a><span class="co"># Looks like the CBCL items also have some other missing codes</span></span>
+<span id="cb18-47"><a href="#cb18-47" aria-hidden="true" tabindex="-1"></a>tiego_raw <span class="sc">|&gt;</span></span>
+<span id="cb18-48"><a href="#cb18-48" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">"CBCLProb"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb18-49"><a href="#cb18-49" aria-hidden="true" tabindex="-1"></a>    <span class="fu">glimpse</span>()</span>
+<span id="cb18-50"><a href="#cb18-50" aria-hidden="true" tabindex="-1"></a><span class="co"># Recode 9 to NA as well</span></span>
+<span id="cb18-51"><a href="#cb18-51" aria-hidden="true" tabindex="-1"></a>tiego_raw <span class="ot">&lt;-</span> tiego_raw <span class="sc">|&gt;</span></span>
+<span id="cb18-52"><a href="#cb18-52" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">starts_with</span>(<span class="st">"CBCLProb"</span>),</span>
+<span id="cb18-53"><a href="#cb18-53" aria-hidden="true" tabindex="-1"></a>                  <span class="sc">~</span> <span class="fu">ifelse</span>(.x <span class="sc">==</span> <span class="dv">9</span>, <span class="cn">NA</span>, .x)))</span>
+<span id="cb18-54"><a href="#cb18-54" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb18-55"><a href="#cb18-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-56"><a href="#cb18-56" aria-hidden="true" tabindex="-1"></a>The data contain items from CBCL (Child Behavior Checklist). The items are rated on a 3-point scale (0 = not true, 1 = somewhat or sometimes true, 2 = very true or often true), and should not be treated as continuous. We will focus on the 7-item DSM-oriented Attention Deficit/Hyperactivity Problems scale, with the seven items being Items 4, 8, 10, 41, 78, 93, 104.</span>
+<span id="cb18-57"><a href="#cb18-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-60"><a href="#cb18-60" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb18-61"><a href="#cb18-61" aria-hidden="true" tabindex="-1"></a><span class="co"># Gather the items into a smaller data set</span></span>
+<span id="cb18-62"><a href="#cb18-62" aria-hidden="true" tabindex="-1"></a>tiego_adhd <span class="ot">&lt;-</span> tiego_raw <span class="sc">|&gt;</span></span>
+<span id="cb18-63"><a href="#cb18-63" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(</span>
+<span id="cb18-64"><a href="#cb18-64" aria-hidden="true" tabindex="-1"></a>        <span class="at">adhd1 =</span> CBCLProb4,  <span class="co"># fails to finish</span></span>
+<span id="cb18-65"><a href="#cb18-65" aria-hidden="true" tabindex="-1"></a>        <span class="at">adhd2 =</span> CBCLProb8,  <span class="co"># concentrate</span></span>
+<span id="cb18-66"><a href="#cb18-66" aria-hidden="true" tabindex="-1"></a>        <span class="at">adhd3 =</span> CBCLProb10,  <span class="co"># sit still</span></span>
+<span id="cb18-67"><a href="#cb18-67" aria-hidden="true" tabindex="-1"></a>        <span class="at">adhd4 =</span> CBCLProb41,  <span class="co"># impulsive</span></span>
+<span id="cb18-68"><a href="#cb18-68" aria-hidden="true" tabindex="-1"></a>        <span class="at">adhd5 =</span> CBCLProb78,  <span class="co"># inattentive</span></span>
+<span id="cb18-69"><a href="#cb18-69" aria-hidden="true" tabindex="-1"></a>        <span class="at">adhd6 =</span> CBCLProb93,  <span class="co"># talk much</span></span>
+<span id="cb18-70"><a href="#cb18-70" aria-hidden="true" tabindex="-1"></a>        <span class="at">adhd7 =</span> CBCLProb104  <span class="co"># loud</span></span>
+<span id="cb18-71"><a href="#cb18-71" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb18-72"><a href="#cb18-72" aria-hidden="true" tabindex="-1"></a>    <span class="co"># recode to be ordinal</span></span>
+<span id="cb18-73"><a href="#cb18-73" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb18-74"><a href="#cb18-74" aria-hidden="true" tabindex="-1"></a>        <span class="fu">across</span>(</span>
+<span id="cb18-75"><a href="#cb18-75" aria-hidden="true" tabindex="-1"></a>            <span class="fu">everything</span>(),</span>
+<span id="cb18-76"><a href="#cb18-76" aria-hidden="true" tabindex="-1"></a>            <span class="sc">~</span> <span class="fu">ordered</span>(.x, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>),</span>
+<span id="cb18-77"><a href="#cb18-77" aria-hidden="true" tabindex="-1"></a>                      <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"not true"</span>, <span class="st">"somewhat or sometimes true"</span>,</span>
+<span id="cb18-78"><a href="#cb18-78" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">"very true or often true"</span>)),</span>
+<span id="cb18-79"><a href="#cb18-79" aria-hidden="true" tabindex="-1"></a>            <span class="at">.names =</span> <span class="st">"{.col}_c"</span>))</span>
+<span id="cb18-80"><a href="#cb18-80" aria-hidden="true" tabindex="-1"></a><span class="fu">datasummary_skim</span>(tiego_adhd[, <span class="dv">8</span><span class="sc">:</span><span class="dv">14</span>])  <span class="co"># check the recoded items</span></span>
+<span id="cb18-81"><a href="#cb18-81" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb18-82"><a href="#cb18-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-83"><a href="#cb18-83" aria-hidden="true" tabindex="-1"></a><span class="fu">## Background on Categorical Data</span></span>
+<span id="cb18-84"><a href="#cb18-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-85"><a href="#cb18-85" aria-hidden="true" tabindex="-1"></a>Many scales in psychology, like the CBCL, use Likert-type response formats (e.g., 0-1-2). Standard CFA using Maximum Likelihood (ML) assumes that the observed variables are:</span>
+<span id="cb18-86"><a href="#cb18-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-87"><a href="#cb18-87" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Continuous**: Can take any value within a range.</span>
+<span id="cb18-88"><a href="#cb18-88" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Normally Distributed**: Follow a bell curve.</span>
+<span id="cb18-89"><a href="#cb18-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-90"><a href="#cb18-90" aria-hidden="true" tabindex="-1"></a>When we have ordinal data with few categories (e.g., fewer than 5), treating them as continuous can lead to:</span>
+<span id="cb18-91"><a href="#cb18-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-92"><a href="#cb18-92" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Biased parameter estimates (e.g., underestimated factor loadings).</span>
+<span id="cb18-93"><a href="#cb18-93" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Incorrect standard errors and $\chi^2$ statistics.</span>
+<span id="cb18-94"><a href="#cb18-94" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Spurious multidimensionality (factors defined by item difficulty rather than content).</span>
+<span id="cb18-95"><a href="#cb18-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-96"><a href="#cb18-96" aria-hidden="true" tabindex="-1"></a><span class="fu">### Underlying Latent Response Formulation</span></span>
+<span id="cb18-97"><a href="#cb18-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-98"><a href="#cb18-98" aria-hidden="true" tabindex="-1"></a>Instead of analyzing the discrete scores directly (0, 1, 2), we assume that for each observed categorical item $Y$, there is an underlying, unobserved continuous variable $Y^*$ (Y-star). The observed score is determined by where $Y^*$ falls relative to certain **thresholds** ($\tau$):</span>
+<span id="cb18-99"><a href="#cb18-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-100"><a href="#cb18-100" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb18-101"><a href="#cb18-101" aria-hidden="true" tabindex="-1"></a>Y = \begin{cases} </span>
+<span id="cb18-102"><a href="#cb18-102" aria-hidden="true" tabindex="-1"></a>0 &amp; \text{if } Y^* \le \tau_1 <span class="sc">\\</span></span>
+<span id="cb18-103"><a href="#cb18-103" aria-hidden="true" tabindex="-1"></a>1 &amp; \text{if } \tau_1 &lt; Y^* \le \tau_2 <span class="sc">\\</span></span>
+<span id="cb18-104"><a href="#cb18-104" aria-hidden="true" tabindex="-1"></a>2 &amp; \text{if } Y^* &gt; \tau_2</span>
+<span id="cb18-105"><a href="#cb18-105" aria-hidden="true" tabindex="-1"></a>\end{cases}</span>
+<span id="cb18-106"><a href="#cb18-106" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb18-107"><a href="#cb18-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-110"><a href="#cb18-110" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb18-111"><a href="#cb18-111" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb18-112"><a href="#cb18-112" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-height: 3.5</span></span>
+<span id="cb18-113"><a href="#cb18-113" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
+<span id="cb18-114"><a href="#cb18-114" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb18-115"><a href="#cb18-115" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb18-116"><a href="#cb18-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-117"><a href="#cb18-117" aria-hidden="true" tabindex="-1"></a>tau <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.2</span>, <span class="fl">1.0</span>)</span>
+<span id="cb18-118"><a href="#cb18-118" aria-hidden="true" tabindex="-1"></a>xpos_text <span class="ot">&lt;-</span> (<span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span>, tau) <span class="sc">+</span> <span class="fu">c</span>(tau, <span class="dv">2</span>)) <span class="sc">/</span> <span class="dv">2</span></span>
+<span id="cb18-119"><a href="#cb18-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-120"><a href="#cb18-120" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot 1: Latent density</span></span>
+<span id="cb18-121"><a href="#cb18-121" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">3</span>)), <span class="fu">aes</span>(<span class="at">x =</span> x)) <span class="sc">+</span></span>
+<span id="cb18-122"><a href="#cb18-122" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_function</span>(<span class="at">fun =</span> dnorm) <span class="sc">+</span></span>
+<span id="cb18-123"><a href="#cb18-123" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> tau, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb18-124"><a href="#cb18-124" aria-hidden="true" tabindex="-1"></a>    <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> tau <span class="sc">+</span> <span class="fl">0.05</span>, <span class="at">y =</span> <span class="fl">0.3</span>, <span class="at">label =</span> <span class="fu">c</span>(<span class="fu">expression</span>(tau[<span class="dv">1</span>]), <span class="fu">expression</span>(tau[<span class="dv">2</span>])), <span class="at">hjust =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb18-125"><a href="#cb18-125" aria-hidden="true" tabindex="-1"></a>    <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> xpos_text, <span class="at">y =</span> <span class="fl">0.1</span>, <span class="at">label =</span> </span>
+<span id="cb18-126"><a href="#cb18-126" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(<span class="st">"Y = 0"</span>, <span class="st">"Y = 1"</span>, <span class="st">"Y = 2"</span>)) <span class="sc">+</span></span>
+<span id="cb18-127"><a href="#cb18-127" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(Y<span class="sc">^</span><span class="st">"*"</span>), <span class="at">y =</span> <span class="st">"Density"</span>) <span class="sc">+</span></span>
+<span id="cb18-128"><a href="#cb18-128" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>()</span>
+<span id="cb18-129"><a href="#cb18-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-130"><a href="#cb18-130" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot 2: Observed probabilities</span></span>
+<span id="cb18-131"><a href="#cb18-131" aria-hidden="true" tabindex="-1"></a>probs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">pnorm</span>(tau), <span class="dv">1</span>) <span class="sc">-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">pnorm</span>(tau))</span>
+<span id="cb18-132"><a href="#cb18-132" aria-hidden="true" tabindex="-1"></a>df_bar <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb18-133"><a href="#cb18-133" aria-hidden="true" tabindex="-1"></a>    <span class="at">Category =</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"0"</span>, <span class="st">"1"</span>, <span class="st">"2"</span>)),</span>
+<span id="cb18-134"><a href="#cb18-134" aria-hidden="true" tabindex="-1"></a>    <span class="at">Probability =</span> probs</span>
+<span id="cb18-135"><a href="#cb18-135" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb18-136"><a href="#cb18-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-137"><a href="#cb18-137" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df_bar, <span class="fu">aes</span>(<span class="at">x =</span> Category, <span class="at">y =</span> Probability)) <span class="sc">+</span></span>
+<span id="cb18-138"><a href="#cb18-138" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_col</span>(<span class="at">width =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb18-139"><a href="#cb18-139" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">round</span>(Probability, <span class="dv">2</span>)), <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb18-140"><a href="#cb18-140" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Observed Category (Y)"</span>, <span class="at">y =</span> <span class="st">"Probability"</span>) <span class="sc">+</span></span>
+<span id="cb18-141"><a href="#cb18-141" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>()</span>
+<span id="cb18-142"><a href="#cb18-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-143"><a href="#cb18-143" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine plots horizontally</span></span>
+<span id="cb18-144"><a href="#cb18-144" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">+</span> p2</span>
+<span id="cb18-145"><a href="#cb18-145" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb18-146"><a href="#cb18-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-147"><a href="#cb18-147" aria-hidden="true" tabindex="-1"></a><span class="fu">### Polychoric Correlations</span></span>
+<span id="cb18-148"><a href="#cb18-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-149"><a href="#cb18-149" aria-hidden="true" tabindex="-1"></a>Because we care about the relationships between the underlying latent responses ($Y^*$), we estimate the correlations between these $Y^*$ variables rather than the Pearson correlations of the observed integers. These correlations are called **polychoric correlations**. They are typically stronger than the Pearson correlations calculated on coarse categorical data.</span>
+<span id="cb18-150"><a href="#cb18-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-151"><a href="#cb18-151" aria-hidden="true" tabindex="-1"></a><span class="fu">### WLSMV Estimator</span></span>
+<span id="cb18-152"><a href="#cb18-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-153"><a href="#cb18-153" aria-hidden="true" tabindex="-1"></a>For categorical CFA, we typically use the **WLSMV** (Weighted Least Squares Mean and Variance adjusted) estimator. </span>
+<span id="cb18-154"><a href="#cb18-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-155"><a href="#cb18-155" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**DWLS**: The core estimation method is Diagonally Weighted Least Squares (DWLS). Unlike Full WLS which requires the inversion of a massive weight matrix (dimensions increase rapidly with more items), DWLS only uses the diagonal elements of the weight matrix. This makes it much more computationally stable and feasible for larger models and smaller sample sizes.</span>
+<span id="cb18-156"><a href="#cb18-156" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**MV**: It then applies robust corrections to the standard errors and test statistics (like $\chi^2$) to account for the fact that the full weight matrix was not used. Specifically, it adjusts both the Mean and Variance of the test statistic distribution.</span>
+<span id="cb18-157"><a href="#cb18-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-158"><a href="#cb18-158" aria-hidden="true" tabindex="-1"></a><span class="fu">## (Not Recommended) Treating Items as Continuous</span></span>
+<span id="cb18-159"><a href="#cb18-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-162"><a href="#cb18-162" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb18-163"><a href="#cb18-163" aria-hidden="true" tabindex="-1"></a>fit_cont <span class="ot">&lt;-</span> <span class="fu">cfa</span>(</span>
+<span id="cb18-164"><a href="#cb18-164" aria-hidden="true" tabindex="-1"></a>    <span class="st">" ADHD =~ adhd1 + adhd2 + adhd3 + adhd4 + adhd5 + adhd6 + adhd7 "</span>,</span>
+<span id="cb18-165"><a href="#cb18-165" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> tiego_adhd, <span class="at">missing =</span> <span class="st">"fiml"</span>, <span class="at">estimator =</span> <span class="st">"MLR"</span></span>
+<span id="cb18-166"><a href="#cb18-166" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb18-167"><a href="#cb18-167" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_cont, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>, <span class="at">standardized =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb18-168"><a href="#cb18-168" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb18-169"><a href="#cb18-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-170"><a href="#cb18-170" aria-hidden="true" tabindex="-1"></a><span class="fu">## Ordinal CFA</span></span>
+<span id="cb18-171"><a href="#cb18-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-172"><a href="#cb18-172" aria-hidden="true" tabindex="-1"></a>The ordinal CFA approach is based on the polychoric correlations among the items:</span>
+<span id="cb18-173"><a href="#cb18-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-176"><a href="#cb18-176" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb18-177"><a href="#cb18-177" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">polychoric</span>(tiego_adhd[, <span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>])</span>
+<span id="cb18-178"><a href="#cb18-178" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb18-179"><a href="#cb18-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-182"><a href="#cb18-182" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb18-183"><a href="#cb18-183" aria-hidden="true" tabindex="-1"></a>fit_ord <span class="ot">&lt;-</span> <span class="fu">cfa</span>(</span>
+<span id="cb18-184"><a href="#cb18-184" aria-hidden="true" tabindex="-1"></a>    <span class="st">" ADHD =~ adhd1_c + adhd2_c + adhd3_c + adhd4_c + adhd5_c + adhd6_c + adhd7_c "</span>,</span>
+<span id="cb18-185"><a href="#cb18-185" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> tiego_adhd, <span class="at">estimator =</span> <span class="st">"WLSMV"</span>, <span class="at">ordered =</span> <span class="cn">TRUE</span></span>
+<span id="cb18-186"><a href="#cb18-186" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb18-187"><a href="#cb18-187" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_ord, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>, <span class="at">standardized =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb18-188"><a href="#cb18-188" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb18-189"><a href="#cb18-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-190"><a href="#cb18-190" aria-hidden="true" tabindex="-1"></a>The fit indices are different from those in the continuous CFA, and does not appear adequate. We can check the residuals and modification indices to see where the model misfits.</span>
+<span id="cb18-191"><a href="#cb18-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-194"><a href="#cb18-194" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb18-195"><a href="#cb18-195" aria-hidden="true" tabindex="-1"></a><span class="fu">resid</span>(fit_ord, <span class="at">type =</span> <span class="st">"cor.bentler"</span>)<span class="sc">$</span>cov</span>
+<span id="cb18-196"><a href="#cb18-196" aria-hidden="true" tabindex="-1"></a><span class="fu">modindices</span>(fit_ord, <span class="at">sort. =</span> <span class="cn">TRUE</span>, <span class="at">minimum.value =</span> <span class="dv">10</span>)</span>
+<span id="cb18-197"><a href="#cb18-197" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb18-198"><a href="#cb18-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-199"><a href="#cb18-199" aria-hidden="true" tabindex="-1"></a><span class="fu">### Updated Models</span></span>
+<span id="cb18-200"><a href="#cb18-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-201"><a href="#cb18-201" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Add unique covariance between <span class="in">`adhd1_c`</span> and <span class="in">`adhd2_c`</span> and between adhd6_c and adhd7_c based on modification indices.</span>
+<span id="cb18-202"><a href="#cb18-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-203"><a href="#cb18-203" aria-hidden="true" tabindex="-1"></a>::: {.callout-caution}</span>
+<span id="cb18-204"><a href="#cb18-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-205"><a href="#cb18-205" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reminder</span></span>
+<span id="cb18-206"><a href="#cb18-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-207"><a href="#cb18-207" aria-hidden="true" tabindex="-1"></a>When adding unique covariances, make sure they make theoretical sense. Also, avoid adding too many unique covariances post hoc.</span>
+<span id="cb18-208"><a href="#cb18-208" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-209"><a href="#cb18-209" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb18-210"><a href="#cb18-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-213"><a href="#cb18-213" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb18-214"><a href="#cb18-214" aria-hidden="true" tabindex="-1"></a>fit_ord2 <span class="ot">&lt;-</span> <span class="fu">cfa</span>(</span>
+<span id="cb18-215"><a href="#cb18-215" aria-hidden="true" tabindex="-1"></a>    <span class="st">" ADHD =~ adhd1_c + adhd2_c + adhd3_c + adhd4_c + adhd5_c + adhd6_c + adhd7_c </span></span>
+<span id="cb18-216"><a href="#cb18-216" aria-hidden="true" tabindex="-1"></a><span class="st">      adhd1_c ~~ adhd2_c</span></span>
+<span id="cb18-217"><a href="#cb18-217" aria-hidden="true" tabindex="-1"></a><span class="st">      adhd6_c ~~ adhd7_c "</span>,</span>
+<span id="cb18-218"><a href="#cb18-218" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> tiego_adhd, <span class="at">estimator =</span> <span class="st">"WLSMV"</span>, <span class="at">ordered =</span> <span class="cn">TRUE</span></span>
+<span id="cb18-219"><a href="#cb18-219" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb18-220"><a href="#cb18-220" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_ord2, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>, <span class="at">standardized =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb18-221"><a href="#cb18-221" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+</code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<footer class="footer"><div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Copyright 2026 Mark Hok Chio Lai</p>
+</div>   
+    <div class="nav-footer-center">
+<p>Faculty of Education, University of Macau</p>
+</div>
+    <div class="nav-footer-right">
+<p><a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></p>
+</div>
+  </div>
+</footer>
+
+
+</body></html>

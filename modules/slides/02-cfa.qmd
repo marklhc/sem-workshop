@@ -327,11 +327,9 @@ summary(fit_1f, fit.measures = TRUE, standardized = TRUE)
 ## Standardized Loadings
 
 ```{r}
-#| echo: false
-standardizedSolution(fit_1f) |>
-    dplyr::filter(op == "=~") |>
-    dplyr::select(lhs, rhs, est.std, se) |>
-    tt(digits = 3)
+#| label: loadings-cfa
+#| echo: true
+#| output-location: column
 ```
 
 . . .
@@ -487,6 +485,19 @@ semPaths(fit_1f_mod, whatLabels = "std", layout = "tree",
          edge.label.cex = 1.2, sizeMan = 8, sizeLat = 12,
          nCharNodes = 0, residuals = TRUE)
 ```
+
+
+##
+
+::: {.callout-tip}
+
+## Reporting Sample
+
+Self-oriented perfectionism was assessed with five items from the SOP scale (Williams & Edwards, 2021), rated on a 5-point Likert scale. We fit a unidimensional confirmatory factor analysis (CFA) model using the `lavaan` package (v`r packageVersion("lavaan")`; Rosseel, 2012) in R. The latent factor variance was fixed to 1 for identification (`std.lv = TRUE`). To account for mild non-normality in the item responses, we used robust maximum likelihood estimation (MLR) with Yuan–Bentler scaled standard errors and a Satorra–Bentler scaled $\chi^2$ test statistic. Missing data were handled with full information maximum likelihood (FIML). Model fit was evaluated using the robust CFI ($\geq .95$), robust RMSEA ($\leq .06$), and SRMR ($\leq .08$; Hu & Bentler, 1999). 
+
+The hypothesized unidimensional CFA model showed acceptable fit to the data, robust $\chi^2$(`r fitMeasures(fit_1f, "df")`) = `r round(fitMeasures(fit_1f, "chisq.scaled"), 2)`, $p$ `r ifelse(fitMeasures(fit_1f, "pvalue.scaled") < .001, "< .001", paste0("= ", round(fitMeasures(fit_1f, "pvalue.scaled"), 3)))`, robust CFI = `r round(fitMeasures(fit_1f, "cfi.robust"), 3)`, robust RMSEA = `r round(fitMeasures(fit_1f, "rmsea.robust"), 3)`, 90% CI [`r round(fitMeasures(fit_1f, "rmsea.ci.lower.robust"), 3)`, `r round(fitMeasures(fit_1f, "rmsea.ci.upper.robust"), 3)`], SRMR = `r round(fitMeasures(fit_1f, "srmr"), 3)`. Inspection of modification indices did not reveal any theoretically justified model modifications. All five items loaded significantly on the SOP factor, with standardized loadings ranging from `r round(min(standardizedSolution(fit_1f) |> dplyr::filter(op == "=~") |> dplyr::pull(est.std)), 2)` to `r round(max(standardizedSolution(fit_1f) |> dplyr::filter(op == "=~") |> dplyr::pull(est.std)), 2)`. 
+
+:::
 
 ## 5. Composite Reliability {visibility="hidden"}
 
