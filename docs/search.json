@@ -277,7 +277,7 @@
     "href": "modules/slides/02-cfa.html#exercise",
     "title": "Confirmatory Factor Analysis",
     "section": "Exercise",
-    "text": "Exercise\n\nRun the R code in “note/data-exploration.R”, and then the code in “note/cfa.R” to fit a CFA model.\n\nWhich item has the highest standardized loading?\n\nFit the following modified CFA model:\nmodel_1f_mod &lt;- \"\n  SOP =~ SOP_1 + SOP_2 + SOP_3 + SOP_4 + SOP_5\n  SOP_1 ~~ SOP_2\n\"\nfit_1f_mod &lt;- cfa(model_1f_mod, data = sop_data,\n                  std.lv = TRUE, estimator = \"MLR\")\n\nHow much did the fit improve in RMSEA and CFI?\nWhat was the standardized covariance between SOP_1 and SOP_2?"
+    "text": "Exercise\n\nRun the R code in “note/data-exploration.R”, and then the code in “note/cfa.R” to fit a CFA model.\n\nWhich item has the highest standardized loading?\n\nFit the following modified CFA model:\nmodel_1f_mod &lt;- \"\n  SOP =~ SOP_1 + SOP_2 + SOP_3 + SOP_4 + SOP_5\n  SOP_1 ~~ SOP_2\n\"\nfit_1f_mod &lt;- cfa(model_1f_mod, data = sop_data,\n                  std.lv = TRUE, estimator = \"MLR\")\n\nHow much did the fit improve in RMSEA and CFI?\nWhat was the standardized covariance between SOP_1 and SOP_2?\n\n\nWhen you finish, go to next page and answer the question in the Slido poll!"
   },
   {
     "objectID": "resources.html",
@@ -1122,6 +1122,13 @@
     "text": "1. Path Analysis2. Confirmatory Factor Analysis (CFA)3. Structural Regression Models (Full SEM)\n\n\nView slides in full screen\n\n\nExercises\n\nRun the R code in “note/data-exploration.R” to explore the data.\nFit the full path model using we_data:\nmodel2 &lt;- \"\n    NGSE ~ b1 * SOP\n    PASS ~ b2 * NGSE + b3 * SOP\n\"\nreg2 &lt;- sem(model2, data = we_data)\nFit a restricted path model where the direct effect of SOP on PASS is removed:\nmodel_restricted &lt;- \"\n    NGSE ~ b1 * SOP\n    PASS ~ b2 * NGSE\n\"\nreg_restricted &lt;- sem(model_restricted, data = we_data)\nWhat is the p-value from the likelihood ratio test comparing the two models, using the code below?\nanova(reg2, reg_restricted)\n\n\n\n\nView slides in full screen\n\n\nExercises\n\nRun the R code in “note/data-exploration.R”, and then the code in “note/cfa.R” to fit a CFA model.\n\nWhich item has the highest standardized loading?\n\nFit the following modified CFA model:\nmodel_1f_mod &lt;- \"\n  SOP =~ SOP_1 + SOP_2 + SOP_3 + SOP_4 + SOP_5\n  SOP_1 ~~ SOP_2\n\"\nfit_1f_mod &lt;- cfa(model_1f_mod, data = sop_data,\n                  std.lv = TRUE, estimator = \"MLR\")\n\nHow much did the fit improve in RMSEA and CFI?\n\nNow try fitting a CFA model for the NGSE items:\nngse_data &lt;- we_raw[, paste0(\"NGSE_\", 1:8)]\n\nmodel_ngse &lt;- \"\n  NGSE =~ NGSE_1 + NGSE_2 + NGSE_3 + NGSE_4 +\n           NGSE_5 + NGSE_6 + NGSE_7 + NGSE_8\n\"\nfit_ngse &lt;- cfa(model_ngse, data = ngse_data,\n                std.lv = TRUE, estimator = \"MLR\", missing = \"FIML\")\n\nCheck the loadings—are they all strong and positive?\nInspect fit indices. Does the model fit well?\nLook at modification indices. Any theoretically motivated modifications?\n\n\n\n\n\nView slides in full screen\n\n\nExercises\n\nFit the measurement model using we_data and check fit.\n\nWhich factor has the strongest average standardized loading?\n\nFit the structural mediation model without the direct path (c’):\nmodel2_sr_we &lt;- \"\n  SOP  =~ SOP_1 + SOP_2 + SOP_3 + SOP_4 + SOP_5\n  NGSE =~ NGSE_1 + NGSE_2 + NGSE_3 + NGSE_4 +\n          NGSE_5 + NGSE_6 + NGSE_7 + NGSE_8\n  PASS =~ Pasgn + Pexam + Pread + Pgen\n\n  NGSE ~ a * SOP\n  PASS ~ b * NGSE\n\n  indirect := a * b\n\"\nfit2_sr_we &lt;- sem(model2_sr_we, data = we_data,\n                  std.lv = TRUE, estimator = \"MLR\", missing = \"FIML\")\n\nCompare fit to the model with the direct path:\n\nanova(fit_sr_we, fit2_sr_we)"
   },
   {
+    "objectID": "modules/slides/01-path_analysis.html#welcome",
+    "href": "modules/slides/01-path_analysis.html#welcome",
+    "title": "Path Analysis",
+    "section": "Welcome!",
+    "text": "Welcome!"
+  },
+  {
     "objectID": "modules/slides/01-path_analysis.html#what-is-sem",
     "href": "modules/slides/01-path_analysis.html#what-is-sem",
     "title": "Path Analysis",
@@ -1301,6 +1308,13 @@
     "href": "modules/slides/01-path_analysis.html#exercise",
     "title": "Path Analysis",
     "section": "Exercise",
-    "text": "Exercise\n\nRun the R code in “note/data-exploration.R” to explore the data.\nFit the full path model using we_data:\nmodel2 &lt;- \"\n    NGSE ~ b1 * SOP\n    PASS ~ b2 * NGSE + b3 * SOP\n\"\nreg2 &lt;- sem(model2, data = we_data)\nFit a restricted path model where the direct effect of SOP on PASS is removed:\nmodel_restricted &lt;- \"\n    NGSE ~ b1 * SOP\n    PASS ~ b2 * NGSE\n\"\nreg_restricted &lt;- sem(model_restricted, data = we_data)\nWhat is the p-value from the likelihood ratio test comparing the two models, using the code below?\nanova(reg2, reg_restricted)"
+    "text": "Exercise\n\nRun the R code in “note/data-exploration.R” to explore the data.\nFit the full path model using we_data:\nmodel2 &lt;- \"\n    NGSE ~ b1 * SOP\n    PASS ~ b2 * NGSE + b3 * SOP\n\"\nreg2 &lt;- sem(model2, data = we_data)\nFit a restricted path model where the direct effect of SOP on PASS is removed:\nmodel_restricted &lt;- \"\n    NGSE ~ b1 * SOP\n    PASS ~ b2 * NGSE\n\"\nreg_restricted &lt;- sem(model_restricted, data = we_data)\nWhat is the p-value from the likelihood ratio test comparing the two models, using the code below?\nanova(reg2, reg_restricted)\n\nWhen you finish, go to next page and answer the question in the Slido poll!"
+  },
+  {
+    "objectID": "modules/slides/01-path_analysis.html#section-2",
+    "href": "modules/slides/01-path_analysis.html#section-2",
+    "title": "Path Analysis",
+    "section": "",
+    "text": "Switch Slido to # 1974000"
   }
 ]
