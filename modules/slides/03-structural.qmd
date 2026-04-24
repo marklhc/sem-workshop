@@ -343,3 +343,7 @@ Use theory and design (not fit indices alone) to justify directional claims.
 :::
 
 `r countdown(minutes = 15)`
+
+##
+
+<iframe src="https://app.sli.do/event/4yTrQWkJQSZ9CqXeecr8ap" height="100%" width="100%" frameBorder="0" style="min-height: 560px;" allow="clipboard-write" title="Slido"></iframe>

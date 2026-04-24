@@ -542,4 +542,10 @@ This is the reliability of the **observed composite** (e.g., sum score), not of 
     b. What was the standardized covariance between SOP_1 and SOP_2?
 :::
 
+When you finish, go to next page and answer the question in the Slido poll!
+
 `r countdown(minutes = 15)`
+
+##
+
+<iframe src="https://app.sli.do/event/4yTrQWkJQSZ9CqXeecr8ap" height="100%" width="100%" frameBorder="0" style="min-height: 560px;" allow="clipboard-write" title="Slido"></iframe>

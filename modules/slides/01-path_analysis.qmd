@@ -2,6 +2,8 @@
 title: "Path Analysis"
 ---
 
+## Welcome! {background-iframe="https://app.sli.do/event/gVW2cjYXoUwMrGT55gy1Mr" background-interactive="true"}
+
 ```{r}
 #| include: false
 source(here::here("_setup.R"))
@@ -753,4 +755,12 @@ anova(reg2, reg3)
     ```
 :::
 
+When you finish, go to next page and answer the question in the Slido poll!
+
 `r countdown(minutes = 10)`
+
+##
+
+Switch Slido to # 1974000
+
+<iframe src="https://app.sli.do/event/4yTrQWkJQSZ9CqXeecr8ap" height="100%" width="100%" frameBorder="0" style="min-height: 560px;" allow="clipboard-write" title="Slido"></iframe>
